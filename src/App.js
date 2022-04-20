@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import { useState } from "react";
+import Calendar from "./Calendar";
+import Details from "./Details";
 
-function App() {
+export default function App() {
+  const [showDetails, setShowDetails] = useState(false);
+  const [data, setData] = useState(null);
+
+  const showDetailsHandle = (dayStr) => {
+    setData(dayStr);
+    setShowDetails(true);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Week View Calendar with react</h1>
+      <br />
+      <h2>Example</h2>
+      <Calendar showDetailsHandle={showDetailsHandle} />
+      <br />
+      {showDetails && <Details data={data} />}
     </div>
   );
 }
 
-export default App;
+/**
+ * Follow this tutorial https://medium.com/@moodydev/create-a-custom-calendar-in-react-3df1bfd0b728
+ * and customised by TTNT
+ * date-fns doc: https://date-fns.org/v2.21.1/docs
+ */
