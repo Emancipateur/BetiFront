@@ -1,31 +1,28 @@
-import "./styles.css";
-import { useState } from "react";
-import Calendar from "./Calendar";
-import Details from "./Details";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Hebergement from "./Pages/Hebergement";
+import Index from "./Pages/Index";
+import Lodge from "./Pages/Lodge";
+import Prestations from "./Pages/Prestations";
+import Restauration from "./Pages/Restauration";
 
-export default function App() {
-  const [showDetails, setShowDetails] = useState(false);
-  const [data, setData] = useState(null);
 
-  const showDetailsHandle = (dayStr) => {
-    setData(dayStr);
-    setShowDetails(true);
-  };
-
+const App = () => {
   return (
-    <div className="App">
-      <h1>Week View Calendar with react</h1>
-      <br />
-      <h2>Example</h2>
-      <Calendar showDetailsHandle={showDetailsHandle} />
-      <br />
-      {showDetails && <Details data={data} />}
-    </div>
-  );
-}
+    <BrowserRouter>
+    
+      <Routes>
 
-/**
- * Follow this tutorial https://medium.com/@moodydev/create-a-custom-calendar-in-react-3df1bfd0b728
- * and customised by TTNT
- * date-fns doc: https://date-fns.org/v2.21.1/docs
- */
+        <Route path="/" element={<Index />} />
+        <Route path="/lodge" element={<Lodge />} />
+        <Route path="/hebergement" element={<Hebergement />} />
+        <Route path="/restauration" element={<Restauration />} />
+        <Route path="/prestations" element={<Prestations />} />
+        {/* path="*" fonctionne si jamais l'url ne correspond à rien de déclaré au dessus */}
+    
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;

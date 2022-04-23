@@ -1,0 +1,25 @@
+.logdeContent{
+   
+padding: 2rem;
+background:url('../../../public/assets/images/bg.jpg');
+
+
+.lodgeShadows{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+background: rgba(0, 0, 0, 0.315);
+padding: 2rem;
+
+color: white;
+}
+
+.imageOneLodge{
+
+
+    background: url('../../../public/assets/images/1.jpg') center/cover;
+    height: 400px;
+    width: 400px;
+}
+}
