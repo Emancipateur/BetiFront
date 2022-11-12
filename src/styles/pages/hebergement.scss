@@ -1,0 +1,198 @@
+.hebergement{
+    background: linear-gradient(90deg, rgba(45,170,235,1) 25%, rgba(34,195,106,1) 80%);
+    background: linear-gradient(90deg, rgb(23, 112, 134) 25%, rgba(34,195,106,1) 80%);
+    background: radial-gradient(circle, rgb(58, 150, 226) 2%, rgba(34,195,106,1) 98%);
+    background: linear-gradient(90deg, rgba(45,116,235,1) 25%, rgba(40,182,104,1) 80%);
+    background: radial-gradient(circle, rgb(57, 162, 248) 1%, rgba(40,182,104,1) 80%);
+    // background: radial-gradient(circle, rgba(45,116,235,1) 5%, rgba(40,182,104,1) 44%, rgba(45,116,235,1) 72%, rgba(40,182,104,1) 90%);
+    background: radial-gradient(circle, rgba(40,182,104,1) 44%, rgba(45,116,235,1) 72%, rgba(40,172,182,1) 90%);
+    background: radial-gradient(circle, rgba(40,172,182,1) 10%, rgba(40,182,104,1) 44%, rgba(45,116,235,1) 72%, rgba(40,172,182,1) 90%);
+    background: linear-gradient(to right, #bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #808080, #3fada8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #134e5e, #71b280); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+.herbergementContent{
+
+
+    text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    //   font-size: 1.4rem;    
+
+    color: white;
+
+.wrapperImage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    
+}
+
+
+
+
+   p{
+       padding: 1rem 1rem;
+       margin: 1rem 0rem 0 0;
+       background: linear-gradient(90deg, rgba(82,79,79,1) 22%, rgba(60,58,58,1) 85%);
+       background: rgb(27, 26, 26);
+   }
+
+    .imageOneHebergement{
+
+
+        background: url('../../../public/assets/images/lodgeview.jpg')center/cover  ;  
+        height: 350px;
+        width: 100%;
+    }
+
+    .imageTwoHebergement{
+
+
+        background: url('../../../public/assets/images/room.jpg')center/cover;  
+        height: 350px;
+        width: 100%
+    }
+    .imageThreeHebergement{
+
+
+        background: url('../../../public/assets/images/3.jpg')center/cover;  
+        height: 350px;
+        width: 100%
+    }
+    .imageForHebergement{
+
+
+        background: url('../../../public/assets/images/1.jpg')center/cover;  
+        height: 350px;
+        width: 100%
+    }
+    .imageFiveHebergement{
+
+
+        background: url('../../../public/assets/images/jacuzzi2.jpg')center/cover;
+        height: 350px;
+        width: 100%
+    }
+    .imageSixHebergement{
+
+
+        background: url('../../../public/assets/images/cuisine.jpg')center/cover;  
+        height: 350px;
+        width: 100%
+    }
+    .imageSevenHebergement{
+
+
+        background: url('../../../public/assets/images/suite.jpg')center/cover;  
+        height: 350px;
+        width: 100%
+    }
+
+    .flexImages{
+    
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 800px;
+        gap: 1rem;
+    }
+    @media screen and ( min-width : 800px )
+    {
+.herbegement{
+    margin: 0rem 3rem;
+    background: linear-gradient(90deg, rgba(40,172,182,1) 10%, rgba(40,182,104,1) 22%, rgba(40,182,104,1) 78%, rgba(40,172,182,1) 90%);
+
+}
+
+.wrapperImage{
+    // background:url('../../../public/assets/images/bg.jpg');
+    border: 3px solid black;
+     
+      display: flex;
+      justify-content: center;
+      width: 80%;
+      box-shadow: 8px 5px 16px 4px #000000;
+  }
+
+  p{
+    padding: 1rem 3rem;
+    margin: 1rem 0 0 0;
+    color : wheat;
+font-size: 1.2rem;
+    background: linear-gradient(90deg, rgba(82,79,79,1) 22%, rgba(60,58,58,1) 85%);
+    
+    width: 100%;
+  
+}   
+        .flexImages{
+
+            width: 100%;
+            // height: 800px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+       
+        
+        }
+
+
+            .imageOneHebergement,.imageTwoHebergement,.imageThreeHebergement,.imageForHebergement,.imageFiveHebergement,.imageFiveHebergement,.imageSixHebergement,.imageSevenHebergement{
+                background-repeat: no-repeat;
+                // border-radius: 24px;
+  background-size: contain;
+  height: 900px;
+  width: 100%;
+
+        }
+        .imageOneHebergement{
+    
+            height: 600px;
+            // width: 80%
+        }
+        .imageTwoHebergement{
+    
+    
+    
+            height: 602px;
+            // width: 80%
+        }
+        .imageThreeHebergement{
+    
+    
+        
+            height: 798px;
+            // width: 80%
+        }
+        .imageForHebergement{
+    
+            height: 602px;
+            // width: 80%
+        }
+        .imageFiveHebergement{
+    
+            height: 1080px;
+            // width: 80%
+        }
+        .imageSixHebergement{
+    
+    
+        
+            height: 681px;
+            // width: 80%
+        }
+        .imageSevenHebergement{
+    
+            height: 681px;
+            // width: 80%
+        }
+     
+    }
+}}

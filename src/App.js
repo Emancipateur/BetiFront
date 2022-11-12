@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Hebergement from "./Pages/Hebergement";
 import Index from "./Pages/Index";
+import IndexMobile from "./Pages/IndexMobile";
 import Lodge from "./Pages/Lodge";
 import Prestations from "./Pages/Prestations";
 import Restauration from "./Pages/Restauration";
@@ -14,10 +15,12 @@ const App = () => {
       <Routes>
 
         <Route path="/" element={<Index />} />
+        <Route path="/" element={<IndexMobile />} />
         <Route path="/lodge" element={<Lodge />} />
         <Route path="/hebergement" element={<Hebergement />} />
         <Route path="/restauration" element={<Restauration />} />
         <Route path="/prestations" element={<Prestations />} />
+        {/*    */}
         {/* path="*" fonctionne si jamais l'url ne correspond à rien de déclaré au dessus */}
     
       </Routes>

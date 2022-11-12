@@ -2,6 +2,8 @@
 //     font-family: "font-1";
 //     src: url(../assets/fonts/JosefinSans-Medium.ttf);
 //   }
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
   
   $font-1: "font-1", sans-serif;
   
@@ -20,32 +22,52 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+  }
+
+  h1{
+    margin: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 5px solid   $white;
+    width: 80%;
+    font-family: 'Kaushan Script', cursive;
   }
   
-  body {
-    background: $white;
-    font-family: $font-1;
-    // @include verticalCenter;
-  }
+  // body {
+  //   background: $white;
+  //   font-family: $font-1;
+  //   // @include verticalCenter;
+  // }
   li {
-    list-style-type: none;
+    // list-style-type: none;
   }
 
   a{
       color: $white;
   }
-  body::before {
-    content: '';
-/* Created with https://www.css-gradient.com */
-background: #B0A24B;
-background: -webkit-linear-gradient(top left, #B0A24B, #057D38);
-background: -moz-linear-gradient(top left, #B0A24B, #057D38);
-background: linear-gradient(to bottom right, #B0A24B, #057D38);
-    position: absolute;
-    opacity: 0.9;
-    top: 0px;
-    left: 0px;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-}
+    body::before {
+      content: '';
+
+  background: linear-gradient(76deg, rgba(45,170,235,1) 25%, rgba(34,195,106,1) 80%);
+  background: linear-gradient(to right, #134e5e, #71b280);
+ 
+
+
+
+
+
+  content: "";
+  position: absolute;
+
+  left: 0;
+  width: 100%; 
+  position:fixed;
+  top:0px;
+  bottom:0px;
+  width:100%;
+  // overflow-y:auto;
+  overflow: overlay;
+  opacity: 0.9; 
+  z-index: -1;
+  }

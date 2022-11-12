@@ -1,0 +1,85 @@
+.prestationContent{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+ width: 80%;
+ margin: 0 auto;
+     color: white;
+
+     p{
+      margin : 1rem .5rem;
+        white-space: normal;
+        margin-bottom: 1rem
+      
+      }
+     
+
+h1{
+    color: black;
+   display: flex;
+   justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+}
+
+
+}
+
+
+.carouselDetails{
+    background: rgb(27, 26, 26);
+    padding: 1rem;
+    border-radius: 12px;
+
+ 
+ 
+
+   
+}
+
+@media screen and ( max-width : 800px )
+{
+  .prestationContent {
+    
+    width: 100%;
+  }
+
+  .indicators{
+    display: none;
+  }
+
+  .next{
+    display: flex;
+    justify-content: center;
+     align-items: center;
+
+
+p{
+  padding-top: 0.6rem;
+}
+
+
+button{
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: next 4s ease-in-out infinite alternate;
+background-color: transparent;
+border: none;
+opacity: 0.8;
+
+}
+  }
+
+  @keyframes next {
+    to{
+      transform: scale(1.5);
+  
+      transform: translateX(50%);
+    }
+    
+  }
+}

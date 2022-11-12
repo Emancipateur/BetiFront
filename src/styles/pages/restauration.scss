@@ -1,0 +1,97 @@
+.restauration{
+
+
+
+   /* Created with https://www.css-gradient.com */
+
+background: radial-gradient(circle, rgba(211, 193, 105, 1.0), rgba(240, 28, 78, 1.0));
+
+background: linear-gradient(to right, #fdc830, #f37335); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to bottom, #134e5e, #71b280); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    .restaurationContent{
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+       
+
+
+     color: white;
+
+     h1{
+         color: white;
+     }
+     article{
+
+     }
+     
+     li{
+// text-align: right;
+         padding: 0.5rem;
+         list-style: none;
+        
+        
+     }
+
+     p{
+         padding: 0.5rem;
+     }
+
+  
+
+    .imageOneRestauration{
+        background: url('../../../public/assets/images/restauration2.jpg')center/cover;  
+        height: 350px;
+        width: 100%
+    }
+    .imageTwoRestauration{
+        background: url('../../../public/assets/images/restaurant4.jpg')center/cover;  
+        height: 350px;
+        width: 100%;
+    }
+    .imageThreeRestauration{
+        background: url('../../../public/assets/images/restaurant4.jpg')center/cover;  
+        height: 350px;
+        width: 100%;
+        margin-top: 1rem;
+
+    }
+    
+
+    @media screen and ( min-width : 800px )
+{
+.restaurationDivider{
+    display: flex;
+
+}
+
+
+    .imageOneRestauration{
+        height: 800px;
+        width: 533px;
+
+border-radius: 15px;
+    }
+    .imageTwoRestauration{
+    
+border-radius: 15px;
+        height: 440px;
+        width: 660px;
+        margin:auto
+    }
+    .imageThreeRestauration{
+
+
+    
+        height: 800px;
+        width: 80%
+    }
+}
+}
+
+
+}
