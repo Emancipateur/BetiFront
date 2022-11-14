@@ -28,6 +28,7 @@
   }
   
   .indicators > button {
+    cursor: pointer;
     margin: 5px;
     padding: 0.5rem;
     background:  #044a5d; 
@@ -35,11 +36,25 @@
 color: white;
 border-radius: 12px;
 border : 1px solid white;
+border: none;
+  }
+  
+  .indicators > button:hover{
+    cursor: pointer;
+    margin: 5px;
+    padding: 0.5rem;
+    background:  #0285aa; 
+    font-size: 1rem;
+color: white;
+border-radius: 12px;
+border : 1px solid white;
+border: none;
   }
   
   .indicators > button.active {
-background-color:     #5F9881;
-    color: black;
+background-color:     rgb(17, 16, 16);  
+    color:  white;
+    border: #044a5d 1px solid;
   }
   
   .carouselContent{
@@ -85,7 +100,9 @@ background-color:     #5F9881;
 
 
 
-
+  .MoreActivities{
+    display: none;
+  }
 
   
 
@@ -95,4 +112,18 @@ background-color:     #5F9881;
     overflow: hidden;
     width: 100%;
   }
+
+  .MoreActivities{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    position: relative;
+
+    button{
+      position: absolute;
+      right: -8px;
+      top:1.8em;
+    }
+  }
+
 }

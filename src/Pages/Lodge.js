@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from '../Components/Navigation2';
 import { GoogleMap, useJsApiLoader, Marker} from '@react-google-maps/api';
+import Footer from '../Components/Footer';
 
 const containerStyle = {
   width: '99vw',
@@ -118,7 +119,7 @@ Après 300 m, un panneau "Bétikuré" à gauche vous indique l'entrée de la pis
 </div>
 </div>
 
-
+<Footer />
     </div>
   )
 }

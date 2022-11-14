@@ -60,6 +60,9 @@ Chambres et suites sont climatisées et bénéficient des équipements suivants 
 
 <p>"Bois noir" est une suite unique destinée à 2 personnes elle propose  un salon avec cuisine et une grande chambre ouvrant sur le parc et sur une terrasse avec jacuzzi. Sans être "médicalisée" cette suite est adaptée aux personnes à mobilité réduite (proximité piste, plein pied, dégagements importants, cuisine adaptée, douche 4 m2 ). Bétikuré présentant des dénivellés, nous conseillons aux personnes ayant des difficultés de déplacement de nous en informer afin de pouvoir leur proposer les hébergements les plus adaptés</p>
 </div>
+
+<span className='no-smoking-span'>L'intérieur des hébergements est strictement "non fumeurs"<div className="no-smoking"></div></span>
+
 </div>
 <Footer />
       </div>

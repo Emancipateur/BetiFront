@@ -1,0 +1,50 @@
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #1f5156;
+    color: black;
+    // text-shadow: white 0px 0px 20px;
+
+
+      svg {
+
+          fill: #61dafb;
+          height: 30px;
+          width: 30px;
+        }
+       .BetikureFooter{
+
+          font-family: "Kaushan Script";
+          font-size: 1.5rem;
+          color: white;
+          text-shadow: white 0px 0px 20px;
+       }
+       a:link {
+        text-decoration: none;
+  }
+  
+  a:visited {
+        text-decoration: none;
+  }
+  
+  a:hover {
+        text-decoration: none;
+  }
+  
+  a:active {
+        text-decoration: none;
+  }
+       .BetikureAdress{
+        color: black;
+        text-shadow: white 0px 0px 10px;
+        
+       }
+
+
+   
+       
+
+}

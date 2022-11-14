@@ -3,7 +3,11 @@
 @import "./components/nav";
 @import "./components/nav2";
 @import "./components/carousel";
+@import "./components/footer";
+@import "./components/Calendar/calendar.scss";
+@import "./components/Calendar/calendarChildren.scss";
 @import "./pages/lodge";
 @import "./pages/hebergement";
 @import "./pages/restauration";
 @import "./pages/prestations";
+@import "./pages/reservation";

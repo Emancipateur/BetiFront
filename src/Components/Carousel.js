@@ -101,6 +101,7 @@ const Carousel = ({ children }) => {
     onClick={() => {
       updateIndex(activeIndex + 1);
     }}>
+      <div className="MoreActivities">
     <p>Plus d'activités</p>
       <button 
          style={{
@@ -113,6 +114,7 @@ const Carousel = ({ children }) => {
        
         
         </button>
+        </div>
         </div>
     </div>
   );

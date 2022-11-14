@@ -1,0 +1,28 @@
+.calendarChildren{
+
+    .body{
+       display: flex;
+
+       .uniteName{
+
+           width: 20%;
+           border-bottom: 1px solid black;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+       }
+    }
+
+
+    .villaCalendar{
+        background-color: black;
+    }
+
+}
+@media screen and (max-width: 800px){
+    .uniteName{
+      
+       font-size: 0.3em;
+    }
+    
+}

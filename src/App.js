@@ -5,6 +5,7 @@ import Index from "./Pages/Index";
 import IndexMobile from "./Pages/IndexMobile";
 import Lodge from "./Pages/Lodge";
 import Prestations from "./Pages/Prestations";
+import Reservation from "./Pages/Reservation";
 import Restauration from "./Pages/Restauration";
 
 
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/hebergement" element={<Hebergement />} />
         <Route path="/restauration" element={<Restauration />} />
         <Route path="/prestations" element={<Prestations />} />
+        <Route path="/reservation" element={<Reservation />} />
         {/*    */}
         {/* path="*" fonctionne si jamais l'url ne correspond à rien de déclaré au dessus */}
     

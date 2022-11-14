@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel, { CarouselItem } from "../Components/Carousel";
+import Footer from "../Components/Footer";
 
 import NavBar from "../Components/Navigation2";
 
@@ -172,13 +173,14 @@ Transport possible, renseignements à la réception.</p>
           <CarouselItem>{kayak}</CarouselItem>
           <CarouselItem>{surf}</CarouselItem>
   
-          <CarouselItem>{jet}</CarouselItem>
+        
           <CarouselItem>{snorkeling}</CarouselItem>
           <CarouselItem>{golf}</CarouselItem>
         
        
         </Carousel>
       </div>
+      <Footer />
     </div>
   );
 }

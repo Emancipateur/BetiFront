@@ -12,10 +12,10 @@ function NavBar() {
           
        <div className={click ? "main-container" : ""}  onClick={()=>Close()} />
         <nav className="navbar" onClick={e => e.stopPropagation()}>
-          <div className="nav-container">
+          <div className="nav-container" id='nav-container'>
           <div className="logo" style={{backgroundImage: "url(./assets/images/logo.png)",backgroundPosition: "center" , backgroundSize: "cover"}}></div>
             <NavLink  to="/" className="nav-logo">
-         <span style={{fontFamily: '    Kaushan Script'}}>Betikure Parc Lodge</span> 
+         <span style={{fontFamily: '    Kaushan Script',  }}>Betikure Parc Lodge</span> 
              {/* <i className="fa fa-code"></i> */}
             </NavLink>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
