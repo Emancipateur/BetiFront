@@ -1,0 +1,34 @@
+.detailsContentContainer{
+    text-align: center;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.detailsContent{
+    border: 2px solid black;
+    width: 80%;
+    border-radius: 12px;
+    background: linear-gradient(to right, #134e5e, #71b280); 
+    // display: flex;
+    color: white;
+    // flex-direction: column;
+    // justify-content: center;
+}
+.individualDetails{
+   
+
+    border-bottom: 2px solid black;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    // margin-bottom: 0.2rem;
+
+ li{
+     list-style: none;
+     text-align: left;
+ }
+}

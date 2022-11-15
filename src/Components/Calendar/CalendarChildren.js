@@ -14,28 +14,53 @@ import {
 import Tri from "./Tri";
 import { useEffect } from "react";
 
-const CalendarChildren = ({ showDetailsHandle, currentWeek, currentMonth,uniteName , background ,bookedDays}) => {
+const CalendarChildren = ({ showDetailsHandle, currentWeek, currentMonth,uniteName , background ,bookedDays, active, index, resetData}) => {
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState([]);
   const [bookedDay , setBookedDay] = useState([addDays(new Date().setHours(0,0,0,0), 4), addDays(new Date().setHours(0,0,0,0),2)])
 
 
  
 
- console.log(bookedDays)
+//  console.log(bookedDays)
+  
+
+
+useEffect(() => {
+
+  if(active !== index ){
+  setSelectedDate([])
+
+
+
+  }
+}, [active])
+
+
+  const onDateClickHandle = (day, dayStr, room) => {
+
+  
+    // setSelectedDate(day);
+    if(active !== index ){
+      setSelectedDate([])
+      resetData([])
+    }
+    
+    if   ( !selectedDate.find((e => e.getTime() == day.getTime()))){
+    setSelectedDate(array => [...array,new Date(day)]);
+
+
+    }else{
+      setSelectedDate(array => [...array.filter(e =>e.getTime() != day.getTime())]);
+    }
+    showDetailsHandle(day, room);
+
+  };
   
 
 
 
 
-
-
-
-
-  const onDateClickHandle = (day, dayStr) => {
-    setSelectedDate(day);
-    showDetailsHandle(dayStr);
-  };
 
   const renderHeader = () => {
     const dateFormat = "MMM yyyy";
@@ -88,17 +113,18 @@ const CalendarChildren = ({ showDetailsHandle, currentWeek, currentMonth,uniteNa
             className={`col cell ${
               bookedDays.flat().find((e => e.getTime() === day.getTime())) ? "booked":
          
-              isSameDay(day, new Date())
-                ? "today"
-                : 
-                isSameDay(day, selectedDate)
-                ? "selected"
-                : "" 
+              // isSameDay(day, new Date())
+              //   ? "today"
+              //   : 
+                selectedDate.find((e => e.getTime() == day.getTime())) ?
+                "selected" :
+                 ""
+               
             }`}
             key={day}
             onClick={() => {
               const dayStr = format(cloneDay, "ccc dd MMM yy");
-              onDateClickHandle(cloneDay, dayStr);
+              onDateClickHandle(cloneDay, dayStr, uniteName);
             }}
           >
             {/* <span className="number">{formattedDate}</span>

@@ -1,19 +1,9 @@
 
 import { useEffect, useState } from "react";
 import {
-  format,
-  subMonths,
-  addMonths,
-  startOfWeek,
+
   addDays,
-  isSameDay,
-  isBefore,
-  isAfter,
-  lastDayOfWeek,
-  getWeek,
-  addWeeks,
-  subWeeks,
-  setHours
+ 
 } from "date-fns";
 
 
@@ -22,12 +12,7 @@ const Tri = (BookedDaysBeforeTri) => {
   
     const [BookedDaysAfterTri, setBookedDaysAfterTri] = useState([addDays(new Date().setHours(0,0,0,0), 4), addDays(new Date().setHours(0,0,0,0),3)])
     
-    Date.prototype.addDays = function(days) {
-        const date = new Date(this.valueOf());
-        date.setDate(date.getDate() + days);
-        return date;
-      }
-    
+
       let dateArray = new Array();
       
     
