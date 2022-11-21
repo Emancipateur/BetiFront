@@ -1,14 +1,61 @@
+.imageOneHebergement{
+
+
+    background: url('../../../public/assets/images/lodgeview.jpg')center/cover  ;  
+    background-repeat: no-repeat;
+    height: 350px;
+    width: 100%;
+}
+
+.imageTwoHebergement{
+
+
+    background: url('../../../public/assets/images/room.jpg')center/contain;  
+    background-repeat: no-repeat;
+    height: 350px;
+    width: 100%
+}
+.imageThreeHebergement{
+
+
+    background: url('../../../public/assets/images/3.jpg')center/cover;  
+    height: 350px;
+    width: 100%
+}
+.imageForHebergement{
+
+
+    background: url('../../../public/assets/images/1.jpg')center/cover;  
+    height: 350px;
+    width: 100%
+}
+.imageFiveHebergement{
+
+
+    background: url('../../../public/assets/images/jacuzzi2.jpg')center/cover;
+    height: 350px;
+    width: 100%
+}
+.imageSixHebergement{
+
+
+    background: url('../../../public/assets/images/cuisine.jpg')center/cover;  
+    height: 350px;
+    width: 100%
+}
+.imageSevenHebergement{
+
+
+    background: url('../../../public/assets/images/suite.jpg')center/cover;  
+    height: 350px;
+    width: 100%
+}
+
+
+
+
 .hebergement{
-    background: linear-gradient(90deg, rgba(45,170,235,1) 25%, rgba(34,195,106,1) 80%);
-    background: linear-gradient(90deg, rgb(23, 112, 134) 25%, rgba(34,195,106,1) 80%);
-    background: radial-gradient(circle, rgb(58, 150, 226) 2%, rgba(34,195,106,1) 98%);
-    background: linear-gradient(90deg, rgba(45,116,235,1) 25%, rgba(40,182,104,1) 80%);
-    background: radial-gradient(circle, rgb(57, 162, 248) 1%, rgba(40,182,104,1) 80%);
-    // background: radial-gradient(circle, rgba(45,116,235,1) 5%, rgba(40,182,104,1) 44%, rgba(45,116,235,1) 72%, rgba(40,182,104,1) 90%);
-    background: radial-gradient(circle, rgba(40,182,104,1) 44%, rgba(45,116,235,1) 72%, rgba(40,172,182,1) 90%);
-    background: radial-gradient(circle, rgba(40,172,182,1) 10%, rgba(40,182,104,1) 44%, rgba(45,116,235,1) 72%, rgba(40,172,182,1) 90%);
-    background: linear-gradient(to right, #bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, #808080, #3fada8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
     background: linear-gradient(to right, #134e5e, #71b280); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
@@ -45,57 +92,7 @@
        background: rgb(27, 26, 26);
    }
 
-    .imageOneHebergement{
-
-
-        background: url('../../../public/assets/images/lodgeview.jpg')center/cover  ;  
-        height: 350px;
-        width: 100%;
-    }
-
-    .imageTwoHebergement{
-
-
-        background: url('../../../public/assets/images/room.jpg')center/cover;  
-        height: 350px;
-        width: 100%
-    }
-    .imageThreeHebergement{
-
-
-        background: url('../../../public/assets/images/3.jpg')center/cover;  
-        height: 350px;
-        width: 100%
-    }
-    .imageForHebergement{
-
-
-        background: url('../../../public/assets/images/1.jpg')center/cover;  
-        height: 350px;
-        width: 100%
-    }
-    .imageFiveHebergement{
-
-
-        background: url('../../../public/assets/images/jacuzzi2.jpg')center/cover;
-        height: 350px;
-        width: 100%
-    }
-    .imageSixHebergement{
-
-
-        background: url('../../../public/assets/images/cuisine.jpg')center/cover;  
-        height: 350px;
-        width: 100%
-    }
-    .imageSevenHebergement{
-
-
-        background: url('../../../public/assets/images/suite.jpg')center/cover;  
-        height: 350px;
-        width: 100%
-    }
-
+  
     .flexImages{
     
         display: flex;
@@ -128,6 +125,8 @@
    
        
        }
+
+       
     @media screen and ( min-width : 800px )
     {
 .herbegement{

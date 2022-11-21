@@ -1,13 +1,23 @@
-.reservation{
+.reservationContent{
     width: 80%;
     margin: 2rem auto;
+    background: linear-gradient(to right, #134e5e, #71b280); 
+
 }
 
 
 @media screen and(max-width:800px) {
-    .reservation{
+    .reservationContent{
         width: 100%;
         margin: 2rem auto;
     }
     
+}
+
+.mois{
+    background-color: black !important;
+}
+
+#manava_bloc_tiers{
+  font-size: 7rem;
 }

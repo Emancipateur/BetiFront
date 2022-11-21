@@ -1,5 +1,5 @@
 .calendarChildren{
-
+  
     .body{
        display: flex;
 
@@ -18,11 +18,13 @@
         background-color: black;
     }
 
+ 
+
 }
 @media screen and (max-width: 800px){
     .uniteName{
       
-       font-size: 0.3em;
+       font-size: 0.5em;
     }
     
 }

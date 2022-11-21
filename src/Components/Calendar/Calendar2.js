@@ -14,10 +14,10 @@ import {
 import FetchHebergement from "./FetchHebergement";
 import FetchReservation from "./FetchReservation";
 
-import Tri from "./Tri";
+import Tri2 from "./Tri2";
 import Details from "../Details";
 
-const Calendar = ({  }) => {
+const Calendar2 = ({  }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [activeCalendar, setActiveCalendar] = useState(6);
   const [data, setData] = useState([]);
@@ -165,22 +165,31 @@ const Calendar = ({  }) => {
 
   const renderDays = () => {
     // const dateFormat = "EEE";
-    const dateFormat = "EEE d";
+    const dateFormat = "MM-dd-yyyy";
     const days = [];
     let startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
-    for (let i = 0; i < 7; i++) {
+    const options = { weekday: 'short', day: 'numeric' };
+    for (let i = 0; i < 14; i++) {
+    
+
       days.push(
         // <div className="col col-center" key={i}>
         //   {format(addDays(startDate, i), dateFormat) + " " +
         //   format(addDays(startDate, i), 'd')}
         // </div>
-
+  
         <div className="col col-center" key={i}>
-          {format(addDays(startDate, i), dateFormat)}
+          {/* {format(addDays(startDate, i), dateFormat)} */}
+ {   new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr', options)}
+      
         </div>
+        
       );
     }
-    return <div className="daysRowContainer">{format(currentMonth, 'MMM yyyy')}<div className="days row">{days}</div></div>
+
+    // console.log(new Date().toLocaleDateString('fr-Fr', options))
+
+    return <div className="daysRowContainer"><div className="days row">{days}</div></div>
   };
   
   const renderFooter = () => {
@@ -223,32 +232,31 @@ const Calendar = ({  }) => {
   const chambre = unite.filter((v) =>  v.typeHebergementCode === "CHAMBRE")
   
   
-const  bookedDaysVilla = reservations.filter(book => book.reservationHebergements[0].libelleHebergement.includes(villa.map((v) => v.libelle)))
-const  bookedDaysSuite = reservations.filter(book => book.reservationHebergements[0].libelleHebergement.includes(suite.map((v) => v.libelle)))
-const  bookedDaysChambre = reservations.filter(book => book.reservationHebergements[0].libelleHebergement.includes(chambre.map((v) => v.libelle)))
+const  bookedDaysVilla = reservations.filter(book => book.SUMMARY.includes(villa.map((v) => v.libelle)))
+ 
+const  bookedDaysSuite = reservations.filter(book => book.SUMMARY.includes(suite.map((v) => v.libelle)))
 
-const TriFirst = Tri(bookedDaysVilla)
+const  bookedDaysChambre = reservations.filter(book => book.SUMMARY.includes(chambre.map((v) => v.libelle)))
 
+const TriFirst = Tri2(bookedDaysVilla)
 
+console.log(chambre.map((v) => v.libelle));
 
-
-       
 
         return ( 
           <>
           <div className={activeCalendar === index ? 'calendarsContainer activeCalendar' : 'calendarsContainer'} onClick={() => {setActiveCalendar(index)}}>
   
-            <div className="ccc">Villa {index +1}</div>
  
            <CalendarChildren  showDetailsHandle={showDetailsHandle} currentWeek={currentWeek} currentMonth={currentMonth} 
             uniteName={ "Villa " + villa.map((v) => v.libelle)}  active={ activeCalendar } index={index} resetData={setData}bookedDays={TriFirst} background={"#BFD9D9"}  />
              
-        <CalendarChildren showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Suite " + suite.map((v) => v.libelle)}background={"#D9E8E8"} active={ activeCalendar } index={index} resetData={setData} bookedDays={Tri(bookedDaysSuite).concat(TriFirst)} />
-        <CalendarChildren showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Chambre " + chambre.map((v) => v.libelle)} background={"#E6F0F0"} active={ activeCalendar } index={index} resetData={setData} bookedDays={Tri(bookedDaysChambre).concat(TriFirst)} />
+        <CalendarChildren showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Suite " + suite.map((v) => v.libelle)}background={"#D9E8E8"} active={ activeCalendar } index={index} resetData={setData} bookedDays={Tri2(bookedDaysSuite)} />
+        <CalendarChildren showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Chambre " + chambre.map((v) => v.libelle)} background={"#E6F0F0"} active={ activeCalendar } index={index} resetData={setData} bookedDays={Tri2(bookedDaysChambre)} />
 
         </div>
-       
-        {   activeCalendar === index ?  <Details props={data}/>  : null }
+{/*        
+        {   activeCalendar === index ?  <Details props={data}/>  : null } */}
         
         </>
         )
@@ -264,7 +272,7 @@ const TriFirst = Tri(bookedDaysVilla)
   );
 };
 
-export default Calendar;
+export default Calendar2;
 /**
  * Header:
  * icon for switching to the previous month,

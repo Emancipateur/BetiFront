@@ -1,0 +1,834 @@
+body, button, html, input, select, textarea {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px;
+}
+select#chambres_cal {
+    font-size: 1rem;
+    margin-left: 20px;
+    border: 1px solid #d0d0d0;
+}
+div.mois {
+    text-align: right;
+    vertical-align: top;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    height: 18rem;
+    display: inline-block;
+}
+.planning {
+    border-collapse: collapse;
+}
+.planning .nom_mois {
+    padding: .5rem 0;
+    text-transform: capitalize;
+    color: #049b3e;
+    font-size: .9rem;
+}
+.planning td {
+    width: 2.35rem;
+    height: 1.9rem;
+    font-size: .85rem;
+    vertical-align: middle;
+    text-align: center;
+    cursor: default;
+    background-repeat: no-repeat;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+.planning div.cal_selected {
+    position: absolute;
+    top: 8%;
+    box-sizing: border-box;
+    height: 84%;
+    opacity: .7;
+    background-color: #7f7f7f;
+    pointer-events: none;
+}
+.planning div.cal_selected_1 {
+    left: 50%;
+    width: 50%;
+    border-radius: 20px 0 0 20px;
+}
+.planning div.cal_selected_2 {
+    left: 0;
+    width: 100%}
+.planning div.cal_selected_3 {
+    left: 0;
+    width: 50%;
+    border-radius: 0 20px 20px 0;
+}
+.planning td.passe {
+    background-color: transparent!important;
+    color: #d0d0d0!important;
+    background-image: none!important;
+}
+.planning td.ferie {
+    background-color: #e5ffc6;
+    color: #8b8b8b;
+}
+.planning td.r_c {
+    background-position: center;
+    background-size: contain;
+    color: transparent;
+    background-image: url('data:image/svg+xml;
+    utf8, <svg xmlns="http: //www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg);
+     -webkit-transform:  rotate(360deg);
+     transform:  rotate(360deg);
+    " preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="%2374c094" stroke-linecap="round" stroke-linejoin="round"    stroke-width="2"><path d="M2 30L30 2m0 28L2 2"></path></g></svg>');
+}
+.planning .nom_jour {
+    font-size: .8rem;
+    color: gray;
+    border-bottom: 1px solid #e0e0e0;
+}
+.planning td.bs {
+    background-color: #fdfde6;
+}
+.planning td.ms {
+    background-color: #fbedc4;
+}
+.planning td.hs {
+    background-color: #fad2a2;
+}
+.planning td.ths {
+    background-color: #f8b281;
+}
+.planning td.vp {
+    background-color: #f4893d;
+}
+.planning td.vah {
+    background-color: #f26c0c;
+}
+#manava_calend_legende .planning td {
+    text-align: left;
+    padding-top: .5rem;
+    padding-left: .8rem;
+}
+#manava_calend_legende .planning tr:nth-child(1) td {
+    padding-left: 0;
+}
+#manava_calend_legende .planning .nom_mois {
+    border-bottom: 1px solid #e0e0e0;
+    min-width: 21rem;
+}
+@media screen and (max-width:440px) {
+    div.mois {
+    height: auto;
+    margin-top: 1rem;
+}
+}html.manava-theme-bleu select#chambres_cal {
+    border: 1px solid #d0d0d0;
+}
+html.manava-theme-bleu .planning .nom_mois {
+    color: hsl(235.5, 70.8%, 66.5%);
+}
+html.manava-theme-bleu .planning td.ferie {
+    background-color: #e9edff;
+    color: hsl(235.6, 51.6%, 63.5%);
+}
+html.manava-theme-bleu .planning td.r_c {
+    color: transparent;
+    background-image: url('data:image/svg+xml;
+    utf8, <svg xmlns="http: //www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="0.7em" height="1em" style="-ms-transform: rotate(360deg);
+     -webkit-transform:  rotate(360deg);
+     transform:  rotate(360deg);
+    " preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="%239299ec" stroke-linecap="round" stroke-linejoin="round"  stroke-width="3"><path d="M2 30L30 2m0 28L2 2"></path></g></svg>');
+}
+html.manava-theme-bleu .planning .nom_jour {
+    color: gray;
+    border-bottom: 1px solid #e0e0e0;
+}
+html.manava-theme-bleu .planning td.bs {
+    background-color: hsl(229.2, 80%, 95%);
+}
+html.manava-theme-bleu .planning td.ms {
+    background-color: hsl(229.2, 80%, 90%);
+}
+html.manava-theme-bleu .planning td.hs {
+    background-color: hsl(229.2, 80%, 85%);
+}
+html.manava-theme-bleu .planning td.ths {
+    background-color: hsl(229.2, 80%, 80%);
+}
+html.manava-theme-bleu .planning td.vp {
+    background-color: hsl(229.2, 89%, 68%);
+}
+html.manava-theme-bleu .planning td.vah {
+    background-color: hsl(229.2, 75%, 59%);
+}
+html.manava-theme-cyan select#chambres_cal {
+    border: 1px solid #d0d0d0;
+}
+html.manava-theme-cyan .planning .nom_mois {
+    color: hsl(196.8, 74.7%, 44.9%);
+}
+html.manava-theme-cyan .planning td.ferie {
+    background-color: hsl(196.4, 73.3%, 94.2%);
+    color: hsl(196.3, 23.5%, 50.8%);
+}
+html.manava-theme-cyan .planning td.r_c {
+    color: transparent;
+    background-image: url('data:image/svg+xml;
+    utf8, <svg xmlns="http: //www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="0.7em" height="1em" style="-ms-transform: rotate(360deg);
+     -webkit-transform:  rotate(360deg);
+     transform:  rotate(360deg);
+    " preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="%2385bbd0" stroke-linecap="round" stroke-linejoin="round"  stroke-width="3"><path d="M2 30L30 2m0 28L2 2"></path></g></svg>');
+}
+html.manava-theme-cyan .planning .nom_jour {
+    color: gray;
+    border-bottom: 1px solid #e0e0e0;
+}
+html.manava-theme-cyan .planning td.bs {
+    background-color: hsl(196.4, 73.3%, 95%);
+}
+html.manava-theme-cyan .planning td.ms {
+    background-color: hsl(196.4, 73.3%, 90%);
+}
+html.manava-theme-cyan .planning td.hs {
+    background-color: hsl(196.4, 73.3%, 85%);
+}
+html.manava-theme-cyan .planning td.ths {
+    background-color: hsl(196.4, 73.3%, 80%);
+}
+html.manava-theme-cyan .planning td.vp {
+    background-color: hsl(196.4, 73%, 70%);
+}
+html.manava-theme-cyan .planning td.vah {
+    background-color: hsl(196.4, 73%, 60%);
+}
+html.manava-theme-gris select#chambres_cal {
+    border: 1px solid #d0d0d0;
+}
+html.manava-theme-gris .planning .nom_mois {
+    color: #000;
+}
+html.manava-theme-gris .planning td.ferie {
+    background-color: hsl(228.9, 0%, 93%);
+    color: #000;
+}
+html.manava-theme-gris .planning td.r_c {
+    color: transparent;
+    background-image: url('data:image/svg+xml;
+    utf8, <svg xmlns="http: //www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="0.7em" height="1em" style="-ms-transform: rotate(360deg);
+     -webkit-transform:  rotate(360deg);
+     transform:  rotate(360deg);
+    " preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="%23B0B0B0" stroke-linecap="round" stroke-linejoin="round"  stroke-width="3"><path d="M2 30L30 2m0 28L2 2"></path></g></svg>');
+}
+html.manava-theme-gris .planning .nom_jour {
+    color: gray;
+    border-bottom: 1px solid #e0e0e0;
+}
+html.manava-theme-gris .planning div.cal_selected {
+    background-color: #94a09d;
+}
+html.manava-theme-gris .planning td.bs {
+    background-color: #f2f2f2;
+}
+html.manava-theme-gris .planning td.ms {
+    background-color: #e5e5e5;
+}
+html.manava-theme-gris .planning td.hs {
+    background-color: #d8d8d8;
+}
+html.manava-theme-gris .planning td.ths {
+    background-color: #ccc;
+}
+html.manava-theme-gris .planning td.vp {
+    background-color: #bfbfbf;
+}
+html.manava-theme-gris .planning td.vah {
+    background-color: #b2b2b2;
+}
+html.manava-theme-orange select#chambres_cal {
+    border: 1px solid #d0d0d0;
+}
+html.manava-theme-orange .planning .nom_mois {
+    color: #ec9950;
+}
+html.manava-theme-orange .planning td.ferie {
+    background-color: hsl(28.1, 80.4%, 95%);
+    color: hsl(28.1, 50.4%, 50%);
+}
+html.manava-theme-orange .planning td.r_c {
+    color: transparent;
+    background-image: url('data:image/svg+xml;
+    utf8, <svg xmlns="http: //www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="0.7em" height="1em" style="-ms-transform: rotate(360deg);
+     -webkit-transform:  rotate(360deg);
+     transform:  rotate(360deg);
+    " preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="%23EC9950" stroke-linecap="round" stroke-linejoin="round"  stroke-width="3"><path d="M2 30L30 2m0 28L2 2"></path></g></svg>');
+}
+html.manava-theme-orange .planning .nom_jour {
+    color: gray;
+    border-bottom: 1px solid #e0e0e0;
+}
+html.manava-theme-orange .planning td.bs {
+    background-color: hsl(28.1, 80.4%, 95%);
+}
+html.manava-theme-orange .planning td.ms {
+    background-color: hsl(28.1, 80.4%, 87%);
+}
+html.manava-theme-orange .planning td.hs {
+    background-color: hsl(28.1, 80.4%, 79%);
+}
+html.manava-theme-orange .planning td.ths {
+    background-color: hsl(28.1, 80.4%, 71%);
+}
+html.manava-theme-orange .planning td.vp {
+    background-color: hsl(28.1, 80.4%, 60%);
+}
+html.manava-theme-orange .planning td.vah {
+    background-color: hsl(28.1, 80.4%, 50%);
+}
+html.manava-theme-vert select#chambres_cal {
+    border: 1px solid #d0d0d0;
+}
+html.manava-theme-vert .planning .nom_mois {
+    color: hsl(90, 78.2%, 34.1%);
+}
+html.manava-theme-vert .planning td.ferie {
+    background-color: hsl(85.9, 62.7%, 93.4%);
+    color: #7d9360;
+}
+html.manava-theme-vert .planning td.r_c {
+    color: transparent;
+    background-image: url('data:image/svg+xml;
+    utf8, <svg xmlns="http: //www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="0.7em" height="1em" style="-ms-transform: rotate(360deg);
+     -webkit-transform:  rotate(360deg);
+     transform:  rotate(360deg);
+    " preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="%2390d094" stroke-linecap="round" stroke-linejoin="round"  stroke-width="3"><path d="M2 30L30 2m0 28L2 2"></path></g></svg>');
+}
+html.manava-theme-vert .planning .nom_jour {
+    color: gray;
+    border-bottom: 1px solid #e0e0e0;
+}
+html.manava-theme-vert .planning td.bs {
+    background-color: hsl(95, 62.7%, 95%);
+}
+html.manava-theme-vert .planning td.ms {
+    background-color: hsl(95, 62.7%, 88%);
+}
+html.manava-theme-vert .planning td.hs {
+    background-color: hsl(95, 62.7%, 81%);
+}
+html.manava-theme-vert .planning td.ths {
+    background-color: hsl(95, 62.7%, 74%);
+}
+html.manava-theme-vert .planning td.vp {
+    background-color: hsl(95, 62.7%, 64%);
+}
+html.manava-theme-vert .planning td.vah {
+    background-color: hsl(95, 62.7%, 54%);
+}
+html.manava-theme-gvr select#chambres_cal {
+    border: 1px solid #d0d0d0;
+}
+html.manava-theme-gvr .planning .nom_mois {
+    color: #000;
+}
+html.manava-theme-gvr .planning td[data-jour] {
+    color: unset;
+}
+html.manava-theme-gvr .planning td[data-jour] {
+    background-color: #d5fbbb;
+}
+html.manava-theme-gvr .planning td[data-jour].ferie {
+    background-color: #c0efa0;
+}
+html.manava-theme-gvr .planning td.r_c {
+    color: transparent;
+    background-image: url('data:image/svg+xml;
+    utf8, <svg xmlns="http: //www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="0.7em" height="1em" style="-ms-transform: rotate(360deg);
+     -webkit-transform:  rotate(360deg);
+     transform:  rotate(360deg);
+    " preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="%23FF4040" stroke-linecap="round" stroke-linejoin="round"  stroke-width="3"><path d="M2 30L30 2m0 28L2 2"></path></g></svg>');
+}
+html.manava-theme-gvr .planning .nom_jour {
+    color: gray;
+    border-bottom: 1px solid #e0e0e0;
+}
+html.manava-theme-bgnoir select#chambres_cal {
+    border: 1px solid #d0d0d0;
+}
+html.manava-theme-bgnoir .planning {
+    border-collapse: collapse;
+    color: #fff;
+}
+html.manava-theme-bgnoir .planning .nom_mois {
+    color: #fff;
+}
+html.manava-theme-bgnoir .planning td[data-jour] {
+    color: silver;
+}
+html.manava-theme-bgnoir .planning td.ferie {
+    background-color: #444;
+    color: #fff;
+}
+html.manava-theme-bgnoir .planning td.passe {
+    color: #505050!important;
+}
+html.manava-theme-bgnoir .planning td.r_c {
+    color: transparent;
+    background-image: url('data:image/svg+xml;
+    utf8, <svg xmlns="http: //www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="0.7em" height="1em" style="-ms-transform: rotate(360deg);
+     -webkit-transform:  rotate(360deg);
+     transform:  rotate(360deg);
+    " preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="%23B0B0B0" stroke-linecap="round" stroke-linejoin="round"  stroke-width="3"><path d="M2 30L30 2m0 28L2 2"></path></g></svg>');
+}
+html.manava-theme-bgnoir .planning .nom_jour {
+    color: #fff;
+    border-bottom-color: #e0e0e0;
+}
+html.manava-theme-bgnoir .planning div.cal_selected {
+    background-color: #fff;
+}
+html.manava-theme-bgnoir .planning td.bs {
+    background-color: #3f3f3f;
+}
+html.manava-theme-bgnoir .planning td.ms {
+    background-color: #595959;
+}
+html.manava-theme-bgnoir .planning td.hs {
+    background-color: #727272;
+}
+html.manava-theme-bgnoir .planning td.ths {
+    background-color: #8c8c8c;
+}
+html.manava-theme-bgnoir .planning td.vp {
+    background-color: #a0a0a0;
+}
+html.manava-theme-bgnoir .planning td.vah {
+    background-color: #b2b2b2;
+}
+html.manava-theme-mode-depart .planning td[data-jour] {
+    color: unset;
+}
+html.manava-theme-mode-depart .planning td[data-jour].r_c {
+    background-image: none;
+    background-color: #ffcaca;
+    color: #ff8080;
+}
+html.manava-theme-mode-depart .planning td[data-jour].r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, transparent 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].r_c_deb {
+    background: linear-gradient(.25turn, transparent 43%, #ffcaca 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].saison.r_c {
+    background-image: none;
+    background-color: #ff8080;
+    color: #ca6060;
+}
+html.manava-theme-mode-depart .planning td[data-jour].saison.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, transparent 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].saison.r_c_deb {
+    background: linear-gradient(.25turn, transparent 43%, #ff8080 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, #e5ffc6 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_deb {
+    background: linear-gradient(.25turn, #e5ffc6 43%, #ffcaca 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].bs.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, #fdfde6 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].bs.r_c_deb {
+    background: linear-gradient(.25turn, #fdfde6 43%, #ff8080 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].ms.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, #fbedc4 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].ms.r_c_deb {
+    background: linear-gradient(.25turn, #fbedc4 43%, #ff8080 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].hs.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, #fad2a2 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].hs.r_c_deb {
+    background: linear-gradient(.25turn, #fad2a2 43%, #ff8080 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].ths.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, #f8b281 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].ths.r_c_deb {
+    background: linear-gradient(.25turn, #f8b281 43%, #ff8080 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].vp.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, #f4893d 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].vp.r_c_deb {
+    background: linear-gradient(.25turn, #f4893d 43%, #ff8080 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].vah.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, #f26c0c 57%);
+}
+html.manava-theme-mode-depart .planning td[data-jour].vah.r_c_deb {
+    background: linear-gradient(.25turn, #f26c0c 43%, #ff8080 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour]:not(.saison):not(.r_c) {
+    background-color: #e9edff;
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].ferie:not(.saison):not(.r_c) {
+    background-color: #d8dfff;
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].r_c {
+    background-color: #ffcaca;
+    color: #ff8080;
+    color: #ff8080;
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, #e9edff 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].r_c_deb {
+    background: linear-gradient(.25turn, #e9edff 43%, #ffcaca 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, #d8dfff 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_deb {
+    background: linear-gradient(.25turn, #d8dfff 43%, #ffcaca 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].bs.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(229.2, 80%, 95%) 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].bs.r_c_deb {
+    background: linear-gradient(.25turn, hsl(229.2, 80%, 95%) 43%, #ffcaca 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].ms.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(229.2, 80%, 90%) 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].ms.r_c_deb {
+    background: linear-gradient(.25turn, hsl(229.2, 80%, 90%) 43%, #ffcaca 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].hs.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(229.2, 80%, 85%) 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].hs.r_c_deb {
+    background: linear-gradient(.25turn, hsl(229.2, 80%, 85%) 43%, #ffcaca 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].ths.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(229.2, 80%, 80%) 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].ths.r_c_deb {
+    background: linear-gradient(.25turn, hsl(229.2, 80%, 80%) 43%, #ffcaca 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].vp.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(229.2, 89%, 68%) 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].vp.r_c_deb {
+    background: linear-gradient(.25turn, hsl(229.2, 89%, 68%) 43%, #ffcaca 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].vah.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(229.2, 75%, 59%) 57%);
+}
+html.manava-theme-bleu.manava-theme-mode-depart .planning td[data-jour].vah.r_c_deb {
+    background: linear-gradient(.25turn, hsl(229.2, 75%, 59%) 43%, #ffcaca 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour]:not(.saison):not(.r_c) {
+    background-color: hsl(196.4, 73.3%, 94.2%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].ferie:not(.saison):not(.r_c) {
+    background-color: hsl(196.4, 73.3%, 90%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].r_c {
+    background-color: #ffcaca;
+    color: #ff8080;
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(196.4, 73.3%, 94.2%) 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].r_c_deb {
+    background: linear-gradient(.25turn, hsl(196.4, 73.3%, 94.2%) 43%, #ffcaca 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(196.4, 73.3%, 90%) 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_deb {
+    background: linear-gradient(.25turn, hsl(196.4, 73.3%, 90%) 43%, #ffcaca 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].bs.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(196.4, 73.3%, 95%) 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].bs.r_c_deb {
+    background: linear-gradient(.25turn, hsl(196.4, 73.3%, 95%) 43%, #ffcaca 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].ms.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(196.4, 73.3%, 88%) 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].ms.r_c_deb {
+    background: linear-gradient(.25turn, hsl(196.4, 73.3%, 88%) 43%, #ffcaca 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].hs.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(196.4, 73.3%, 81%) 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].hs.r_c_deb {
+    background: linear-gradient(.25turn, hsl(196.4, 73.3%, 81%) 43%, #ffcaca 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].ths.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(196.4, 73.3%, 74%) 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].ths.r_c_deb {
+    background: linear-gradient(.25turn, hsl(196.4, 73.3%, 74%) 43%, #ffcaca 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].vp.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(196.4, 73%, 70%) 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].vp.r_c_deb {
+    background: linear-gradient(.25turn, hsl(196.4, 73%, 70%) 43%, #ffcaca 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].vah.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(196.4, 73%, 60%) 57%);
+}
+html.manava-theme-cyan.manava-theme-mode-depart .planning td[data-jour].vah.r_c_deb {
+    background: linear-gradient(.25turn, hsl(196.4, 73%, 60%) 43%, #ffcaca 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour]:not(.saison):not(.r_c) {
+    background-color: hsl(228.9, 0%, 93%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].ferie:not(.saison):not(.r_c) {
+    background-color: hsl(228.9, 0%, 88%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].r_c {
+    background-color: #ffcaca;
+    color: #ff8080;
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(228.9, 0%, 93%) 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].r_c_deb {
+    background: linear-gradient(.25turn, hsl(228.9, 0%, 93%) 43%, #ffcaca 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(228.9, 0%, 88%) 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_deb {
+    background: linear-gradient(.25turn, hsl(228.9, 0%, 88%) 43%, #ffcaca 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].bs.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, #f2f2f2 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].bs.r_c_deb {
+    background: linear-gradient(.25turn, #f2f2f2 43%, #ffcaca 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].ms.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, #e0e0e0 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].ms.r_c_deb {
+    background: linear-gradient(.25turn, #e0e0e0 43%, #ffcaca 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].hs.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, #cecece 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].hs.r_c_deb {
+    background: linear-gradient(.25turn, #cecece 43%, #ffcaca 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].ths.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, #bcbcbc 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].ths.r_c_deb {
+    background: linear-gradient(.25turn, #bcbcbc 43%, #ffcaca 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].vp.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, #bfbfbf 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].vp.r_c_deb {
+    background: linear-gradient(.25turn, #bfbfbf 43%, #ffcaca 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].vah.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, #b2b2b2 57%);
+}
+html.manava-theme-gris.manava-theme-mode-depart .planning td[data-jour].vah.r_c_deb {
+    background: linear-gradient(.25turn, #b2b2b2 43%, #ffcaca 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour]:not(.saison):not(.r_c) {
+    background-color: hsl(28.1, 80.4%, 95%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].ferie:not(.saison):not(.r_c) {
+    background-color: hsl(28.1, 80.4%, 91%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].r_c {
+    color: #e14b4b;
+    background-color: #ff8080;
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, hsl(28.1, 80.4%, 95%) 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].r_c_deb {
+    background: linear-gradient(.25turn, hsl(28.1, 80.4%, 95%) 43%, #ff8080 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, hsl(28.1, 80.4%, 91%) 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_deb {
+    background: linear-gradient(.25turn, hsl(28.1, 80.4%, 91%) 43%, #ff8080 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].bs.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, hsl(28.1, 80.4%, 95%) 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].bs.r_c_deb {
+    background: linear-gradient(.25turn, hsl(28.1, 80.4%, 95%) 43%, #ff8080 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].ms.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, hsl(28.1, 80.4%, 87%) 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].ms.r_c_deb {
+    background: linear-gradient(.25turn, hsl(28.1, 80.4%, 87%) 43%, #ff8080 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].hs.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, hsl(28.1, 80.4%, 79%) 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].hs.r_c_deb {
+    background: linear-gradient(.25turn, hsl(28.1, 80.4%, 79%) 43%, #ff8080 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].ths.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, hsl(28.1, 80.4%, 71%) 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].ths.r_c_deb {
+    background: linear-gradient(.25turn, hsl(28.1, 80.4%, 71%) 43%, #ff8080 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].vp.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, hsl(28.1, 80.4%, 60%) 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].vp.r_c_deb {
+    background: linear-gradient(.25turn, hsl(28.1, 80.4%, 60%) 43%, #ff8080 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].vah.r_c_fin {
+    background: linear-gradient(.25turn, #ff8080 43%, hsl(28.1, 80.4%, 50%) 57%);
+}
+html.manava-theme-orange.manava-theme-mode-depart .planning td[data-jour].vah.r_c_deb {
+    background: linear-gradient(.25turn, hsl(28.1, 80.4%, 50%) 43%, #ff8080 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour]:not(.saison):not(.r_c) {
+    background-color: hsl(95, 62.7%, 93.4%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].ferie:not(.saison):not(.r_c) {
+    background-color: hsl(85.9, 62.7%, 88%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].r_c {
+    background-color: #ffcaca;
+    color: #ff8080;
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(95, 62.7%, 93.4%) 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].r_c_deb {
+    background: linear-gradient(.25turn, hsl(95, 62.7%, 93.4%) 43%, #ffcaca 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(85.9, 62.7%, 88%) 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_deb {
+    background: linear-gradient(.25turn, hsl(85.9, 62.7%, 88%) 43%, #ffcaca 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].bs.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(95, 62.7%, 95%) 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].bs.r_c_deb {
+    background: linear-gradient(.25turn, hsl(95, 62.7%, 95%) 43%, #ffcaca 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].ms.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(95, 62.7%, 88%) 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].ms.r_c_deb {
+    background: linear-gradient(.25turn, hsl(95, 62.7%, 88%) 43%, #ffcaca 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].hs.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(95, 62.7%, 81%) 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].hs.r_c_deb {
+    background: linear-gradient(.25turn, hsl(95, 62.7%, 81%) 43%, #ffcaca 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].ths.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(95, 62.7%, 74%) 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].ths.r_c_deb {
+    background: linear-gradient(.25turn, hsl(95, 62.7%, 74%) 43%, #ffcaca 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].vp.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(95, 62.7%, 64%) 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].vp.r_c_deb {
+    background: linear-gradient(.25turn, hsl(95, 62.7%, 64%) 43%, #ffcaca 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].vah.r_c_fin {
+    background: linear-gradient(.25turn, #ffcaca 43%, hsl(95, 62.7%, 54%) 57%);
+}
+html.manava-theme-vert.manava-theme-mode-depart .planning td[data-jour].vah.r_c_deb {
+    background: linear-gradient(.25turn, hsl(95, 62.7%, 54%) 43%, #ffcaca 57%);
+}
+html.manava-theme-gvr.manava-theme-mode-depart .planning td[data-jour].r_c {
+    color: #ff5050;
+    background-color: #ff8f8f;
+}
+html.manava-theme-gvr.manava-theme-mode-depart .planning td[data-jour].r_c_fin {
+    background: linear-gradient(.25turn, #ff8f8f 43%, #d5fbbb 57%);
+}
+html.manava-theme-gvr.manava-theme-mode-depart .planning td[data-jour].r_c_deb {
+    background: linear-gradient(.25turn, #d5fbbb 43%, #ff8f8f 57%);
+}
+html.manava-theme-gvr.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_fin {
+    background: linear-gradient(.25turn, #ff8f8f 43%, #c0efa0 57%);
+}
+html.manava-theme-gvr.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_deb {
+    background: linear-gradient(.25turn, #c0efa0 43%, #ff8f8f 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour]:not(.saison):not(.r_c) {
+    background-color: #383838;
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].ferie:not(.saison):not(.r_c) {
+    background-color: #484848;
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].r_c {
+    color: #ee5959;
+    background-color: #a24949;
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].r_c_fin {
+    background: linear-gradient(.25turn, #a24949 43%, #383838 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].r_c_deb {
+    background: linear-gradient(.25turn, #383838 43%, #a24949 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_fin {
+    background: linear-gradient(.25turn, #a24949 43%, #484848 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].ferie.r_c_deb {
+    background: linear-gradient(.25turn, #484848 43%, #a24949 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].bs.r_c_fin {
+    background: linear-gradient(.25turn, #a24949 43%, #3f3f3f 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].bs.r_c_deb {
+    background: linear-gradient(.25turn, #3f3f3f 43%, #a24949 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].ms.r_c_fin {
+    background: linear-gradient(.25turn, #a24949 43%, #595959 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].ms.r_c_deb {
+    background: linear-gradient(.25turn, #595959 43%, #a24949 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].hs.r_c_fin {
+    background: linear-gradient(.25turn, #a24949 43%, #727272 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].hs.r_c_deb {
+    background: linear-gradient(.25turn, #8c8c8c 43%, #a24949 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].ths.r_c_fin {
+    background: linear-gradient(.25turn, #a24949 43%, #8c8c8c 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].ths.r_c_deb {
+    background: linear-gradient(.25turn, #8c8c8c 43%, #a24949 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].vp.r_c_fin {
+    background: linear-gradient(.25turn, #a24949 43%, #a0a0a0 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].vp.r_c_deb {
+    background: linear-gradient(.25turn, #a0a0a0 43%, #a24949 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].vah.r_c_fin {
+    background: linear-gradient(.25turn, #a24949 43%, #b2b2b2 57%);
+}
+html.manava-theme-bgnoir.manava-theme-mode-depart .planning td[data-jour].vah.r_c_deb {
+    background: linear-gradient(.25turn, #b2b2b2 43%, #a24949 57%);
+}

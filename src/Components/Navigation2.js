@@ -75,6 +75,17 @@ function NavBar() {
                   Prestations
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink
+             
+                  to="/reservation"
+             activeclassname="active"
+                  className="nav-links"
+                 onClick={click ? handleClick : null}
+                >
+                 Réservations
+                </NavLink>
+              </li>
               <div className="navDetails"  onClick={handleClick}><span>Bourail - Nouvelle Calédonie</span></div>
             </ul>
             <div className="nav-icon" onClick={handleClick}>

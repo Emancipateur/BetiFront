@@ -4,6 +4,8 @@ import { useSwipeable } from "react-swipeable";
 // import "./Carousel.css";
 
 export const CarouselItem = ({ children, width }) => {
+
+  
   return (
     <div className="carousel-item" style={{ width: width }}>
       {children}

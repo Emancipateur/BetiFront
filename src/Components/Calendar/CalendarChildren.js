@@ -53,7 +53,7 @@ useEffect(() => {
     }else{
       setSelectedDate(array => [...array.filter(e =>e.getTime() != day.getTime())]);
     }
-    showDetailsHandle(day, room);
+    showDetailsHandle(dayStr, room);
 
   };
   
@@ -105,7 +105,7 @@ useEffect(() => {
     let day = startDate;
     let formattedDate = "";
     while (day <= endDate) {
-      for (let i = 0; i < 7; i++) {
+      for (let i = 0; i < 14; i++) {
         formattedDate = format(day, dateFormat);
         const cloneDay = day;
         days.push(
