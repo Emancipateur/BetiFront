@@ -16,6 +16,8 @@ import FetchReservation from "./FetchReservation";
 
 import Tri2 from "./Tri2";
 import Details from "../Details";
+import Post from "../calculPriceForRooms";
+import {SendResa} from "./SendResa";
 
 const Calendar2 = ({  }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -23,20 +25,6 @@ const Calendar2 = ({  }) => {
   const [data, setData] = useState([]);
   const reservations = FetchReservation()
   const hebergememts = FetchHebergement()
-
-
-  
-
-  const reset =  () => {
-    
-    setData([])
-
-  }
-
-
-  
-  
-
 
 
 
@@ -56,7 +44,7 @@ const Calendar2 = ({  }) => {
 
   if(!alreadySelected){
      setData((array => [...array,[room, dayStr]]))
-     console.log('hey');
+ 
   }else{
   
     setData(array => [...array.filter((e) => (e[1] != dayStr || e[0] != room  ))]);
@@ -69,7 +57,12 @@ const Calendar2 = ({  }) => {
 
 
   const changeMonthHandle = (btnType) => {
+
+    let today = new Date()
+  
+
     if (btnType === "prev") {
+      if(today < currentMonth)
       setCurrentMonth(subMonths(currentMonth, 1));
     }
     if (btnType === "next") {
@@ -78,9 +71,10 @@ const Calendar2 = ({  }) => {
   };
 
   const changeWeekHandle = (btnType) => {
-    //console.log("current week", currentWeek);
+
+    let today = new Date()
     if (btnType === "prev") {
-      //console.log(subWeeks(currentMonth, 1));
+   if(getWeek(today) < currentWeek)
       setCurrentMonth(subWeeks(currentMonth, 1));
       setCurrentWeek(getWeek(subWeeks(currentMonth, 1)));
     }
@@ -143,7 +137,7 @@ const Calendar2 = ({  }) => {
           </div>
        
         </div>
-        <div className="col col-center">
+        <div className="col col-center monthMobile">
           <span>{format(currentMonth, dateFormat)}</span>
 
   
@@ -169,25 +163,43 @@ const Calendar2 = ({  }) => {
     const days = [];
     let startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
     const options = { weekday: 'short', day: 'numeric' };
-    for (let i = 0; i < 14; i++) {
+    for (let i = 0; i < 28; i++) {
     
 
       days.push(
-        // <div className="col col-center" key={i}>
-        //   {format(addDays(startDate, i), dateFormat) + " " +
-        //   format(addDays(startDate, i), 'd')}
-        // </div>
+        
   
         <div className="col col-center" key={i}>
           {/* {format(addDays(startDate, i), dateFormat)} */}
- {   new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr', options)}
-      
+          <p> {   new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr',{ weekday: 'short'}).slice(-4,2)}</p>
+<p> {   new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr',{ day: 'numeric'})}</p>
+
         </div>
-        
+      
       );
     }
 
-    // console.log(new Date().toLocaleDateString('fr-Fr', options))
+    return <div className="daysRowContainer"><div className="days row">{days}</div></div>
+  };
+
+  const renderDaysMobile = () => {
+    // const dateFormat = "EEE";
+    const dateFormat = "MM-dd-yyyy";
+    const days = [];
+    let startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
+    const options = { weekday: 'short', day: 'numeric' };
+    for (let i = 0; i < 7; i++) {
+    
+
+      days.push(
+  
+        <div className="col col-center " key={i}>
+          {/* {format(addDays(startDate, i), dateFormat)} */}
+ {   new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr', options)}
+        </div>
+      
+      );
+    }
 
     return <div className="daysRowContainer"><div className="days row">{days}</div></div>
   };
@@ -211,23 +223,27 @@ const Calendar2 = ({  }) => {
     );
   };
   
+  
 
 
   return (
       <div className="calendar">
       {renderHeader2()}
       {/* {renderFooter()} */}
+      <div className="desktopRenderDays">
+
           {renderDays()}
+          </div>
+          <div className="mobileRenderDays">
+          {renderDaysMobile()}
+          </div>
 
       {/* {renderCells()} */}
       
 {hebergememts.map((unite, index ) => {
   
-
-  
-  
-  
   const villa = unite.filter((v) =>  v.typeHebergementCode === "VILLA")
+
   const suite = unite.filter((v) =>  v.typeHebergementCode === "SUITE")
   const chambre = unite.filter((v) =>  v.typeHebergementCode === "CHAMBRE")
   
@@ -240,19 +256,18 @@ const  bookedDaysChambre = reservations.filter(book => book.SUMMARY.includes(cha
 
 const TriFirst = Tri2(bookedDaysVilla)
 
-console.log(chambre.map((v) => v.libelle));
-
 
         return ( 
           <>
+
           <div className={activeCalendar === index ? 'calendarsContainer activeCalendar' : 'calendarsContainer'} onClick={() => {setActiveCalendar(index)}}>
   
  
            <CalendarChildren  showDetailsHandle={showDetailsHandle} currentWeek={currentWeek} currentMonth={currentMonth} 
-            uniteName={ "Villa " + villa.map((v) => v.libelle)}  active={ activeCalendar } index={index} resetData={setData}bookedDays={TriFirst} background={"#BFD9D9"}  />
+            uniteName={ "Villa " + villa.map((v) => v.libelle)}  active={ activeCalendar } id={ villa.map((v) => v.id)}index={index} resetData={setData}bookedDays={TriFirst} background={"#BFD9D9"}  />
              
-        <CalendarChildren showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Suite " + suite.map((v) => v.libelle)}background={"#D9E8E8"} active={ activeCalendar } index={index} resetData={setData} bookedDays={Tri2(bookedDaysSuite)} />
-        <CalendarChildren showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Chambre " + chambre.map((v) => v.libelle)} background={"#E6F0F0"} active={ activeCalendar } index={index} resetData={setData} bookedDays={Tri2(bookedDaysChambre)} />
+        <CalendarChildren showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Suite " + suite.map((v) => v.libelle)}background={"#D9E8E8"} active={ activeCalendar }id={ suite.map((v) => v.id)} index={index} resetData={setData} bookedDays={Tri2(bookedDaysSuite)} />
+        <CalendarChildren showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Chambre " + chambre.map((v) => v.libelle)} background={"#E6F0F0"} active={ activeCalendar } id={ chambre.map((v) => v.id)} index={index} resetData={setData} bookedDays={Tri2(bookedDaysChambre)} />
 
         </div>
 {/*        
@@ -273,10 +288,4 @@ console.log(chambre.map((v) => v.libelle));
 };
 
 export default Calendar2;
-/**
- * Header:
- * icon for switching to the previous month,
- * formatted date showing current month and year,
- * another icon for switching to next month
- * icons should also handle onClick events to change a month
- */
+

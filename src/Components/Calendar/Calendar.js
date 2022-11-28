@@ -205,7 +205,7 @@ const Calendar = ({  }) => {
 
 
   return (
-      <div className="calendar">
+      <div  className="calendar" >
       {renderHeader2()}
       {/* {renderFooter()} */}
           {renderDays()}
@@ -213,11 +213,7 @@ const Calendar = ({  }) => {
       {/* {renderCells()} */}
       
 {hebergememts.map((unite, index ) => {
-  
 
-  
-  
-  
   const villa = unite.filter((v) =>  v.typeHebergementCode === "VILLA")
   const suite = unite.filter((v) =>  v.typeHebergementCode === "SUITE")
   const chambre = unite.filter((v) =>  v.typeHebergementCode === "CHAMBRE")
@@ -230,9 +226,6 @@ const  bookedDaysChambre = reservations.filter(book => book.reservationHebergeme
 const TriFirst = Tri(bookedDaysVilla)
 
 
-
-
-       
 
         return ( 
           <>

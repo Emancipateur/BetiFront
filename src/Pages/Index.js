@@ -81,12 +81,14 @@ useEffect(() => {
       </NavLink>
       </div>
     </div>
-    <div className="image " style={{backgroundImage: "url(./assets/images/3.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
+    <div className="image " style={{backgroundImage: "url(./assets/images/reservation.png)",backgroundPosition: "center" , backgroundSize: "cover" }}>
       <div className="text-container">
+      <NavLink to='/reservation'>
         <div className="text">
-          <h3>Lorem ipsum</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+          <h3>Réservation</h3>
+          <p>Effectué vos réservation en ligne</p>
         </div>
+        </NavLink>
       </div>
     </div>
     <div className="image " style={{backgroundImage: "url(./assets/images/3.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>

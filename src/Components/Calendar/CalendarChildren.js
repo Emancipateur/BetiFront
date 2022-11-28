@@ -13,11 +13,13 @@ import {
 } from "date-fns";
 import Tri from "./Tri";
 import { useEffect } from "react";
+import calculPriceForRooms from "../calculPriceForRooms";
 
-const CalendarChildren = ({ showDetailsHandle, currentWeek, currentMonth,uniteName , background ,bookedDays, active, index, resetData}) => {
+const CalendarChildren = ({ showDetailsHandle, currentWeek, currentMonth,uniteName , background ,bookedDays, active,id, index, resetData}) => {
 
   const [selectedDate, setSelectedDate] = useState([]);
   const [bookedDay , setBookedDay] = useState([addDays(new Date().setHours(0,0,0,0), 4), addDays(new Date().setHours(0,0,0,0),2)])
+const unitForHref = uniteName.substring(0, uniteName.indexOf(' ')); 
 
 
  
@@ -37,9 +39,10 @@ useEffect(() => {
 }, [active])
 
 
-  const onDateClickHandle = (day, dayStr, room) => {
 
-  
+  const onDateClickHandle = (day, dayStr, room, id) => {
+ 
+
     // setSelectedDate(day);
     if(active !== index ){
       setSelectedDate([])
@@ -54,10 +57,10 @@ useEffect(() => {
       setSelectedDate(array => [...array.filter(e =>e.getTime() != day.getTime())]);
     }
     showDetailsHandle(dayStr, room);
-
+    calculPriceForRooms(day, room, id, selectedDate)
+  
   };
   
-
 
 
 
@@ -87,7 +90,7 @@ useEffect(() => {
     let startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
     for (let i = 0; i < 7; i++) {
       days.push(
-        <div className="col col-center" key={i}>
+        <div className="col col-center " key={i}>
           {format(addDays(startDate, i), dateFormat)}
     
           
@@ -105,7 +108,7 @@ useEffect(() => {
     let day = startDate;
     let formattedDate = "";
     while (day <= endDate) {
-      for (let i = 0; i < 14; i++) {
+      for (let i = 0; i < 28; i++) {
         formattedDate = format(day, dateFormat);
         const cloneDay = day;
         days.push(
@@ -122,9 +125,10 @@ useEffect(() => {
                
             }`}
             key={day}
-            onClick={() => {
+            onClick={(e) => {
+          
               const dayStr = format(cloneDay, "ccc dd MMM yy");
-              onDateClickHandle(cloneDay, dayStr, uniteName);
+              onDateClickHandle(cloneDay, dayStr, uniteName, id);
             }}
           >
             {/* <span className="number">{formattedDate}</span>
@@ -144,16 +148,74 @@ useEffect(() => {
     return (
         
             
-        <div className="body" style={ {backgroundColor : background}}><div className="uniteName">{uniteName}</div>{rows}</div>
+        <div className="body" style={ {backgroundColor : background}}><div className="uniteName"><a href={ '#'+ unitForHref}>{uniteName}</a> </div>{rows}</div>
+    
+        )
+  };
+  const mobileRenderCells = () => {
+    const startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
+    const endDate = lastDayOfWeek(currentMonth, { weekStartsOn: 1 });
+    const dateFormat = "d";
+    const rows = [];
+    let days = [];
+    let day = startDate;
+    let formattedDate = "";
+    while (day <= endDate) {
+      for (let i = 0; i < 7; i++) {
+        formattedDate = format(day, dateFormat);
+        const cloneDay = day;
+        days.push(
+          <div
+            className={`col cell ${
+              bookedDays.flat().find((e => e.getTime() === day.getTime())) ? "booked":
+         
+              // isSameDay(day, new Date())
+              //   ? "today"
+              //   : 
+                selectedDate.find((e => e.getTime() == day.getTime())) ?
+                "selected" :
+                 ""
+               
+            }`}
+            key={day}
+            onClick={(e) => {
+            
+              const dayStr = format(cloneDay, "ccc dd MMM yy");
+              onDateClickHandle(cloneDay, dayStr, uniteName, id);
+            }}
+          >
+            {/* <span className="number">{formattedDate}</span>
+            <span className="bg">{formattedDate}</span> */}
+          </div>
+        );
+        day = addDays(day, 1);
+      }
+
+      rows.push(
+        <div className="row "  key={day}>
+          {days}
+        </div>
+      );
+      days = [];
+    }
+    return (
+        
+            
+        <div className="body" style={ {backgroundColor : background}}><div className="uniteName"><a href={ '#'+ unitForHref}>{uniteName}</a> </div>{rows}</div>
     
         )
   };
 
   return (
-    <div className="calendarChildren" >
+    <div className="calendarChildren"  >
 
-
+<div className="desktopRenderDays">
       {renderCells()}
+      </div>
+
+      <div className="mobileRenderDays">
+        {mobileRenderCells()}
+        </div>
 
 
     </div>

@@ -1,0 +1,702 @@
+body, button, html, input, select, textarea {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+}
+
+hr.hr1 {
+    border: 0;
+    border-bottom: 1px solid #e0e0e0;
+    height: 1px;
+}
+#manava_bloc_calend {
+    display: inline-block;
+    min-width: 22rem;
+    margin-left: 1rem;
+    margin-top: 3rem;
+    max-width: calc(100% - 1rem);
+    overflow-y: auto;
+    text-align: center;
+}
+#manava_form_resa {
+    float: left;
+
+}
+.manava_col1 {
+
+    width: 12rem;
+    color: #a0a0a0;
+    text-align: right;
+    padding-right: .5rem;
+    float: left;
+    box-sizing: border-box;
+    clear: both;
+    margin-top: 2px;
+    padding-top: .2rem;
+    min-height: 1.5rem;
+}
+.manava_col2 {
+    width: 50%;
+    box-sizing: border-box;
+    margin-top: 2px;
+    border-style: none;
+    display: inline-block;
+    min-height: 1.5rem;
+}
+.manava_col2_only {
+    margin-left: 12rem;
+}
+#manava_bloc_bt_hebs {
+    margin-top: 1rem;
+}
+.manava_hebs {
+    max-height: 25rem;
+    overflow-y: auto;
+    width: calc(12rem + 22rem + 2rem);
+}
+.manava_hebs .manava_chercher {
+    background-color: #f0f0f0;
+    min-height: 20rem;
+}
+.manava_rech_txt {
+    padding: .5rem;
+    font-size: .9rem;
+    color: gray;
+}
+.manava_titre_hebs {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    padding: .3rem;
+    text-align: center;
+    background-color: #fdf2e8;
+}
+.manava_sous_titre_hebs_gen {
+    display: flex;
+    margin-top: .5rem;
+    opacity: .7;
+}
+.manava_sous_titre_hebs {
+    font-size: .8rem;
+    flex: 1;
+}
+.manava_sous_titre_hebs_nb_pers {
+    text-align: left;
+}
+#manava_sous_titre_hebs_nb_nuits {
+    text-align: center;
+}
+.manava_sous_titre_hebs_panier {
+    text-align: right;
+}
+[data-heb] .manava_col1, [data-heb] .manava_col2 {
+    margin-top: .4rem;
+}
+[data-heb] {
+    clear: both;
+}
+.manava_lh {
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+}
+
+.manava_global_rr, .manava_lh, .manava_rr {
+    padding-left: .5rem;
+}
+.manava_lh>span {
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.5rem;
+}
+.manava_lh_nom {
+    overflow: hidden;
+}
+.manava_lh_nbmax {
+    width: 6rem;
+    position: relative;
+}
+.manava_lh_nbmax span.mul {
+    line-height: 1.5rem;
+    font-size: .8rem;
+}
+
+
+.manava_lh_nbmax span.sep {
+    position: absolute;
+    left: 0;
+    top: .2rem;
+    // background-image: url('data:image/svg+xml;
+    // utf8, <svg xmlns="http: //www.w3.org/2000/svg" 	style="width:24px;
+    // height: 24px" viewBox="0 0 24 24"><path fill="gray" d="M4, 11V13H16L10.5, 18.5L11.92, 19.92L19.84, 12L11.92, 4.08L10.5, 5.5L16, 11H4Z" /></svg>');
+    background-size: contain;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    body{
+        font-size: 44px;
+    }
+    
+}
+.manava_lh_nbmax span.icon {
+    position: absolute;
+    left: 0;
+    top: .2rem;
+    // background-image: url('data:image/svg+xml;
+    // utf8, <svg xmlns="http: //www.w3.org/2000/svg" viewBox="0 0 171.8 183.4" height="693.2" width="649.4"><defs/><g transform="translate(-23 -39.8)"><path d="M33.7 191.7c4 16.6 14.2 21.4 14.2 21.4s100.4.3 121.5 0c6.2-2.3 12.3-8.8 14.9-21.2 2.6-12.4-5.8-24.4-9.9-28.3-4-3.8-42-25.8-42-25.8s-10.9 8.3-22.8 8.3-24-8.3-24-8.3l-41.7 25.8s-14.3 11.5-10.2 28z" fill="gray" fill-rule="evenodd"/><ellipse ry="43.7" rx="40.1" cy="93.6" cx="108.9" fill="%23a0a0a0"/></g></svg>');
+    background-size: contain;
+    display: inline-block;
+    width: .936rem;
+    height: 1rem;
+}
+.manava_lh_prix {
+    width: 7rem;
+    text-align: right;
+    line-height: 1.3rem;
+}
+.manava_lh_prix span {
+    opacity: .5;
+}
+.manava_lh_panier {
+    float: right;
+}
+.manava_hebs input[type=checkbox], .manava_hebs select {
+    width: 3.8rem;
+    border: 1px solid #e0e0e0;
+    background-color: #fff!important;
+    outline: 0;
+}
+.manava_lae_nom {
+    margin-left: .6rem;
+    margin-right: .4rem;
+}
+.manava_ae {
+    margin-top: -1px;
+    padding-top: .2rem;
+    padding-bottom: .8rem;
+}
+.manava_ae span {
+    font-size: .9rem;
+    color: gray;
+}
+.manava_ae select {
+    width: 3rem;
+    font-size: .9rem;
+}
+.manava_ae .occ_ae_ens {
+    display: none;
+    font-size: .8rem;
+    padding-left: .5rem;
+    margin-bottom: .3rem;
+    color: gray;
+}
+.manava_rr_list {
+    padding: .2rem 0;
+    line-height: 1.4rem;
+}
+
+
+.manava_rr_list>div {
+    clear: both;
+    line-height: 1.2rem;
+    padding: .2rem 0;
+}
+[data-heb] .manava_rr_list {
+    border-top: 1px dashed rgba(0, 0, 0, .2);
+}
+.manava_rr_nom {
+    display: inline-block;
+    max-width: 17rem;
+    font-style: italic;
+    color: gray;
+    font-size: .9rem;
+}
+.manava_rr_nom>div {
+    padding-left: 1rem;
+}
+.manava_rr_nom .point {
+    opacity: .3;
+    float: left;
+}
+.manava_rr_val {
+    float: right;
+}
+
+.manava_rr_val .num_disabled, .manava_rr_val select {
+    font-size: .9rem;
+    font-style: italic;
+    text-align: right;
+}
+.manava_global_rr {
+    display: none;
+    margin-top: 1rem;
+}
+.manava_global_rr select:not(.num_select), .manava_hebs .manava_rr select:not(.num_select) {
+    width: unset;
+}
+.manava_global_rr input[type=checkbox], .manava_global_rr select, .manava_hebs .manava_rr input[type=checkbox], .manava_hebs .manava_rr select, .manava_rr_val .num_disabled {
+    width: 3.8rem;
+    border: 1px solid #e0e0e0;
+    background-color: #f4f4f4!important;
+}
+.manava_rr_val .num_disabled {
+    text-align: center;
+    padding: 0 .3rem;
+    box-sizing: border-box;
+}
+.manava_col2 input, .manava_col2 select, .manava_col2 textarea, [data-heb] .manava_col2, input.manava_col2, select.manava_col2, textarea.manava_col2 {
+    background: #f0f0f0;
+
+}
+input.manava_col2 {
+    padding: .2rem .3rem;
+}
+textarea.manava_col2 {
+    padding: .2rem .3rem;
+    height: 5rem;
+    
+}
+button.manava_col2 {
+    border-color: #bad5ff;
+    height: 3rem;
+    cursor: pointer;
+    border-radius: .3rem;
+}
+#cgv a, #cgv a:visited, .manava_mention_obligatoire span.color, .manava_obligatoire .manava_col1, .manava_titre_hebs {
+    color: #ffa04e;
+}
+.manava_mention_obligatoire, .manava_mention_obligatoire span {
+    color: silver;
+    font-size: .9rem;
+    font-style: italic;
+}
+.manava_resultat {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fff0e0;
+    padding: .8rem;
+    cursor: pointer;
+    min-height: 2rem;
+}
+.manava_resultat .manava_total {
+    float: right;
+}
+.manava_info {
+    opacity: .6;
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    background-color: #fff;
+    border-radius: 50%;
+    vertical-align: middle;
+    text-align: center;
+    border: 2px solid silver;
+    margin: -.2rem .5rem 0 .5rem;
+    font-size: .9rem;
+    font-family: courrier;
+    cursor: pointer;
+}
+.manava_resultat span.info:hover {
+    opacity: 1;
+}
+.manava_resultat div.detail_prix {
+    display: none;
+    margin-top: .5rem;
+    padding-top: .3rem;
+    color: #606060;
+    border-top: 1px dashed rgba(0, 0, 0, .2);
+    font-size: .9rem;
+}
+.detail_paidiff, .manava_texte_reglement {
+    display: none;
+}
+.manava_texte_info {
+    font-size: .9rem;
+    margin-bottom: 1rem;
+    color: #a0a0a0;
+}
+.manava_pel {
+    margin-bottom: .5rem;
+}
+.manava_erreur {
+    color: #db3030;
+    font-size: .9rem;
+    padding: .6rem .8rem;
+    background-color: #ffd0d0;
+    border-radius: .5rem;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    display: none;
+}
+.shake {
+    animation: shake .82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+@keyframes shake {
+    10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+}
+20%, 80% {
+    transform: translate3d(2px, 0, 0);
+}
+30%, 50%, 70% {
+    transform: translate3d(-2px, 0, 0);
+}
+40%, 60% {
+    transform: translate3d(2px, 0, 0);
+}
+}.manava_bloc_pied {
+    margin-top: 1.5rem;
+}
+.retour_validation_ok {
+    display: none;
+}
+.manava_validation_ok {
+    clear: both;
+    color: green;
+    background-color: #d8f7d2;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+}
+.manava_gros_bouton {
+    padding: .3rem 1.2rem;
+    height: 3.6rem;
+    line-height: 30px;
+    background-color: #d6eeff;
+    font-size: 1.2rem;
+    color: #000;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-radius: .4rem;
+    cursor: pointer;
+    border-style: none;
+}
+.manava_gros_bouton:hover {
+    background-color: #b8e0fd;
+}
+.manava_pel.overlay {
+    background-color: rgba(255, 255, 255, .5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    z-index: 99999;
+}
+.manava_pel.manava_result {
+    max-width: 25rem;
+    margin: 5rem auto;
+    padding: 3rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+}
+.manava_pel.manava_result.manava_success {
+    background-color: #d3ffc6;
+    color: #498c20;
+    border: 1px solid #b3e6a4;
+}
+.manava_pel.manava_result.manava_cancel {
+    background-color: #ffdedc;
+    color: #ff5656;
+    border: 1px solid #e2b2b0;
+}
+.manava_pel.manava_result button {
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    border-style: none;
+    color: #fff;
+}
+.manava_pel.manava_result.manava_success button {
+    background-color: #bff1b0;
+    color: #668c48;
+}
+.manava_pel.manava_result.manava_cancel button {
+    background-color: #ffcfcf;
+    color: #ff5656;
+}
+#cgv {
+    padding: 10px 0;
+}
+#cgv input[type=checkbox] {
+    float: left;
+}
+#cgv a, #cgv a:visited {
+    text-decoration: none;
+    color: #ffa04e;
+    padding-left: 30px;
+    display: block;
+}
+#cgv a:hover {
+    text-decoration: underline;
+}
+html.manava-theme-bgnoir .manava_titre_hebs {
+    background-color: #404040;
+    color: #fff;
+}
+html.manava-theme-bgnoir .manava_col2 input, html.manava-theme-bgnoir .manava_col2 textarea, html.manava-theme-bgnoir [data-heb] .manava_col2, html.manava-theme-bgnoir input.manava_col2, html.manava-theme-bgnoir select.manava_col2, html.manava-theme-bgnoir textarea.manava_col2 {
+    background: #505050;
+    color: #fff;
+}
+html.manava-theme-bgnoir .manava_ae .occ_ae_ens, html.manava-theme-bgnoir .manava_ae span, html.manava-theme-bgnoir .manava_rr_nom {
+    color: silver;
+}
+html.manava-theme-bgnoir .manava_rr_list {
+    border-top-color: rgba(255, 255, 255, .3);
+}
+html.manava-theme-bgnoir .manava_col1, html.manava-theme-bgnoir .manava_texte_info, html.manava-theme-bgnoir .manava_texte_pai_differe, html.manava-theme-bgnoir .manava_texte_pai_pel {
+    color: #a69b9b;
+}
+html.manava-theme-bgnoir #cgv a, html.manava-theme-bgnoir #cgv a:visited, html.manava-theme-bgnoir .manava_mention_obligatoire span.color, html.manava-theme-bgnoir .manava_obligatoire .manava_col1, html.manava-theme-bgnoir .manava_titre_hebs {
+    color: #fff;
+}
+html.manava-theme-bgnoir .manava_mention_obligatoire {
+    color: gray;
+}
+html.manava-theme-bgnoir .manava_resultat {
+    background-color: hsl(0, 0%, 25.1%);
+    color: #fff;
+}
+html.manava-theme-bgnoir .manava_resultat div.detail_prix {
+    color: silver;
+    border-top-color: rgba(255, 255, 255, .3);
+}
+html.manava-theme-bgnoir .manava_gros_bouton {
+    background-color: #bbb;
+    color: #000;
+    font-weight: 400;
+}
+html.manava-theme-bgnoir .manava_gros_bouton:hover {
+    background-color: #ccc;
+}
+html.manava-theme-bgnoir .manava_lh_nbmax span.sep {
+    // background-image: url('data:image/svg+xml;
+    // utf8, <svg xmlns="http: //www.w3.org/2000/svg" 	style="width:24px;
+    // height: 24px" viewBox="0 0 24 24"><path fill="silver" d="M4, 11V13H16L10.5, 18.5L11.92, 19.92L19.84, 12L11.92, 4.08L10.5, 5.5L16, 11H4Z" /></svg>');
+}
+html.manava-theme-bgnoir .manava_lh_nbmax span.icon {
+    // background-image: url('data:image/svg+xml;
+    // utf8, <svg xmlns="http: //www.w3.org/2000/svg" viewBox="0 0 171.8 183.4" height="693.2" width="649.4"><defs/><g transform="translate(-23 -39.8)"><path d="M33.7 191.7c4 16.6 14.2 21.4 14.2 21.4s100.4.3 121.5 0c6.2-2.3 12.3-8.8 14.9-21.2 2.6-12.4-5.8-24.4-9.9-28.3-4-3.8-42-25.8-42-25.8s-10.9 8.3-22.8 8.3-24-8.3-24-8.3l-41.7 25.8s-14.3 11.5-10.2 28z" fill="%23a0a0a0" fill-rule="evenodd"/><ellipse ry="43.7" rx="40.1" cy="93.6" cx="108.9" fill="silver"/></g></svg>');
+}
+html.manava-theme-bgnoir #manava_sous_titre_hebs_nb_nuits {
+    border-color: #707070;
+}
+html.manava-theme-bgnoir .manava_hebs .manava_chercher {
+    background-color: #505050;
+    color: #fff;
+}
+html.manava-theme-bgnoir .manava_info {
+    background-color: #000;
+    color: #fff;
+    border-color: gray;
+}
+html.manava-theme-bgnoir #manava_bloc_calend {
+    border-color: #424242;
+}
+html.manava-theme-bleu .manava_titre_hebs {
+    background-color: #eaeeff;
+}
+html.manava-theme-bleu #cgv a, html.manava-theme-bleu #cgv a:visited, html.manava-theme-bleu .manava_mention_obligatoire span.color, html.manava-theme-bleu .manava_obligatoire .manava_col1, html.manava-theme-bleu .manava_titre_hebs {
+    color: #5175ff;
+}
+html.manava-theme-bleu .manava_resultat {
+    background-color: hsl(228.9, 100%, 94.7%);
+}
+html.manava-theme-bleu .manava_gros_bouton {
+    background-color: hsl(228, 100%, 83.3%);
+    color: #000;
+    font-weight: 400;
+}
+html.manava-theme-bleu .manava_gros_bouton:hover {
+    background-color: #becbff;
+}
+html.manava-theme-cyan .manava_titre_hebs {
+    background-color: hsl(196.9, 80%, 96%);
+}
+html.manava-theme-cyan #cgv a, html.manava-theme-cyan #cgv a:visited, html.manava-theme-cyan .manava_mention_obligatoire span.color, html.manava-theme-cyan .manava_obligatoire .manava_col1, html.manava-theme-cyan .manava_titre_hebs {
+    color: hsl(196.8, 74.7%, 44.9%);
+}
+html.manava-theme-cyan .manava_resultat {
+    background-color: hsl(196.4, 73.3%, 91.2%);
+}
+html.manava-theme-cyan .manava_gros_bouton {
+    background-color: hsl(196.9, 80%, 79.6%);
+    color: #000;
+    font-weight: 400;
+}
+html.manava-theme-cyan .manava_gros_bouton:hover {
+    background-color: #beedff;
+}
+html.manava-theme-gris .manava_titre_hebs {
+    background-color: #e8e8e8;
+}
+html.manava-theme-gris #cgv a, html.manava-theme-gris #cgv a:visited, html.manava-theme-gris .manava_mention_obligatoire span.color, html.manava-theme-gris .manava_obligatoire .manava_col1, html.manava-theme-gris .manava_titre_hebs {
+    color: #000;
+}
+html.manava-theme-gris .manava_resultat {
+    background-color: hsl(228.9, 0%, 90%);
+}
+html.manava-theme-gris .manava_gros_bouton {
+    background-color: #bbb;
+    color: #000;
+    font-weight: 400;
+}
+html.manava-theme-gris .manava_gros_bouton:hover {
+    background-color: #ccc;
+}
+html.manava-theme-gvr .manava_titre_hebs {
+    background-color: #e8e8e8;
+}
+html.manava-theme-gvr #cgv a, html.manava-theme-gvr #cgv a:visited, html.manava-theme-gvr .manava_mention_obligatoire span.color, html.manava-theme-gvr .manava_obligatoire .manava_col1, html.manava-theme-gvr .manava_titre_hebs {
+    color: #000;
+}
+html.manava-theme-gvr .manava_resultat {
+    background-color: #e8e8e8;
+}
+html.manava-theme-gvr .manava_gros_bouton {
+    background-color: #bbb;
+    color: #000;
+    font-weight: 400;
+}
+html.manava-theme-gvr .manava_gros_bouton:hover {
+    background-color: #ccc;
+}
+html.manava-theme-orange .manava_titre_hebs {
+    background-color: #fdf2e8;
+}
+html.manava-theme-orange #cgv a, html.manava-theme-orange #cgv a:visited, html.manava-theme-orange .manava_mention_obligatoire span.color, html.manava-theme-orange .manava_obligatoire .manava_col1, html.manava-theme-orange .manava_titre_hebs {
+    color: #ec9950;
+}
+html.manava-theme-orange .manava_resultat {
+    background-color: hsl(28.1, 80.4%, 89%);
+}
+html.manava-theme-orange .manava_gros_bouton {
+    background-color: #f2a766;
+    color: #000;
+    font-weight: 400;
+}
+html.manava-theme-orange .manava_gros_bouton:hover {
+    background-color: #fcbc85;
+}
+html.manava-theme-vert .manava_titre_hebs {
+    background-color: hsl(85.9, 62.7%, 88.4%);
+}
+html.manava-theme-vert #cgv a, html.manava-theme-vert #cgv a:visited, html.manava-theme-vert .manava_mention_obligatoire span.color, html.manava-theme-vert .manava_obligatoire .manava_col1, html.manava-theme-vert .manava_titre_hebs {
+    color: hsl(86.7, 94.7%, 37.3%);
+}
+html.manava-theme-vert .manava_resultat {
+    background-color: hsl(85.9, 62.7%, 88.4%);
+}
+html.manava-theme-vert .manava_gros_bouton {
+    background-color: #b2da7f;
+    color: #000;
+    font-weight: 400;
+}
+html.manava-theme-vert .manava_gros_bouton:hover {
+    background-color: #c2e495;
+}
+html.manava-theme-mode-horiz #manava_bloc_1, html.manava-theme-mode-horiz #manava_bloc_2 {
+    float: left;
+}
+html.manava-theme-mode-horiz .manava_hebs {
+    max-height: 40rem;
+}
+html.manava-theme-mode-horiz #manava_form_resa {
+    margin-bottom: 5rem;
+}
+html.manava-theme-mode-horiz #manava_bloc_calend {
+    max-width: unset;
+    display: block;
+    clear: both;
+}
+
+
+
+@media screen and (min-width:770px) {
+    #manava_bloc_calend {
+    max-width: calc(100% - 15rem - 27rem);
+    margin-top: .2rem;
+    max-height: 71rem;
+    text-align: left;
+}
+}html.manava-theme-mode-large, html.manava-theme-mode-large body, html.manava-theme-mode-large button, html.manava-theme-mode-large input, html.manava-theme-mode-large select, html.manava-theme-mode-large textarea {
+    font-size: 13px;
+}
+html.manava-theme-mode-large input.manava_col2, html.manava-theme-mode-large select.manava_col2, html.manava-theme-mode-large textarea.manava_col2 {
+    padding: .6rem;
+    margin-top: 4px;
+}
+html.manava-theme-mode-large .manava_col1 {
+    padding-right: .9rem;
+    padding-top: .6rem;
+}
+html.manava-theme-mode-large .manava_lh {
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+}
+@media screen and (min-width:470px) {
+    html.manava-theme-mode-large .manava_resultat {
+    font-size: 1.3rem;
+}
+}@media screen and (min-width:580px) {
+    html.manava-theme-mode-large .manava_col1 {
+    width: 15rem;
+}
+html.manava-theme-mode-large .manava_col2 {
+    width: 27rem;
+}
+html.manava-theme-mode-large .manava_hebs {
+    width: calc(15rem + 27rem + 2rem);
+}
+html.manava-theme-mode-large .manava_col2_only {
+    margin-left: 15rem;
+}
+html.manava-theme-mode-large .manava_lh_prix {
+    width: 9rem;
+}
+}html.manava-theme-mode-large #manava_bloc_calend {
+    max-width: calc(100% - 1rem);
+    max-height: 95rem;
+    margin-top: 5rem;
+}
+@media screen and (min-width:900px) {
+//     html.manava-theme-mode-large: not(.manava-theme-mode-horiz) #manava_bloc_calend {
+//     max-width: calc(100% - 15rem - 27rem - 5rem);
+//     margin-top: 0;
+// }
+}@media screen and (max-width:440px) {
+    .manava_col1 {
+    text-align: left;
+    display: block;
+    float: none;
+    width: 22rem;
+    margin-top: .5em;
+}
+.manava_hebs {
+    width: 24rem;
+}
+.manava_resultat {
+    margin-left: 0;
+}
+.manava_erreur {
+    margin-left: 0;
+}
+.manava_validation_ok {
+    margin-left: 0;
+}
+.manava_col2, .manava_col2_only {
+    margin-left: 0;
+}
+[data-heb] .manava_col2 {
+    margin-top: .2rem;
+}
+}@media screen and (max-width:440px) {
+    #manava_bloc_calend {
+    margin-left: 0;
+    max-width: 100%;
+    margin-top: 1.5rem;
+}
+}

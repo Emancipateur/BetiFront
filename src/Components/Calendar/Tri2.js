@@ -11,7 +11,8 @@ import moment from 'moment';
 const Tri2 = (BookedDaysBeforeTri) => {
 
 
-    const [BookedDaysAfterTri, setBookedDaysAfterTri] = useState([addDays(new Date().setHours(0,0,0,0), 4), addDays(new Date().setHours(0,0,0,0),3)])
+    // const [BookedDaysAfterTri, setBookedDaysAfterTri] = useState([addDays(new Date().setHours(0,0,0,0), 4), addDays(new Date().setHours(0,0,0,0),3)])
+    const [BookedDaysAfterTri, setBookedDaysAfterTri] = useState([])
     
 
       let dateArray = new Array();

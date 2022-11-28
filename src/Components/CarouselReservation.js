@@ -3,13 +3,13 @@ import { Carousel } from "react-responsive-carousel";
 
 const CarouselReservation = ({ hebergement }) => {
 
-console.log(hebergement);
+
 if(hebergement === "villa"){
   return (
     <Carousel
       showStatus={false}
       preventMovementUntilSwipeScrollTolerance={true}
-      swipeScrollTolerance={100}
+      swipeScrollTolerance={80}
 
     >
       <div>

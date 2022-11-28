@@ -16,7 +16,7 @@ const [openDetails, setOpenDetails ] = useState(false)
             <div className="reservationCompoContainer">
 
                   
-                <div className="typeHebergement">
+                <div className="typeHebergement" id='Chambre'>
                     <h2 className='h2reservationCompo'>Chambre</h2>
 
 <CarouselReservation hebergement={'chambre'} />
@@ -89,14 +89,7 @@ const [openDetails, setOpenDetails ] = useState(false)
 : null } 
     </div>
 
-    <div className="tarifsReservation">
-        <h3>Tarifs</h3>
-                             <ul>
-                            <li>1 Nuit : 37 480  </li>
-                            <li>2 Nuit : 35 480  </li>
-                            <li>3 Nuit : 33 480   </li>
-                        </ul>
-                        </div>
+
                 </div>
             </div>
             <div className="line"></div>

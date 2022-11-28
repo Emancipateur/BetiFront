@@ -1,0 +1,926 @@
+<html class="manava-theme-cyan manava-theme-mode-horiz manava-theme-mode-large"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://manava.abricode.fr/rest/i18n_grp.js.php?lang=fr"></script>
+	<script src="https://manava.abricode.fr/rest/daterangepicker/daterangepicker_moment-1.004.min.js"></script>
+	<link href="https://manava.abricode.fr/rest/daterangepicker/daterangepicker.min.css" rel="stylesheet">
+	<script src="https://manava.abricode.fr/rest/manava_externe_grp_1.0.012.min.js"></script>
+	<!-- <link href="https://manava.abricode.fr/rest/form_resa_1.6.0.min.css" rel="stylesheet"> -->
+
+	<!-- <link href="https://manava.abricode.fr/rest/calendrier_1.2.4.min.css" rel="stylesheet"> -->
+
+	<style>
+	body{
+		background: linear-gradient(90deg,#134e5e,#71b280);
+		
+	}
+	body, button, html, input, select, textarea {
+		font-family: Verdana, Geneva, sans-serif;
+		font-size: 12px;
+	
+	}
+	
+	hr.hr1 {
+		border: 0;
+		border-bottom: 1px solid #e0e0e0;
+		height: 1px;
+	}
+	#manava_bloc_calend {
+		display: inline-block;
+		min-width: 22rem;
+		margin-left: 1rem;
+		margin-top: 3rem;
+		max-width: calc(100% - 1rem);
+		overflow-y: auto;
+		text-align: center;
+	}
+	#manava_form_resa {
+		float: left;
+	
+	}
+	.manava_col1 {
+	
+		width: 12rem;
+		color: #a0a0a0;
+		text-align: right;
+		padding-right: .5rem;
+		float: left;
+		box-sizing: border-box;
+		clear: both;
+		margin-top: 2px;
+		padding-top: .2rem;
+		min-height: 1.5rem;
+	}
+	.manava_col2 {
+		width: 50%;
+		box-sizing: border-box;
+		margin-top: 2px;
+		border-style: none;
+		display: inline-block;
+		min-height: 1.5rem;
+	}
+	.manava_col2_only {
+		margin-left: 12rem;
+	}
+	#manava_bloc_bt_hebs {
+		margin-top: 1rem;
+	}
+	.manava_hebs {
+		max-height: 25rem;
+		overflow-y: auto;
+		width: calc(12rem + 22rem + 2rem);
+	}
+	.manava_hebs .manava_chercher {
+		background-color: #f0f0f0;
+		/* min-height: 20rem; */
+	}
+	.manava_rech_txt {
+		padding: .5rem;
+		font-size: .9rem;
+		color: gray;
+	}
+	.manava_titre_hebs {
+		margin-top: 1rem;
+		margin-bottom: .5rem;
+		padding: .3rem;
+		text-align: center;
+		background-color: #fdf2e8;
+	}
+	.manava_sous_titre_hebs_gen {
+		display: flex;
+		margin-top: .5rem;
+		opacity: .7;
+	}
+	.manava_sous_titre_hebs {
+		font-size: .8rem;
+		flex: 1;
+	}
+	.manava_sous_titre_hebs_nb_pers {
+		text-align: left;
+	}
+	#manava_sous_titre_hebs_nb_nuits {
+		text-align: center;
+	}
+	.manava_sous_titre_hebs_panier {
+		text-align: right;
+	}
+	[data-heb] .manava_col1, [data-heb] .manava_col2 {
+		margin-top: .4rem;
+	}
+	[data-heb] {
+		clear: both;
+	}
+	.manava_lh {
+		padding-top: .1rem;
+		padding-bottom: .1rem;
+	}
+	
+	.manava_global_rr, .manava_lh, .manava_rr {
+		padding-left: .5rem;
+	}
+	.manava_lh>span {
+		display: inline-block;
+		vertical-align: middle;
+		height: 1.5rem;
+	}
+	.manava_lh_nom {
+		overflow: hidden;
+	}
+	.manava_lh_nbmax {
+		width: 6rem;
+		position: relative;
+	}
+	.manava_lh_nbmax span.mul {
+		line-height: 1.5rem;
+		font-size: .8rem;
+	}
+	
+	
+	 .manava_lh_nbmax span.sep {
+		position: absolute;
+		left: 0;
+		top: .2rem;
+	 /* background-image: url('data:image/svg+xml;
+		 utf8, <svg xmlns="http: //www.w3.org/2000/svg" 	style="width:24px;
+		 height: 24px" viewBox="0 0 24 24"><path fill="gray" d="M4, 11V13H16L10.5, 18.5L11.92, 19.92L19.84, 12L11.92, 4.08L10.5, 5.5L16, 11H4Z" /></svg>'); */
+		background-size: contain;
+		display: inline-block;
+		width: 1rem;
+		height: 1rem;
+		
+		
+	}
+	.manava_lh_nbmax span.icon {
+		position: absolute;
+		left: 0;
+		top: .2rem;
+		 /* background-image: url('data:image/svg+xml;
+		 utf8, <svg xmlns="http: //www.w3.org/2000/svg" viewBox="0 0 171.8 183.4" height="693.2" width="649.4"><defs/><g transform="translate(-23 -39.8)"><path d="M33.7 191.7c4 16.6 14.2 21.4 14.2 21.4s100.4.3 121.5 0c6.2-2.3 12.3-8.8 14.9-21.2 2.6-12.4-5.8-24.4-9.9-28.3-4-3.8-42-25.8-42-25.8s-10.9 8.3-22.8 8.3-24-8.3-24-8.3l-41.7 25.8s-14.3 11.5-10.2 28z" fill="gray" fill-rule="evenodd"/><ellipse ry="43.7" rx="40.1" cy="93.6" cx="108.9" fill="%23a0a0a0"/></g></svg>'); */
+		background-size: contain;
+		display: inline-block;
+		width: .936rem;
+		height: 1rem;
+	} */
+	.manava_lh_prix {
+		width: 7rem;
+		text-align: right;
+		line-height: 1.3rem;
+	}
+	.manava_lh_prix span {
+		opacity: .5;
+	}
+	.manava_lh_panier {
+		float: right;
+	}
+	.manava_hebs input[type=checkbox], .manava_hebs select {
+		width: 3.8rem;
+		border: 1px solid #e0e0e0;
+		background-color: #fff!important;
+		outline: 0;
+	}
+	.manava_lae_nom {
+		margin-left: .6rem;
+		margin-right: .4rem;
+	}
+	.manava_ae {
+		margin-top: -1px;
+		padding-top: .2rem;
+		padding-bottom: .8rem;
+	}
+	.manava_ae span {
+		font-size: .9rem;
+		color: gray;
+	}
+	.manava_ae select {
+		width: 3rem;
+		font-size: .9rem;
+	}
+	.manava_ae .occ_ae_ens {
+		display: none;
+		font-size: .8rem;
+		padding-left: .5rem;
+		margin-bottom: .3rem;
+		color: gray;
+	}
+	.manava_rr_list {
+		padding: .2rem 0;
+		line-height: 1.4rem;
+	}
+	
+	
+	.manava_rr_list>div {
+		clear: both;
+		line-height: 1.2rem;
+		padding: .2rem 0;
+	}
+	[data-heb] .manava_rr_list {
+		border-top: 1px dashed rgba(0, 0, 0, .2);
+	}
+	.manava_rr_nom {
+		display: inline-block;
+		max-width: 17rem;
+		font-style: italic;
+		color: gray;
+		font-size: .9rem;
+	}
+	.manava_rr_nom>div {
+		padding-left: 1rem;
+	}
+	.manava_rr_nom .point {
+		opacity: .3;
+		float: left;
+	}
+	.manava_rr_val {
+		float: right;
+	}
+	
+	.manava_rr_val .num_disabled, .manava_rr_val select {
+		font-size: .9rem;
+		font-style: italic;
+		text-align: right;
+	}
+	.manava_global_rr {
+		display: none;
+		margin-top: 1rem;
+	}
+	.manava_global_rr select:not(.num_select), .manava_hebs .manava_rr select:not(.num_select) {
+		width: unset;
+	}
+	.manava_global_rr input[type=checkbox], .manava_global_rr select, .manava_hebs .manava_rr input[type=checkbox], .manava_hebs .manava_rr select, .manava_rr_val .num_disabled {
+		width: 3.8rem;
+		border: 1px solid #e0e0e0;
+		background-color: #f4f4f4!important;
+	}
+	.manava_rr_val .num_disabled {
+		text-align: center;
+		padding: 0 .3rem;
+		box-sizing: border-box;
+	}
+	.manava_col2 input, .manava_col2 select, .manava_col2 textarea, [data-heb] .manava_col2, input.manava_col2, select.manava_col2, textarea.manava_col2 {
+		background: #f0f0f0;
+	
+	}
+	input.manava_col2 {
+		padding: .2rem .3rem;
+	}
+	textarea.manava_col2 {
+		padding: .2rem .3rem;
+		height: 5rem;
+		
+	}
+	button.manava_col2 {
+		border-color: #bad5ff;
+		height: 3rem;
+		cursor: pointer;
+		border-radius: .3rem;
+	}
+	#cgv a, #cgv a:visited, .manava_mention_obligatoire span.color, .manava_obligatoire .manava_col1, .manava_titre_hebs {
+		color: #ffa04e;
+	}
+	.manava_mention_obligatoire, .manava_mention_obligatoire span {
+		color: silver;
+		font-size: .9rem;
+		font-style: italic;
+	}
+	.manava_resultat {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		background-color: #fff0e0;
+		padding: .8rem;
+		cursor: pointer;
+		min-height: 2rem;
+	}
+	.manava_resultat .manava_total {
+		float: right;
+	}
+	.manava_info {
+		opacity: .6;
+		display: inline-block;
+		width: 1.2rem;
+		height: 1.2rem;
+		line-height: 1.2rem;
+		background-color: #fff;
+		border-radius: 50%;
+		vertical-align: middle;
+		text-align: center;
+		border: 2px solid silver;
+		margin: -.2rem .5rem 0 .5rem;
+		font-size: .9rem;
+		font-family: courrier;
+		cursor: pointer;
+	}
+	.manava_resultat span.info:hover {
+		opacity: 1;
+	}
+	.manava_resultat div.detail_prix {
+		display: none;
+		margin-top: .5rem;
+		padding-top: .3rem;
+		color: #606060;
+		border-top: 1px dashed rgba(0, 0, 0, .2);
+		font-size: .9rem;
+	}
+	.detail_paidiff, .manava_texte_reglement {
+		display: none;
+	}
+	.manava_texte_info {
+		font-size: .9rem;
+		margin-bottom: 1rem;
+		color: #a0a0a0;
+	}
+	.manava_pel {
+		margin-bottom: .5rem;
+	}
+	.manava_erreur {
+		color: #db3030;
+		font-size: .9rem;
+		padding: .6rem .8rem;
+		background-color: #ffd0d0;
+		border-radius: .5rem;
+		margin-top: .5rem;
+		margin-bottom: 1rem;
+		display: none;
+	}
+	.shake {
+		animation: shake .82s cubic-bezier(.36, .07, .19, .97) both;
+		transform: translate3d(0, 0, 0);
+		backface-visibility: hidden;
+		perspective: 1000px;
+	}
+	@keyframes shake {
+		10%, 90% {
+		transform: translate3d(-1px, 0, 0);
+	}
+	20%, 80% {
+		transform: translate3d(2px, 0, 0);
+	}
+	30%, 50%, 70% {
+		transform: translate3d(-2px, 0, 0);
+	}
+	40%, 60% {
+		transform: translate3d(2px, 0, 0);
+	}
+	}.manava_bloc_pied {
+		margin-top: 1.5rem;
+	}
+	.retour_validation_ok {
+		display: none;
+	}
+	.manava_validation_ok {
+		clear: both;
+		color: green;
+		background-color: #d8f7d2;
+		padding: .5rem 1rem;
+		font-size: 1rem;
+		border-radius: 3px;
+		margin-bottom: 1rem;
+	}
+
+	.manava_gros_bouton {
+		padding: .3rem 1.2rem;
+		height: 3.6rem;
+		line-height: 30px;
+		background-color: #d6eeff;
+		font-size: 1.2rem;
+		color: #000;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		border-radius: .4rem;
+		cursor: pointer;
+		border-style: none;
+	}
+	.manava_gros_bouton:hover {
+		background-color: #b8e0fd;
+	}
+	.manava_pel.overlay {
+		background-color: rgba(255, 255, 255, .5);
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		text-align: center;
+		z-index: 99999;
+	}
+	.manava_pel.manava_result {
+		max-width: 25rem;
+		margin: 5rem auto;
+		padding: 3rem;
+		border-radius: 1rem;
+		font-size: 1.5rem;
+		box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+	}
+	.manava_pel.manava_result.manava_success {
+		background-color: #d3ffc6;
+		color: #498c20;
+		border: 1px solid #b3e6a4;
+	}
+	.manava_pel.manava_result.manava_cancel {
+		background-color: #ffdedc;
+		color: #ff5656;
+		border: 1px solid #e2b2b0;
+	}
+	.manava_pel.manava_result button {
+		cursor: pointer;
+		padding: 1rem 2rem;
+		border-radius: .5rem;
+		border-style: none;
+		color: #fff;
+	}
+	.manava_pel.manava_result.manava_success button {
+		background-color: #bff1b0;
+		color: #668c48;
+	}
+	.manava_pel.manava_result.manava_cancel button {
+		background-color: #ffcfcf;
+		color: #ff5656;
+	}
+	#cgv {
+		padding: 10px 0;
+	}
+	#cgv input[type=checkbox] {
+		float: left;
+	}
+	#cgv a, #cgv a:visited {
+		text-decoration: none;
+		color: #ffa04e;
+		padding-left: 30px;
+		display: block;
+	}
+	#cgv a:hover {
+		text-decoration: underline;
+	}
+	html.manava-theme-bgnoir .manava_titre_hebs {
+		background-color: #404040;
+		color: #fff;
+	}
+	html.manava-theme-bgnoir .manava_col2 input, html.manava-theme-bgnoir .manava_col2 textarea, html.manava-theme-bgnoir [data-heb] .manava_col2, html.manava-theme-bgnoir input.manava_col2, html.manava-theme-bgnoir select.manava_col2, html.manava-theme-bgnoir textarea.manava_col2 {
+		background: #505050;
+		color: #fff;
+	}
+	html.manava-theme-bgnoir .manava_ae .occ_ae_ens, html.manava-theme-bgnoir .manava_ae span, html.manava-theme-bgnoir .manava_rr_nom {
+		color: silver;
+	}
+	html.manava-theme-bgnoir .manava_rr_list {
+		border-top-color: rgba(255, 255, 255, .3);
+	}
+	html.manava-theme-bgnoir .manava_col1, html.manava-theme-bgnoir .manava_texte_info, html.manava-theme-bgnoir .manava_texte_pai_differe, html.manava-theme-bgnoir .manava_texte_pai_pel {
+		color: #a69b9b;
+	}
+	html.manava-theme-bgnoir #cgv a, html.manava-theme-bgnoir #cgv a:visited, html.manava-theme-bgnoir .manava_mention_obligatoire span.color, html.manava-theme-bgnoir .manava_obligatoire .manava_col1, html.manava-theme-bgnoir .manava_titre_hebs {
+		color: #fff;
+	}
+	html.manava-theme-bgnoir .manava_mention_obligatoire {
+		color: gray;
+	}
+	html.manava-theme-bgnoir .manava_resultat {
+		background-color: hsl(0, 0%, 25.1%);
+		color: #fff;
+	}
+	html.manava-theme-bgnoir .manava_resultat div.detail_prix {
+		color: silver;
+		border-top-color: rgba(255, 255, 255, .3);
+	}
+	html.manava-theme-bgnoir .manava_gros_bouton {
+		background-color: #bbb;
+		color: #000;
+		font-weight: 400;
+	}
+	html.manava-theme-bgnoir .manava_gros_bouton:hover {
+		background-color: #ccc;
+	}
+	/* html.manava-theme-bgnoir .manava_lh_nbmax span.sep {
+		// background-image: url('data:image/svg+xml;
+		// utf8, <svg xmlns="http: //www.w3.org/2000/svg" 	style="width:24px;
+		// height: 24px" viewBox="0 0 24 24"><path fill="silver" d="M4, 11V13H16L10.5, 18.5L11.92, 19.92L19.84, 12L11.92, 4.08L10.5, 5.5L16, 11H4Z" /></svg>');
+	}
+	html.manava-theme-bgnoir .manava_lh_nbmax span.icon {
+		// background-image: url('data:image/svg+xml;
+		// utf8, <svg xmlns="http: //www.w3.org/2000/svg" viewBox="0 0 171.8 183.4" height="693.2" width="649.4"><defs/><g transform="translate(-23 -39.8)"><path d="M33.7 191.7c4 16.6 14.2 21.4 14.2 21.4s100.4.3 121.5 0c6.2-2.3 12.3-8.8 14.9-21.2 2.6-12.4-5.8-24.4-9.9-28.3-4-3.8-42-25.8-42-25.8s-10.9 8.3-22.8 8.3-24-8.3-24-8.3l-41.7 25.8s-14.3 11.5-10.2 28z" fill="%23a0a0a0" fill-rule="evenodd"/><ellipse ry="43.7" rx="40.1" cy="93.6" cx="108.9" fill="silver"/></g></svg>');
+	} */
+
+	html.manava-theme-bgnoir #manava_sous_titre_hebs_nb_nuits {
+		border-color: #707070;
+	}
+	html.manava-theme-bgnoir .manava_hebs .manava_chercher {
+		background-color: #505050;
+		color: #fff;
+	}
+	html.manava-theme-bgnoir .manava_info {
+		background-color: #000;
+		color: #fff;
+		border-color: gray;
+	}
+	html.manava-theme-bgnoir #manava_bloc_calend {
+		border-color: #424242;
+	}
+	html.manava-theme-bleu .manava_titre_hebs {
+		background-color: #eaeeff;
+	}
+	html.manava-theme-bleu #cgv a, html.manava-theme-bleu #cgv a:visited, html.manava-theme-bleu .manava_mention_obligatoire span.color, html.manava-theme-bleu .manava_obligatoire .manava_col1, html.manava-theme-bleu .manava_titre_hebs {
+		color: #5175ff;
+	}
+	html.manava-theme-bleu .manava_resultat {
+		background-color: hsl(228.9, 100%, 94.7%);
+	}
+	html.manava-theme-bleu .manava_gros_bouton {
+		background-color: hsl(228, 100%, 83.3%);
+		color: #000;
+		font-weight: 400;
+	}
+	html.manava-theme-bleu .manava_gros_bouton:hover {
+		background-color: #becbff;
+	}
+	html.manava-theme-cyan .manava_titre_hebs {
+		background-color: hsl(196.9, 80%, 96%);
+	}
+	html.manava-theme-cyan #cgv a, html.manava-theme-cyan #cgv a:visited, html.manava-theme-cyan .manava_mention_obligatoire span.color, html.manava-theme-cyan .manava_obligatoire .manava_col1, html.manava-theme-cyan .manava_titre_hebs {
+		/* color: hsl(196.8, 74.7%, 44.9%); */
+		color: white;
+	}
+	html.manava-theme-cyan .manava_resultat {
+		background-color: hsl(196.4, 73.3%, 91.2%);
+	}
+	html.manava-theme-cyan .manava_gros_bouton {
+		background-color: hsl(196.9, 80%, 79.6%);
+		color: #000;
+		font-weight: 400;
+	}
+	html.manava-theme-cyan .manava_gros_bouton:hover {
+		background-color: #beedff;
+	}
+	html.manava-theme-gris .manava_titre_hebs {
+		background-color: #e8e8e8;
+	}
+	html.manava-theme-gris #cgv a, html.manava-theme-gris #cgv a:visited, html.manava-theme-gris .manava_mention_obligatoire span.color, html.manava-theme-gris .manava_obligatoire .manava_col1, html.manava-theme-gris .manava_titre_hebs {
+		color: #000;
+	}
+	html.manava-theme-gris .manava_resultat {
+		background-color: hsl(228.9, 0%, 90%);
+	}
+	html.manava-theme-gris .manava_gros_bouton {
+		background-color: #bbb;
+		color: #000;
+		font-weight: 400;
+	}
+	html.manava-theme-gris .manava_gros_bouton:hover {
+		background-color: #ccc;
+	}
+	html.manava-theme-gvr .manava_titre_hebs {
+		background-color: #e8e8e8;
+	}
+	html.manava-theme-gvr #cgv a, html.manava-theme-gvr #cgv a:visited, html.manava-theme-gvr .manava_mention_obligatoire span.color, html.manava-theme-gvr .manava_obligatoire .manava_col1, html.manava-theme-gvr .manava_titre_hebs {
+		color: #000;
+	}
+	html.manava-theme-gvr .manava_resultat {
+		background-color: #e8e8e8;
+	}
+	html.manava-theme-gvr .manava_gros_bouton {
+		background-color: #bbb;
+		color: #000;
+		font-weight: 400;
+	}
+	html.manava-theme-gvr .manava_gros_bouton:hover {
+		background-color: #ccc;
+	}
+	html.manava-theme-orange .manava_titre_hebs {
+		background-color: #fdf2e8;
+	}
+	html.manava-theme-orange #cgv a, html.manava-theme-orange #cgv a:visited, html.manava-theme-orange .manava_mention_obligatoire span.color, html.manava-theme-orange .manava_obligatoire .manava_col1, html.manava-theme-orange .manava_titre_hebs {
+		color: #ec9950;
+	}
+	html.manava-theme-orange .manava_resultat {
+		background-color: hsl(28.1, 80.4%, 89%);
+	}
+	html.manava-theme-orange .manava_gros_bouton {
+		background-color: #f2a766;
+		color: #000;
+		font-weight: 400;
+	}
+	html.manava-theme-orange .manava_gros_bouton:hover {
+		background-color: #fcbc85;
+	}
+	html.manava-theme-vert .manava_titre_hebs {
+		background-color: hsl(85.9, 62.7%, 88.4%);
+	}
+	html.manava-theme-vert #cgv a, html.manava-theme-vert #cgv a:visited, html.manava-theme-vert .manava_mention_obligatoire span.color, html.manava-theme-vert .manava_obligatoire .manava_col1, html.manava-theme-vert .manava_titre_hebs {
+		color: hsl(86.7, 94.7%, 37.3%);
+	}
+	html.manava-theme-vert .manava_resultat {
+		background-color: hsl(85.9, 62.7%, 88.4%);
+	}
+	html.manava-theme-vert .manava_gros_bouton {
+		background-color: #b2da7f;
+		color: #000;
+		font-weight: 400;
+	}
+	html.manava-theme-vert .manava_gros_bouton:hover {
+		background-color: #c2e495;
+	}
+	html.manava-theme-mode-horiz #manava_bloc_1, html.manava-theme-mode-horiz #manava_bloc_2 {
+		float: left;
+	}
+	html.manava-theme-mode-horiz .manava_hebs {
+		max-height: 40rem;
+	}
+	html.manava-theme-mode-horiz #manava_form_resa {
+		margin-bottom: 5rem;
+	}
+	html.manava-theme-mode-horiz #manava_bloc_calend {
+		max-width: unset;
+		display: block;
+		clear: both;
+	}
+	
+	
+	
+	@media screen and (min-width:770px) {
+		#manava_bloc_calend {
+		max-width: calc(100% - 15rem - 27rem);
+		margin-top: .2rem;
+		max-height: 71rem;
+		text-align: left;
+	}
+	}html.manava-theme-mode-large, html.manava-theme-mode-large body, html.manava-theme-mode-large button, html.manava-theme-mode-large input, html.manava-theme-mode-large select, html.manava-theme-mode-large textarea {
+		font-size: 13px;
+	}
+	html.manava-theme-mode-large input.manava_col2, html.manava-theme-mode-large select.manava_col2, html.manava-theme-mode-large textarea.manava_col2 {
+		padding: .6rem;
+		margin-top: 4px;
+	}
+	html.manava-theme-mode-large .manava_col1 {
+		padding-right: .9rem;
+		padding-top: .6rem;
+	}
+	html.manava-theme-mode-large .manava_lh {
+		padding-top: .4rem;
+		padding-bottom: .4rem;
+	}
+	@media screen and (min-width:470px) {
+		html.manava-theme-mode-large .manava_resultat {
+		font-size: 1.3rem;
+	}
+	}@media screen and (min-width:580px) {
+		html.manava-theme-mode-large .manava_col1 {
+		width: 15rem;
+	}
+	html.manava-theme-mode-large .manava_col2 {
+		width: 27rem;
+	}
+	html.manava-theme-mode-large .manava_hebs {
+		width: calc(15rem + 27rem + 2rem);
+	}
+	html.manava-theme-mode-large .manava_col2_only {
+		margin-left: 15rem;
+	}
+	html.manava-theme-mode-large .manava_lh_prix {
+		width: 9rem;
+	}
+	}html.manava-theme-mode-large #manava_bloc_calend {
+		max-width: calc(100% - 1rem);
+		max-height: 95rem;
+		margin-top: 5rem;
+	}
+
+	/* Rajout */
+
+	#manava_bloc_1 > div:nth-child(6) > div.manava_resultat.manava_col2.manava_col2_only , #manava_bloc_1 > div:nth-child(6) > div.manava_bloc_hebs > div.manava_hebs > table{
+		min-height: 0;
+	}
+	#manava_bloc_1 > div:nth-child(6) > div.manava_bloc_hebs > div.manava_hebs > table > tbody > tr > td.manava_rech_txt , #manava_bloc_1 > div:nth-child(6) > div.manava_bloc_hebs > div.manava_hebs > table > tbody > tr{
+		display: none;
+	}
+	#manava_bloc_tiers > div:nth-child(4){
+		display: none;
+	}
+	#manava_bloc_tiers > div:nth-child(5){
+		display: none;
+	}
+	#manava_bloc_tiers > div:nth-child(7){
+		display: none;
+	}
+
+	#manava_bloc_1 > div:nth-child(2) > div{
+		visibility: hidden;
+
+	}
+	#manava_bloc_1 > div:nth-child(2) > div::after{
+		content:'Personnes';
+		visibility: visible;
+	
+		width: 22rem;
+		z-index: 100;
+	color: white
+
+	}
+
+	.manava_col1{
+		color: white;
+	}
+
+.manava_resultat.manava_col2.manava_col2_only{
+	background: none;
+	color: white;
+	}
+	#manava_bloc_1 > div:nth-child(6) > div.manava_resultat.manava_col2.manava_col2_only > div.manava_total > span.manava_info{
+		color: black;
+	}
+
+	#manava_bloc_1 > div:nth-child(6) > div.manava_resultat.manava_col2.manava_col2_only > div.detail_prix{
+		color: white;
+		border-top: 1px dashed white;
+		font-size: 1em;
+	}
+/* children */
+	#manava_bloc_1 > div:nth-child(3){
+		display:  none;
+	}
+
+#manava_bloc_1{
+	display: grid;
+	grid-template-areas: 
+	"inputDate inputPersonn search"
+	". . searchContent"
+
+}
+#manava_bloc_2{
+margin: 0 auto;
+}
+
+#manava_bloc_1 > div:nth-child(1){
+	grid-area: inputDate;
+}
+#manava_bloc_1 > div:nth-child(2)
+{
+	grid-area: inputPersonn;
+}
+
+#manava_bloc_bt_hebs{
+	grid-area: search;
+}
+#manava_bloc_1 > div:nth-child(2) > input{
+	width: 4rem;
+}
+
+#manava_bloc_1 > div:nth-child(2) > div{
+	width: 9rem;
+}
+#manava_bloc_bt_hebs {
+   margin-top: 0;
+}
+
+
+#manava_bloc_1 > div:nth-child(6){
+	grid-area: searchContent;
+}
+/* @media screen and (min-width:580px) {
+	#manava_bloc_bt_hebs > button{
+		margin-left: 3rem;
+
+	}
+		html.manava-theme-mode-large .manava_col1 {
+				margin-left: 3rem;
+		width: 5rem;
+		}
+}
+#manava_bloc_1 > div:nth-child(6) > div.manava_bloc_hebs > div > div.manava_hebs{
+margin: 0;
+} */
+
+
+
+
+
+
+
+	@media screen and (min-width:900px) {
+   html.manava-theme-mode-large:not(.manava-theme-mode-horiz) #manava_bloc_calend {
+	    max-width: calc(100% - 15rem - 27rem - 5rem);
+    margin-top: 0;
+	} 
+	}@media screen and (max-width:440px) {
+		.manava_col1 {
+		text-align: left;
+		display: block;
+		float: none;
+		width: 22rem;
+		margin-top: .5em;
+	}
+	.manava_hebs {
+		width: 24rem;
+	}
+	.manava_resultat {
+		margin-left: 0;
+	}
+	.manava_erreur {
+		margin-left: 0;
+	}
+	.manava_validation_ok {
+		margin-left: 0;
+	}
+	.manava_col2, .manava_col2_only {
+		margin-left: 0;
+	}
+	[data-heb] .manava_col2 {
+		margin-top: .2rem;
+	}
+	}@media screen and (max-width:440px) {
+		#manava_bloc_calend {
+		margin-left: 0;
+		max-width: 100%;
+		margin-top: 1.5rem;
+	} 
+}
+	</style>
+
+
+	
+	<script>
+		function is_mobile() { return false; }
+		function is_mobile_tablet() { return false; }
+		function is_mobile_phone() { return false; }
+
+
+	</script>
+
+
+</head>
+
+<body>
+
+	<div id="manava_form_resa">
+
+		<form>
+			<div id="manava_bloc_1">
+				<div class="manava_item manava_obligatoire"><div class="manava_col1">Arrivée &amp; départ</div><input type="text" name="periode" class="manava_col2" data-default="" autocomplete="off"></div>
+				<div class="manava_item manava_obligatoire"><div class="manava_col1">Adultes</div><input type="number" name="nb_adultes" min="0" class="manava_col2" data-default="2"></div><div class="manava_item manava_obligatoire"><div class="manava_col1">Mineurs</div><input type="number" name="nb_enfants" min="0" class="manava_col2" data-default="0"></div>
+
+				<input type="hidden" name="condition_speciale" value="0">
+				<div class="manava_item" id="manava_bloc_bt_hebs">
+					<button type="button" class="manava_col2 manava_col2_only  manava_gros_bouton manava_bt_hebs">Rechercher</button>
+				</div>
+				<div class="manava_item">
+					<div class="manava_titre_hebs manava_col2 manava_col2_only" style="display: none;">
+						<div>Hébergements disponibles</div>
+						<div class="manava_sous_titre_hebs_gen">
+							<div class="manava_sous_titre_hebs manava_sous_titre_hebs_nb_pers"><br>Pour</div>
+							<div class="manava_sous_titre_hebs" id="manava_sous_titre_hebs_nb_nuits">Prix pour<br>1 nuit</div>
+							<div class="manava_sous_titre_hebs manava_sous_titre_hebs_panier">Hébergements<br>sélectionnés</div>
+						</div>
+					</div>
+					<div class="manava_bloc_hebs">
+						<div class="manava_bloc_hebs">
+							<div class="manava_hebs"><div data-heb="lot-2"><div class="manava_col1 manava_lh_nom">Chambre</div><div class="manava_col2"><div data-tarif="0"><div class="manava_lh"><span class="manava_lh_nbmax"><span class="icon" style="left:0rem"></span><span class="sep" style="left:1rem"></span><span class="icon" style="left:2rem"></span><span class="icon" style="left:2.936rem"></span></span><span class="manava_lh_prix">16&nbsp;930 <span>XPF</span></span><span class="manava_lh_panier"><select data-lot="2" data-occ="2" data-qtt="5" data-occ-min="1" class="manava_lh_lot"><option value="0">&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;Non réservé</option><option value="1">×1&nbsp;&nbsp;&nbsp;(1 à 2 pers.)</option><option value="2">×2&nbsp;&nbsp;&nbsp;(2 à 4 pers.)</option></select></span></div><div class="manava_ae" style="display:none">							<div class="occ_ae_ens"></div>							<span class="manava_lae_nom">Adultes</span><select><option value="0">0</option></select>							<span class="manava_lae_nom">&nbsp;&nbsp;Mineurs</span><select><option value="0">0</option></select> 							</div><div class="manava_rr" style="display:none"></div></div></div></div><div data-heb="lot-3"><div class="manava_col1 manava_lh_nom">Suite</div><div class="manava_col2"><div data-tarif="0"><div class="manava_lh"><span class="manava_lh_nbmax"><span class="icon" style="left:0rem"></span><span class="sep" style="left:1rem"></span><span class="icon" style="left:2rem"></span><span class="icon" style="left:2.936rem"></span><span class="icon" style="left:3.872rem"></span><span class="icon" style="left:4.808rem"></span></span><span class="manava_lh_prix">33&nbsp;230 <span>XPF</span></span><span class="manava_lh_panier"><select data-lot="3" data-occ="4" data-qtt="5" data-occ-min="1" class="manava_lh_lot"><option value="0">&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;Non réservé</option><option value="1">×1&nbsp;&nbsp;&nbsp;(1 à 4 pers.)</option><option value="2">×2&nbsp;&nbsp;&nbsp;(2 à 8 pers.)</option></select></span></div><div class="manava_ae" style="display:none">							<div class="occ_ae_ens"></div>							<span class="manava_lae_nom">Adultes</span><select><option value="0">0</option></select>							<span class="manava_lae_nom">&nbsp;&nbsp;Mineurs</span><select><option value="0">0</option></select> 							</div><div class="manava_rr" style="display:none"></div></div></div></div><div data-heb="lot-4"><div class="manava_col1 manava_lh_nom">Suite Bois noir</div><div class="manava_col2"><div data-tarif="0"><div class="manava_lh"><span class="manava_lh_nbmax"><span class="icon" style="left:0rem"></span><span class="sep" style="left:1rem"></span><span class="icon" style="left:2rem"></span><span class="icon" style="left:2.936rem"></span></span><span class="manava_lh_prix">16&nbsp;930 <span>XPF</span></span><span class="manava_lh_panier"><input type="checkbox" data-lot="4" data-occ="2" data-qtt="1" data-occ-min="1" class="manava_lh_lot"></span></div><div class="manava_ae" style="display:none">							<div class="occ_ae_ens"></div>							<span class="manava_lae_nom">Adultes</span><select><option value="0">0</option></select>							<span class="manava_lae_nom">&nbsp;&nbsp;Mineurs</span><select><option value="0">0</option></select> 							</div><div class="manava_rr" style="display:none"></div></div></div></div><div data-heb="lot-1"><div class="manava_col1 manava_lh_nom">Villa</div><div class="manava_col2"><div data-tarif="0"><div class="manava_lh"><span class="manava_lh_nbmax"><span class="icon" style="left:0rem"></span><span class="sep" style="left:1rem"></span><span class="icon" style="left:2rem"></span><span class="mul" style="padding-left: 2.936rem;">×6</span></span><span class="manava_lh_prix">46&nbsp;980 <span>XPF</span></span><span class="manava_lh_panier"><select data-lot="1" data-occ="6" data-qtt="4" data-occ-min="1" class="manava_lh_lot"><option value="0">&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;Non réservé</option><option value="1">×1&nbsp;&nbsp;&nbsp;(1 à 6 pers.)</option><option value="2">×2&nbsp;&nbsp;&nbsp;(2 à 12 pers.)</option></select></span></div><div class="manava_ae" style="display:none">							<div class="occ_ae_ens"></div>							<span class="manava_lae_nom">Adultes</span><select><option value="0">0</option></select>							<span class="manava_lae_nom">&nbsp;&nbsp;Mineurs</span><select><option value="0">0</option></select> 							</div><div class="manava_rr" style="display:none"></div></div></div></div></div>
+							<div class="manava_global_rr manava_col2 manava_col2_only" style="display: none;"></div>
+							<div class="manava_erreur manava_heb_err  manava_col2 manava_col2_only"></div>
+						</div>
+					</div>
+					<!-- <div class="manava_resultat manava_col2 manava_col2_only"></div> -->
+					 <div class="manava_resultat manava_col2 manava_col2_only">Total séjour<div class="manava_total"><span class="manava_info">i</span>16&nbsp;930,00 <span>XPF</span></div><div class="detail_prix" style="display: block;"><div>Hébergement<div class="manava_total">16&nbsp;930,00 <span>XPF</span></div></div><div>Taxe de séjour<div class="manava_total">0,00 <span>XPF</span></div></div></div></div>
+				</div>
+			</div>
+
+			<div id="manava_bloc_2">
+				<div id="manava_bloc_tiers">
+					<div class="manava_item manava_obligatoire"><div class="manava_col1">Nom et prénom</div><input type="text" name="nom" class="manava_col2"></div>
+					<div class="manava_item manava_obligatoire"><div class="manava_col1">Courriel</div><input type="text" name="a_i" class="manava_col2"></div>
+					<div class="manava_item manava_obligatoire"><div class="manava_col1">Confirmation Courriel</div><input type="text" name="a_i2" class="manava_col2" onpaste="return false;" ondrop="return false;"></div>
+					<div class="manava_item"><div class="manava_col1">Adresse 1</div><input type="text" name="adresse" class="manava_col2"></div>
+					<div class="manava_item"><div class="manava_col1">Adresse 2</div><input type="text" name="adresse_suite" class="manava_col2"></div>
+					<div class="manava_item"><div class="manava_col1">Code postal</div><input type="text" name="cp" class="manava_col2"></div>
+					<div class="manava_item"><div class="manava_col1">Ville</div><input type="text" name="ville" class="manava_col2"></div>
+					<div class="manava_item"><div class="manava_col1">Pays</div><select name="pays" class="manava_col2"><option value="AFGHANISTAN">AFGHANISTAN</option><option value="AFRIQUE DU SUD">AFRIQUE DU SUD</option><option value="ALAND, ÎLES">ALAND, ÎLES</option><option value="ALBANIE">ALBANIE</option><option value="ALGERIE">ALGERIE</option><option value="ALLEMAGNE">ALLEMAGNE</option><option value="ANDORRE">ANDORRE</option><option value="ANGOLA">ANGOLA</option><option value="ANGUILLA">ANGUILLA</option><option value="ANTARCTIQUE">ANTARCTIQUE</option><option value="ANTIGUA ET BARBUDA">ANTIGUA ET BARBUDA</option><option value="ARABIE SAOUDITE">ARABIE SAOUDITE</option><option value="ARGENTINE">ARGENTINE</option><option value="ARMENIE">ARMENIE</option><option value="ARUBA">ARUBA</option><option value="AUSTRALIE">AUSTRALIE</option><option value="AUTRICHE">AUTRICHE</option><option value="AZERBAIDJAN">AZERBAIDJAN</option><option value="BAHAMAS">BAHAMAS</option><option value="BAHREIN">BAHREIN</option><option value="BANGLADESH">BANGLADESH</option><option value="BARBADE">BARBADE</option><option value="BELARUS">BELARUS</option><option value="BELGIQUE">BELGIQUE</option><option value="BELIZE">BELIZE</option><option value="BENIN">BENIN</option><option value="BERMUDES">BERMUDES</option><option value="BHOUTAN">BHOUTAN</option><option value="BOLIVIE, l'ETAT PLURINATIONAL DE">BOLIVIE, l'ETAT PLURINATIONAL DE</option><option value="BONAIRE, SAINT-EUSTACHE ET SABA">BONAIRE, SAINT-EUSTACHE ET SABA</option><option value="BOSNIE-HERZEGOVINE">BOSNIE-HERZEGOVINE</option><option value="BOTSWANA">BOTSWANA</option><option value="BOUVET, ILE">BOUVET, ILE</option><option value="BRESIL">BRESIL</option><option value="BRUNEI DARUSSALAM">BRUNEI DARUSSALAM</option><option value="BULGARIE">BULGARIE</option><option value="BURKINA FASO">BURKINA FASO</option><option value="BURUNDI">BURUNDI</option><option value="CAIMANES, ILES">CAIMANES, ILES</option><option value="CAMBODGE">CAMBODGE</option><option value="CAMEROUN">CAMEROUN</option><option value="CANADA">CANADA</option><option value="CAP-VERT">CAP-VERT</option><option value="CENTRAFRICAINE, REPUBLIQUE">CENTRAFRICAINE, REPUBLIQUE</option><option value="CHILI">CHILI</option><option value="CHINE">CHINE</option><option value="CHRISTMAS, ILE">CHRISTMAS, ILE</option><option value="CHYPRE">CHYPRE</option><option value="COCOS (KEELING), ILES">COCOS (KEELING), ILES</option><option value="COLOMBIE">COLOMBIE</option><option value="COMORES">COMORES</option><option value="CONGO">CONGO</option><option value="CONGO, LA REPUBLIQUE DEMOCRATIQUE DU">CONGO, LA REPUBLIQUE DEMOCRATIQUE DU</option><option value="COOK, ILES">COOK, ILES</option><option value="COREE, REPUBLIQUE DE">COREE, REPUBLIQUE DE</option><option value="COREE, REPUBLIQUE POPULAIRE DEMOCRATIQUE DE">COREE, REPUBLIQUE POPULAIRE DEMOCRATIQUE DE</option><option value="COSTA RICA">COSTA RICA</option><option value="COTE D'IVOIRE">COTE D'IVOIRE</option><option value="CROATIE">CROATIE</option><option value="CUBA">CUBA</option><option value="CURACAO">CURACAO</option><option value="DANEMARK">DANEMARK</option><option value="DJIBOUTI">DJIBOUTI</option><option value="DOMINICAINE, REPUBLIQUE">DOMINICAINE, REPUBLIQUE</option><option value="DOMINIQUE">DOMINIQUE</option><option value="EGYPTE">EGYPTE</option><option value="EL SALVADOR">EL SALVADOR</option><option value="EMIRATS ARABES UNIS">EMIRATS ARABES UNIS</option><option value="EQUATEUR">EQUATEUR</option><option value="ERYTHREE">ERYTHREE</option><option value="ESPAGNE">ESPAGNE</option><option value="ESTONIE">ESTONIE</option><option value="ETATS-UNIS">ETATS-UNIS</option><option value="ETHIOPIE">ETHIOPIE</option><option value="FALKLAND, ILES (MALVINAS)">FALKLAND, ILES (MALVINAS)</option><option value="FEROE, ILES">FEROE, ILES</option><option value="FIDJI">FIDJI</option><option value="FINLANDE">FINLANDE</option><option value="FRANCE" selected="">FRANCE</option><option value="GABON">GABON</option><option value="GAMBIE">GAMBIE</option><option value="GEORGIE">GEORGIE</option><option value="GEORGIE DU SUD ET LES ILES SANDWICH DU SUD">GEORGIE DU SUD ET LES ILES SANDWICH DU SUD</option><option value="GHANA">GHANA</option><option value="GIBRALTAR">GIBRALTAR</option><option value="GRECE">GRECE</option><option value="GRENADE">GRENADE</option><option value="GROENLAND">GROENLAND</option><option value="GUADELOUPE">GUADELOUPE</option><option value="GUAM">GUAM</option><option value="GUATEMALA">GUATEMALA</option><option value="GUERNESEY">GUERNESEY</option><option value="GUINEE">GUINEE</option><option value="GUINEE EQUATORIALE">GUINEE EQUATORIALE</option><option value="GUINEE-BISSAU">GUINEE-BISSAU</option><option value="GUYANA">GUYANA</option><option value="GUYANE FRANCAISE">GUYANE FRANCAISE</option><option value="HAITI">HAITI</option><option value="HEARD, ILE ET MCDONALD, ILES">HEARD, ILE ET MCDONALD, ILES</option><option value="HONDURAS">HONDURAS</option><option value="HONG KONG">HONG KONG</option><option value="HONGRIE">HONGRIE</option><option value="ILE DE MAN">ILE DE MAN</option><option value="ILES MINEURES ELOIGNEES DES ETATS-UNIS">ILES MINEURES ELOIGNEES DES ETATS-UNIS</option><option value="ILES VIERGES BRITANNIQUES">ILES VIERGES BRITANNIQUES</option><option value="ILES VIERGES DES ETATS-UNIS">ILES VIERGES DES ETATS-UNIS</option><option value="INDE">INDE</option><option value="INDONESIE">INDONESIE</option><option value="IRAN, REPUBLIQUE ISLAMIQUE D'">IRAN, REPUBLIQUE ISLAMIQUE D'</option><option value="IRAQ">IRAQ</option><option value="IRLANDE">IRLANDE</option><option value="ISLANDE">ISLANDE</option><option value="ISRAEL">ISRAEL</option><option value="ITALIE">ITALIE</option><option value="JAMAIQUE">JAMAIQUE</option><option value="JAPON">JAPON</option><option value="JERSEY">JERSEY</option><option value="JORDANIE">JORDANIE</option><option value="KAZAKHSTAN">KAZAKHSTAN</option><option value="KENYA">KENYA</option><option value="KIRGHIZISTAN">KIRGHIZISTAN</option><option value="KIRIBATI">KIRIBATI</option><option value="KOWEIT">KOWEIT</option><option value="LAO, REPUBLIQUE DEMOCRATIQUE POPULAIRE">LAO, REPUBLIQUE DEMOCRATIQUE POPULAIRE</option><option value="LESOTHO">LESOTHO</option><option value="LETTONIE">LETTONIE</option><option value="LIBAN">LIBAN</option><option value="LIBERIA">LIBERIA</option><option value="LIBYENNE, JAMAHIRIYA ARABE">LIBYENNE, JAMAHIRIYA ARABE</option><option value="LIECHTENSTEIN">LIECHTENSTEIN</option><option value="LITUANIE">LITUANIE</option><option value="LUXEMBOURG">LUXEMBOURG</option><option value="MACAO">MACAO</option><option value="MACEDOINE, L'EX-REPUBLIQUE YOUGOSLAVE DE">MACEDOINE, L'EX-REPUBLIQUE YOUGOSLAVE DE</option><option value="MADAGASCAR">MADAGASCAR</option><option value="MALAISIE">MALAISIE</option><option value="MALAWI">MALAWI</option><option value="MALDIVES">MALDIVES</option><option value="MALI">MALI</option><option value="MALTE">MALTE</option><option value="MARIANNES DU NORD, ILES">MARIANNES DU NORD, ILES</option><option value="MAROC">MAROC</option><option value="MARSHALL, ILES">MARSHALL, ILES</option><option value="MARTINIQUE">MARTINIQUE</option><option value="MAURICE">MAURICE</option><option value="MAURITANIE">MAURITANIE</option><option value="MAYOTTE">MAYOTTE</option><option value="MEXIQUE">MEXIQUE</option><option value="MICRONESIE, ETATS FEDERES DE">MICRONESIE, ETATS FEDERES DE</option><option value="MOLDOVA, REPUBLIQUE DE">MOLDOVA, REPUBLIQUE DE</option><option value="MONACO">MONACO</option><option value="MONGOLIE">MONGOLIE</option><option value="MONTENEGRO">MONTENEGRO</option><option value="MONTSERRAT">MONTSERRAT</option><option value="MOZAMBIQUE">MOZAMBIQUE</option><option value="MYANMAR">MYANMAR</option><option value="NAMIBIE">NAMIBIE</option><option value="NAURU">NAURU</option><option value="NEPAL">NEPAL</option><option value="NICARAGUA">NICARAGUA</option><option value="NIGER">NIGER</option><option value="NIGERIA">NIGERIA</option><option value="NIUE">NIUE</option><option value="NORFOLK, ILE">NORFOLK, ILE</option><option value="NORVEGE">NORVEGE</option><option value="NOUVELLE-CALEDONIE">NOUVELLE-CALEDONIE</option><option value="NOUVELLE-ZELANDE">NOUVELLE-ZELANDE</option><option value="OCEAN INDIEN, TERRITOIRE BRITANNIQUE DE L'">OCEAN INDIEN, TERRITOIRE BRITANNIQUE DE L'</option><option value="OMAN">OMAN</option><option value="OUGANDA">OUGANDA</option><option value="OUZBEKISTAN">OUZBEKISTAN</option><option value="PAKISTAN">PAKISTAN</option><option value="PALAOS">PALAOS</option><option value="PALESTINIEN OCCUPE, TERRITOIRE">PALESTINIEN OCCUPE, TERRITOIRE</option><option value="PANAMA">PANAMA</option><option value="PAPOUASIE-NOUVELLE-GUINEE">PAPOUASIE-NOUVELLE-GUINEE</option><option value="PARAGUAY">PARAGUAY</option><option value="PAYS-BAS">PAYS-BAS</option><option value="PEROU">PEROU</option><option value="PHILIPPINES">PHILIPPINES</option><option value="PITCAIRN">PITCAIRN</option><option value="POLOGNE">POLOGNE</option><option value="POLYNESIE FRANCAISE">POLYNESIE FRANCAISE</option><option value="PORTO RICO">PORTO RICO</option><option value="PORTUGAL">PORTUGAL</option><option value="QATAR">QATAR</option><option value="REUNION">REUNION</option><option value="ROUMANIE">ROUMANIE</option><option value="ROYAUME-UNI">ROYAUME-UNI</option><option value="RUSSIE, FEDERATION DE">RUSSIE, FEDERATION DE</option><option value="RWANDA">RWANDA</option><option value="SAHARA OCCIDENTAL">SAHARA OCCIDENTAL</option><option value="SAINT-BARTHELEMY">SAINT-BARTHELEMY</option><option value="SAINT-KITTS-ET-NEVIS">SAINT-KITTS-ET-NEVIS</option><option value="SAINT-MARIN">SAINT-MARIN</option><option value="SAINT-MARTIN (PARTIE FRANCAISE)">SAINT-MARTIN (PARTIE FRANCAISE)</option><option value="SAINT-MARTIN (PARTIE NEERLANDAISE)">SAINT-MARTIN (PARTIE NEERLANDAISE)</option><option value="SAINT-PIERRE-ET-MIQUELON">SAINT-PIERRE-ET-MIQUELON</option><option value="SAINT-SIEGE (ETAT DE LA CITE DU VATICAN)">SAINT-SIEGE (ETAT DE LA CITE DU VATICAN)</option><option value="SAINT-VINCENT-ET-LES GRENADINES">SAINT-VINCENT-ET-LES GRENADINES</option><option value="SAINTE-HELENE, ASCENSION ET TRISTAN DA CUNHA">SAINTE-HELENE, ASCENSION ET TRISTAN DA CUNHA</option><option value="SAINTE-LUCIE">SAINTE-LUCIE</option><option value="SALOMON, ILES">SALOMON, ILES</option><option value="SAMOA">SAMOA</option><option value="SAMOA AMERICAINES">SAMOA AMERICAINES</option><option value="SAO TOME-ET-PRINCIPE">SAO TOME-ET-PRINCIPE</option><option value="SENEGAL">SENEGAL</option><option value="SERBIE">SERBIE</option><option value="SEYCHELLES">SEYCHELLES</option><option value="SIERRA LEONE">SIERRA LEONE</option><option value="SINGAPOUR">SINGAPOUR</option><option value="SLOVAQUIE">SLOVAQUIE</option><option value="SLOVENIE">SLOVENIE</option><option value="SOMALIE">SOMALIE</option><option value="SOUDAN">SOUDAN</option><option value="SRI LANKA">SRI LANKA</option><option value="SUEDE">SUEDE</option><option value="SUISSE">SUISSE</option><option value="SURINAME">SURINAME</option><option value="SVALBARD ET ILE JAN MAYEN">SVALBARD ET ILE JAN MAYEN</option><option value="SWAZILAND">SWAZILAND</option><option value="SYRIENNE, REPUBLIQUE ARABE">SYRIENNE, REPUBLIQUE ARABE</option><option value="TADJIKISTAN">TADJIKISTAN</option><option value="TAIWAN, PROVINCE DE CHINE">TAIWAN, PROVINCE DE CHINE</option><option value="TANZANIE, REPUBLIQUE-UNIE DE">TANZANIE, REPUBLIQUE-UNIE DE</option><option value="TCHAD">TCHAD</option><option value="TCHEQUE, REPUBLIQUE">TCHEQUE, REPUBLIQUE</option><option value="TERRES AUSTRALES FRANCAISES">TERRES AUSTRALES FRANCAISES</option><option value="THAILANDE">THAILANDE</option><option value="TIMOR-LESTE">TIMOR-LESTE</option><option value="TOGO">TOGO</option><option value="TOKELAU">TOKELAU</option><option value="TONGA">TONGA</option><option value="TRINITE-ET-TOBAGO">TRINITE-ET-TOBAGO</option><option value="TUNISIE">TUNISIE</option><option value="TURKMENISTAN">TURKMENISTAN</option><option value="TURKS ET CAIQUES, ILES">TURKS ET CAIQUES, ILES</option><option value="TURQUIE">TURQUIE</option><option value="TUVALU">TUVALU</option><option value="UKRAINE">UKRAINE</option><option value="URUGUAY">URUGUAY</option><option value="VANUATU">VANUATU</option><option value="VATICAN, ETAT DE LA CITE DU">VATICAN, ETAT DE LA CITE DU</option><option value="VENEZUELA, REPUBLIQUE BOLIVARIENNE DU">VENEZUELA, REPUBLIQUE BOLIVARIENNE DU</option><option value="VIET NAM">VIET NAM</option><option value="WALLIS ET FUTUNA">WALLIS ET FUTUNA</option><option value="YEMEN">YEMEN</option><option value="ZAMBIE">ZAMBIE</option><option value="ZIMBABWE">ZIMBABWE</option></select></div>
+					<div class="manava_item"><div class="manava_col1">Téléphone</div><input type="text" name="tel" class="manava_col2"></div>
+					<div class="manava_item"><div class="manava_col1">Message</div><textarea name="description" class="manava_col2"></textarea></div>
+					<div class="manava_mention_obligatoire  manava_col2 manava_col2_only">les champs en <span class="color">couleur</span> sont obligatoires</div>
+					<div class="manava_item" id="cgv"></div>
+				</div>
+
+				<div class="manava_erreur manava_gen_err manava_col2 manava_col2_only" style="display: none;"></div>
+
+				<div id="manava_bloc_pied" style="display:none">
+					<div class="manava_boutons_validation">
+						<div><div class="manava_col2 manava_col2_only   manava_texte_pai_differe"><div>Paiement différé </div><div class="detail_paidiff manava_texte_info" style="display:none"></div></div></div><button type="button" data-id="0" class="manava_col2 manava_col2_only manava_gros_bouton manava_bt_submit">Envoyer la demande</button>					</div>
+					<div class="retour_validation_ok manava_col2 manava_col2_only" style="display: none;">
+						<div class="manava_validation_ok">Merci, votre demande de réservation est enregistrée !</div>
+						<div id="manava_div_texte_reglement"><div class="manava_texte_reglement" style="display: none;"></div><div>Paiement différé </div><div class="manava_texte_info "></div></div>					</div>
+				</div>
+
+				<div class="manava_item" id="manava_bloc_bt_hebs_fin">
+						<button type="button" class="manava_col2 manava_col2_only manava_gros_bouton manava_bt_hebs">Rechercher</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	
+	
+
+
+
+
+
+<div class="daterangepicker ltr auto-apply show-calendar opensright"><div class="ranges"></div><div class="drp-calendar left"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-calendar right"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-buttons"><span class="drp-selected"></span><button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button><button class="applyBtn btn btn-sm btn-primary" disabled="disabled" type="button">Apply</button> </div></div></body></html>

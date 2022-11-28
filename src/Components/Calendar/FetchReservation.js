@@ -24,7 +24,7 @@ const ical2json = require('ical2json')
 
 }, []);
 
-console.log(dataResa);
+
     return (
  dataResa
 

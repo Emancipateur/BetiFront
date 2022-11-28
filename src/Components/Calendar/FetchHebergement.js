@@ -5,17 +5,17 @@ const FetchHebergement = () => {
 
 const  [dataHebe, setDataHebe] = useState([])
 
-useEffect(() => {
-  fetch('http://localhost:3004/hebe' ,{
-  method : 'GET',
-  mode : 'cors',
-headers: {
-  'Accept': 'application/ld+json'
-}})
-  .then((res) => res.json())
-  .then((data) => setDataHebe(data))
+// useEffect(() => {
+//   fetch('http://localhost:3004/hebe' ,{
+//   method : 'GET',
+//   mode : 'cors',
+// headers: {
+//   'Accept': 'application/ld+json'
+// }})
+//   .then((res) => res.json())
+//   .then((data) => setDataHebe(data))
 
-}, []);
+// }, []);
 
 
 const  [Unites1, setUnites1] = useState([

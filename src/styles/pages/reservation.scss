@@ -1,23 +1,48 @@
 .reservationContent{
-    width: 80%;
+    width: 100%;
     margin: 2rem auto;
     background: linear-gradient(to right, #134e5e, #71b280); 
+overflow-x: hidden;
+
+}
+.desktopRenderDays{
+    display: block;
+}
+
+.mobileRenderDays{
+    display: none;
+}
+
+.iframeDiv{
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    margin-left: 13%;
 
 }
 
-
+.thumb{
+    width: 170px!important;
+}
 @media screen and(max-width:800px) {
     .reservationContent{
         width: 100%;
         margin: 2rem auto;
     }
     
-}
+    
+    .mobileRenderDays{
+        display: block;
+    }
+    
+    
+    .desktopRenderDays{
+        display: none;
+    }
 
-.mois{
-    background-color: black !important;
-}
+    .iframeDiv{
 
-#manava_bloc_tiers{
-  font-size: 7rem;
+        margin-left: 0%
+    
+    }
 }
