@@ -108,7 +108,7 @@ useEffect(() => {
     let day = startDate;
     let formattedDate = "";
     while (day <= endDate) {
-      for (let i = 0; i < 28; i++) {
+      for (let i = 0; i < 40; i++) {
         formattedDate = format(day, dateFormat);
         const cloneDay = day;
         days.push(
@@ -148,7 +148,7 @@ useEffect(() => {
     return (
         
             
-        <div className="body" style={ {backgroundColor : background}}><div className="uniteName"><a href={ '#'+ unitForHref}>{uniteName}</a> </div>{rows}</div>
+        <div className="body" style={ {backgroundColor : background}}><div className="uniteName"><a href={ '#'+ unitForHref}>{unitForHref + " " + index}</a> </div>{rows}</div>
     
         )
   };
@@ -201,7 +201,7 @@ useEffect(() => {
     return (
         
             
-        <div className="body" style={ {backgroundColor : background}}><div className="uniteName"><a href={ '#'+ unitForHref}>{uniteName}</a> </div>{rows}</div>
+        <div className="body" style={ {backgroundColor : background}}><div className="uniteName"><a href={ '#'+ unitForHref}>{unitForHref + " " + index}</a> </div>{rows}</div>
     
         )
   };

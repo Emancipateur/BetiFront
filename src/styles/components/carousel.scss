@@ -30,12 +30,12 @@
   .indicators > button {
     cursor: pointer;
     margin: 5px;
-    padding: 0.5rem;
+    padding: 0.7rem;
     background:  #044a5d; 
     font-size: 1rem;
-color: white;
+color: $white;
 border-radius: 12px;
-border : 1px solid white;
+border : 1px solid $white;
 border: none;
   }
   
@@ -45,9 +45,9 @@ border: none;
     padding: 0.5rem;
     background:  #0285aa; 
     font-size: 1rem;
-color: white;
+color: $white;
 border-radius: 12px;
-border : 1px solid white;
+border : 1px solid $white;
 border: none;
   }
   

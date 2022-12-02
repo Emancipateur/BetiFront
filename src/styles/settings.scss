@@ -5,12 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
   
-  $font-1: "font-1", sans-serif;
-  
+  $font-1: 'Kaushan Script', cursive;
   $color-1: #61dafb;
-  $color-2: salmon;
-  $color-3: #282c34;
+  $black:  #282c34;
   $white: rgb(243, 243, 243);
+  $background-linear :  linear-gradient(to right, #134e5e, #71b280);
+
+ 
   
   @mixin verticalCenter {
     display: flex;
@@ -27,22 +28,16 @@
   }
 
   h1{
-    margin: 1rem;
+    @include verticalCenter;
+    margin: 1rem auto;
     padding-bottom: 0.5rem;
+    color: $white;
     border-bottom: 5px solid   $white;
     width: 80%;
     font-family: 'Kaushan Script', cursive;
     
   }
   
-  // body {
-  //   background: $white;
-  //   font-family: $font-1;
-  //   // @include verticalCenter;
-  // }
-  li {
-    // list-style-type: none;
-  }
 
   a{
       color: $white;
@@ -50,15 +45,8 @@
     body::before {
       content: '';
 
-  background: linear-gradient(76deg, rgba(45,170,235,1) 25%, rgba(34,195,106,1) 80%);
-  background: linear-gradient(to right, #134e5e, #71b280);
+  // background: $background-linear;
  
-
-
-
-
-
-  content: "";
   position: absolute;
 
   left: 0;
@@ -72,3 +60,4 @@
   opacity: 0.9; 
   z-index: -1;
   }
+

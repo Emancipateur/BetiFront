@@ -11,10 +11,10 @@ background: linear-gradient(to bottom, #134e5e, #71b280);
     justify-content: center;
     align-items: center;
     gap: 1rem;
-     color: white;
+     color: $white;
 
      h1{
-         color: white;
+         color: $white;
      }
   article{
      width: 100%;
@@ -114,6 +114,7 @@ text-align: left;
     display: flex;
     flex-direction:row ;
     gap : 0;
+    margin: 1rem
 
 
 }

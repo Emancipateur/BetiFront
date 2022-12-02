@@ -1,4 +1,4 @@
-import { useState , useEffect} from "react";
+import { useState } from "react";
 import CalendarChildren from './CalendarChildren'
 import {
   format,
@@ -119,11 +119,15 @@ const Calendar2 = ({  }) => {
   const renderHeader2 = () => {
     const dateFormat = "MMM yyyy";
 
-  
+    const nextMonth = addMonths(currentMonth, 1);
 
     // console.log("selected day", selectedDate);
     return (
       <div className="header row flex-middle">
+          <div className="col col-center monthMobile">
+          <span>{format(currentMonth, dateFormat)}</span>
+
+        </div>
           <div className="col col-start">
           <div className="icon" onClick={() => changeWeekHandle("prev")}>
           &lt; Semaine
@@ -137,18 +141,18 @@ const Calendar2 = ({  }) => {
           </div>
        
         </div>
-        <div className="col col-center monthMobile">
-          <span>{format(currentMonth, dateFormat)}</span>
-
-  
-
-        </div>
+       
       
         <div className="col col-end">
           <div className="icon" onClick={() => changeMonthHandle("next")}>Mois 	&gt;</div>
         </div>
         <div className="col col-end" onClick={() => changeWeekHandle("next")}>
           <div className="icon">	Semaine &gt;</div>
+          
+        </div>
+        <div className="col col-center monthMobile">
+          <span>{format(nextMonth, dateFormat)}</span>
+
         </div>
       </div>
       
@@ -163,7 +167,7 @@ const Calendar2 = ({  }) => {
     const days = [];
     let startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
     const options = { weekday: 'short', day: 'numeric' };
-    for (let i = 0; i < 28; i++) {
+    for (let i = 0; i < 40; i++) {
     
 
       days.push(
@@ -230,6 +234,7 @@ const Calendar2 = ({  }) => {
       <div className="calendar">
       {renderHeader2()}
       {/* {renderFooter()} */}
+      
       <div className="desktopRenderDays">
 
           {renderDays()}

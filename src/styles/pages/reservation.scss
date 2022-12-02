@@ -1,8 +1,18 @@
 .reservationContent{
     width: 100%;
-    margin: 2rem auto;
-    background: linear-gradient(to right, #134e5e, #71b280); 
+    margin:  auto;
+    background: $background-linear;
 overflow-x: hidden;
+
+h2{
+    color: $white;
+    font-family: 'Kaushan Script', cursive;
+ text-align: center;
+ margin: 0.5rem;
+
+ text-shadow: white 0px 0px 15px;
+ 
+}
 
 }
 .desktopRenderDays{
@@ -13,21 +23,54 @@ overflow-x: hidden;
     display: none;
 }
 
+iframe{
+ 
+    border: 2px solid black;
+    padding: 1rem;
+    // box-shadow:  white 0px 0px 5px;
+}
+
 .iframeDiv{
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    margin-left: 13%;
 
+    margin: 0 auto;
+    display: flex;
+flex-direction: column;
+    align-items: center;
+ gap: 1rem;
+
+.AnchorToHebergement{
+    display: flex;
+width: 100%;
+justify-content: center;
+gap: 0.5rem;
+    align-items: center;
+
+    h3{
+        font-size: 1.5em;
+        text-shadow: white 0px 0px 15px;
+        font-family: "Expletus Sans", cursive;
+    }
+    a{
+        font-size: 1.8rem;
+        font-family: 'Kaushan Script', cursive;
+        // text-decoration: none;
+        text-shadow: white 0px 0px 20px;
+
+        &:hover{
+color: black;
+        }
+    }
+}
 }
 
-.thumb{
-    width: 170px!important;
-}
+
+
+
+
 @media screen and(max-width:800px) {
     .reservationContent{
         width: 100%;
-        margin: 2rem auto;
+        margin: 0rem auto;
     }
     
     
@@ -43,6 +86,26 @@ overflow-x: hidden;
     .iframeDiv{
 
         margin-left: 0%
-    
+        
     }
+
+    .AnchorToHebergement{
+        flex-direction: column;
+      
+    }
+
+    div.carousel-root > div:nth-child(2){
+        display: none;
+    }
+      .carousel .slider-wrapper {
+          width: 99%;
+          transition: ease-in-out;
+      }
+  
+      .carousel-root{
+          border: none;
+          box-shadow: none;
+          background: none;
+      }
 }
+

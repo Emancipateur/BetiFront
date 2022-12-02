@@ -49,7 +49,6 @@ const center = {
         onLoad={onLoad}
         onUnmount={onUnmount}
         mapTypeId={"hybrid"}
-
         >
 
           <Marker position={{ lat: -21.562097, lng: 165.527937   }} />

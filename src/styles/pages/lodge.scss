@@ -1,11 +1,12 @@
 .logdeContent{
-   color : white;
+   color : $white;
  text-align: center;
    display: flex;
    justify-content: center;
    align-items: center;
   overflow-x: hidden;
-  background: linear-gradient(to right, #134e5e, #71b280);
+
+
 
 
   h4{
@@ -20,12 +21,12 @@
   }
 
 p{
-    background: linear-gradient(90deg, rgb(27, 26, 26) 50%, rgba(60,58,58,1) );
+  // background: linear-gradient(90deg, rgb(27, 26, 26) 50%, rgba(60,58,58,1) );
+  // box-shadow: 8px 5px 16px 4px #000000;
+  width: 80%;
 
-    color : white;
-     padding: 2rem;
-     width: 100%;
-     box-shadow: 8px 5px 16px 4px #000000;
+    color : $white;
+    //  padding: 2rem 0;
 }
 
 
@@ -36,7 +37,7 @@ p{
     width: 18px;
     height: 18px;
     background-color: red;
-    border: 2px solid #fff;
+    border: 2px solid $white;
     border-radius: 100%;
     user-select: none;
     transform: translate(-50%, -50%);
@@ -49,11 +50,10 @@ p{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-// background: rgba(0, 0, 0, 0.315);
+
 gap: 1rem;
-// font-size: 1.2rem;
-// padding: 1rem;
-color: white;
+
+color: $white;
 }
 
 .lodgeH1{
@@ -68,7 +68,7 @@ margin-top: 1rem;
     background: url('../../../public/assets/images/piscinenight.jpg')center/cover;  
     height: 400px;
     width: 100%;
-    border: 3px solid black;
+    // border: 3px solid black;
 
 }
 .imageTwoLodge{
@@ -96,7 +96,7 @@ margin-top: 1rem;
 
 }
 .lodgeWhereTofindUs{
-    display: flex;
+@include verticalCenter;
     flex-direction: column;
     gap: 1rem;
     // padding: 1rem;
@@ -106,9 +106,9 @@ margin-top: 1rem;
 
 @media screen and ( min-width : 800px )
 {
-.lodgeShadows{
-    // padding: 1rem;
-}
+
+  
+
     .flexImages{
 
         width: 100%;

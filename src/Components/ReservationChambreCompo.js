@@ -17,21 +17,16 @@ const [openDetails, setOpenDetails ] = useState(false)
 
                   
                 <div className="typeHebergement" id='Chambre'>
+                <div className="titleHebergement">
+
                     <h2 className='h2reservationCompo'>Chambre</h2>
-
-<CarouselReservation hebergement={'chambre'} />
-
-      
-                    <div className="descriptionTypeHebergement">
-                     
-<p>Cette élégante chambre climatisée dispose d'une terrasse offrant une jolie vue sur le jardin. Elle comprend une salle de bains privative</p>
-                        <br />
-                        <p><i class="fa-regular fa-square"></i>35  m²  </p>   
+                    <div className="descriptionLogoHebergement">  
+                               <p><i class="fa-regular fa-square"></i>35  m²  </p>   
                         <p> <i class="fa-solid fa-person"></i>2 + 1 Personnes  </p>
                         <p><i className="fa-solid fa-bed"></i>1 Lits      </p>       
                         <span className='iconsContainer'>          <div className="iconsPng doubleBed"></div><p>2 Lits Double</p></span>     
                    
-                        <p><i class="fa-solid fa-shower"></i>Salle de bains privative dans l'hébergement   </p>   
+                        <p><i class="fa-solid fa-shower"></i>Salle de bains privative   </p>   
                         <p><i class="fa-solid fa-temperature-arrow-down"></i>Climatisation  </p>   
                         <p><i class="fa-solid fa-tv"></i>Tv </p>       
                         <p><i class="fa-solid fa-wifi"></i>Wifi  </p>   
@@ -39,11 +34,22 @@ const [openDetails, setOpenDetails ] = useState(false)
               <span className='iconsContainer'>          <div className="iconsPng"></div><p>Terasse</p></span>
                         <p><i class="fa-regular fa-mountain-sun"></i>Vue sur le jardin  </p>   
                         <p><i class="fa-solid fa-person-swimming"></i>Piscine partagée  </p>   
-                        
+                     </div>
+</div>
+<CarouselReservation hebergement={'chambre'} />
+
+      
+                    <div className="descriptionTypeHebergement">
+                     
+<p>Cette élégante chambre climatisée dispose d'une terrasse offrant une jolie vue sur le jardin. Elle comprend une salle de bains privative</p>
+               
+               
+                        <br />
+             
       
                         </div>
    <div className="detailsContainer">
-      <button onClick={() => setOpenDetails(!openDetails)}>Voir {!openDetails ? 'plus ' : 'moins '}   de détails</button>     
+      <a  className='moreDetailLink' onClick={() => setOpenDetails(!openDetails)}>Voir {!openDetails ? 'plus ' : 'moins '}   de détails</a>     
       {openDetails ?
       <div className="moreDetailsFurnitures" >  
       <>
@@ -87,6 +93,7 @@ const [openDetails, setOpenDetails ] = useState(false)
     </>
     </div>  
 : null } 
+   <div className="reserverCompo"><a href="#iframe"> <button>Accéder à la réservation</button></a></div>
     </div>
 
 

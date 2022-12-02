@@ -1,34 +1,28 @@
-.typeHebergement{
+.typeHebergement {
+  border: 3px solid black;
+  box-shadow: 5px 5px 10px black;
+  border-radius: 12px;
+  margin: 2rem auto;
+  padding: 1rem;
+  // gap: 1rem;
+  color: $white;
+  display: grid;
+  width: 90%;
+  // width: 70%;
+  // margin: 1rem auto;
 
-    border: 3px solid black;
-    box-shadow: 5px 5px 10px black;
-    border-radius: 12px;
-    margin: 2rem;
-    padding: 1rem;
-    // gap: 1rem;
-    color: white;
-    display: grid;
-    // width: 70%;
-    // margin: 1rem auto;
+  grid-template-areas:
+    "header header  "
+    "image image"
+    "description description"
+    "plusdetails plusdetails";
 
-    grid-template-areas:
-    "header ."
-     "image description"
-     "image description"
-     "tarifsReservation tarifsReservation";
-    // grid-template-areas:
-    // "header image"
-    //  " description image "
-    //  "tarifsReservation plusdetails";
-     grid-template-columns: 1fr 1fr;
-     grid-template-rows: 35px 1fr 1fr;
-   
+  grid-template-columns: 1fr 1fr;
 
-     i{
-        margin-right: 1rem;
-        width: 25px;
-    }
- .carouselContentResa{
+  i {
+    width: 25px;
+  }
+  .carouselContentResa {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,183 +30,229 @@
     width: 100%;
     // box-shadow: 3px 19px 5px -9px rgba(0,0,0,0.75);
 
- 
-//  background: linear-gradient(to right, #134e5e, #71b280);
     margin: 0 auto;
-.indicators{
-    display: none;
-}
+    .indicators {
+      display: none;
+    }
 
-    .imageThreeHebergement{
-        width: 100%;
-
+    .imageThreeHebergement {
+      width: 100%;
     }
   }
 }
 
+.carousel .slider-wrapper {
+  width: 99%;
+//   border: 3px solid black;
 
-
-
-.carousel-root{
- padding-top: 1rem;
-    grid-area: image;
-    width: 100%;
-    max-width: 50vw;
-    margin: auto;
-//     border: 3px solid black;
-//    box-shadow: 5px 5px 10px black;
-//    border-radius: 12px;
+  border-radius: 12px;
 }
-    
-    .carousel .slider-wrapper {
-width: 99%;
-    }
-.titleHebergement{
-    grid-area: header;
-margin-left: 1rem;
-display: flex;
-
-align-items: center;
-gap: 1rem;
-
-
-p{
-    font-size: 1rem;
+.thumb {
+  width: 240px !important;
+  max-height: 180px;
 }
- 
-}
+.carousel .thumbs {
+  white-space: pre-wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.2rem;
+  background-size: contain;
 
-.h2reservationCompo{
-    font-family: "Kaushan Script";
-    font-size: 1.6rem;
-
-  
-}
-
-
-
-.descriptionTypeHebergement{
-   
-    grid-area: description;
-    // background-color: rgba(0, 0, 0, 0.287);
-    padding: 1.5rem;
-    font-family: "Kaushan Script";
-    font-size: 1.4rem;
-    border-radius: 12px;
-display: flex;
-padding-left: 5rem;
-margin-left: 5rem;
-align-items: flex-start;
-justify-content: center;
-flex-direction: column;
-text-align: center;
-
-}
-
-.detailsContainer{
-    
-    grid-area: plusdetails;
-    margin-top: 2rem;
-
-//   display: flex;
-//   flex-direction: column;
-//  align-items: center;
-//  gap: 1rem;
-
-  button{
-    cursor: pointer;
-    margin: 5px;
-    padding: 0.5rem;
-    background:  #044a5d; 
-    font-size: 1rem;
-color: white;
-border-radius: 12px;
-border : 2px solid $color-1;
-// border: none;
+  li {
+    @include verticalCenter;
+    border: none;
   }
-
-
 }
-.moreDetailsFurnitures{
-    grid-area: plusdetails;
-    padding: .5rem;
-    
+
+.carousel-root {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0 0 0;
+  grid-area: image;
+  width: 100%;
+  max-width: 60vw;
+  margin: auto;
+//   background-color: rgba(0, 0, 0, 0.178);
+//   border: 2px solid black;
+//   box-shadow: -2px -2px 5px black, 2px 2px 5px black;
+//   border-radius: 12px;
+
+  img {
     border-radius: 12px;
-    // background-color: rgba(0, 0, 0, 0.287);
-    display: flex;
-    justify-content: center;
-
-
-    li{
-        list-style: none;
-    }
-
-
+  }
 }
 
-.tarifsReservation{
-    grid-area: tarifsReservation;
+.titleHebergement {
+  grid-area: header;
+  margin: 0 1rem 1.5rem 1rem;
+  display: flex;
 
-}
+  flex-direction: column;
+  // flex-wrap: wrap;
 
-.iconsContainer{
+  align-items: center;
+  gap: 1rem 1rem;
+
+  .descriptionLogoHebergement {
     display: flex;
     gap: 1rem;
+ 
+  }
+  p {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
 }
 
-.iconsPng{
-    background: url('../../../public/assets/images/terrace.png')center/contain;  
-    background-repeat: no-repeat;
-    height: 23px;
-    width: 23px;
-
-filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(360deg) brightness(106%) contrast(103%);
+.h2reservationCompo {
+  font-family: "Kaushan Script";
+  font-size: 2.2rem;
 }
 
-.doubleBed{
-    background: url('../../../public/assets/images/doublebed.png')center/contain;  
+.descriptionTypeHebergement {
+  grid-area: description;
+  //   background: #FFF;
+  //   color: black;
+
+  padding: 1.5rem 6rem;
+
+  font-size: 1.2rem;
+  border-radius: 12px;
+}
+button {
+  cursor: pointer;
+  margin: 5px;
+  padding: 0.5rem;
+  background: #044a5d;
+  font-size: 1rem;
+  color: $white;
+  border-radius: 12px;
+  border: 2px solid $color-1;
+  // border: none;
+}
+.detailsContainer {
+  grid-area: plusdetails;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  ul {
+    margin: 1rem;
+  }
+  a {
+    font-size: 1rem;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  .moreDetailLink{
+    cursor: pointer;
+    padding: 0.3em;
+    border-bottom: 1px solid $color-1;
+  }
+}
+.moreDetailsFurnitures {
+  grid-area: plusdetails;
+  padding: 0.5rem;
+
+  border-radius: 12px;
+  // background-color: rgba(0, 0, 0, 0.287);
+  display: flex;
+  justify-content: center;
+
+  li {
+    list-style: none;
+  }
 }
 
+.iconsContainer {
+  display: flex;
+  gap: 1rem;
+}
 
+.iconsPng {
+  background: url("../../../public/assets/images/terrace.png") center/contain;
+  background-repeat: no-repeat;
+  height: 23px;
+  width: 23px;
+
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(360deg)
+    brightness(106%) contrast(103%);
+}
+
+.doubleBed {
+  background: url("../../../public/assets/images/doublebed.png") center/contain;
+}
 
 #checkIcon {
-    color: $color-1;
-    margin: 0;
+  color: $color-1;
+  margin: 0;
 }
 
 
-table{
-    body{
-        border:1px solid black;
-    }
-
-    td{
-        padding: .2rem 0.6rem;
-       
-    }
-}
 
 @media screen and(max-width:800px) {
-    .typeHebergement{
-        width: 100%;
-        margin: 2rem auto;
-        padding: 0;
-        display: grid;
-        // border: none;
-        // box-shadow: none;
-        gap: 0;
+  .typeHebergement {
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0;
+    display: grid;
+    // border: none;
+    // box-shadow: none;
+    gap: 0;
 
-    
-        grid-template-areas:
-        "header header"
-         "image image"
-         " description description"
-         " plusdetails plusdetails"
-         "tarifsReservation tarifsReservation ";
-         grid-template-columns: 1fr 1fr;
-    }
+    grid-template-areas:
+      "header header"
+      "image image"
+      " description description"
+      " plusdetails plusdetails"
+      "tarifsReservation tarifsReservation ";
+    grid-template-columns: 1fr 1fr;
+  }
 
-    .carousel .slider-wrapper {
-        width: 99%;
-    }
+
+  .descriptionLogoHebergement{
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  .detailsContainer {
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
+
+  .carousel-root{
+      max-width: 100%   ;
+  }
+  .carousel.carousel-slider .control-arrow {
+    top: 45%;
+    bottom: 51%;
+  }
+  .carousel .control-next.control-arrow:before {
+    border-left: 16px solid #fff;
+  }
+  .carousel.carousel-slider .control-arrow:before {
+    margin: 0 5px;
+    display: inline-block;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    content: "";
+  }
+  .carousel .control-prev.control-arrow:before {
+    border-right: 16px solid $white;
+  }
+
+
+  .detailsContainer{
+      gap: 1.5em;
+  }
+  .descriptionTypeHebergement {
+    padding: 1.5rem 1rem;
+}
+
 }

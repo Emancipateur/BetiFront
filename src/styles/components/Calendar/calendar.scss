@@ -29,9 +29,15 @@ background-color: lightblue
 
 .activeCalendar .ccc{
   background :linear-gradient(45deg, #787b7e 0%, #586468 40%);
-  color: white;
+  color: $white;
 
 
+}
+
+.displayMonth{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem;
 }
 
 
@@ -78,7 +84,7 @@ width: 100%;
   
   .col-start {
     justify-content: flex-start;
-    text-align: left;
+    text-align: center;
 
   }
   
@@ -89,24 +95,26 @@ width: 100%;
     justify-content: center;
     text-align: center;
     flex-wrap: wrap;
-  
+
     width: 20.14284%;
     font-size: 1em;
-
-
+span{
+  color :#238c95;
   }
+}
   
   .col-end {
     justify-content: flex-end;
-    text-align: right;
+    text-align: center;
   }
   
   /* Calendar */
   
   .calendar {
+    margin: auto;
     display: block;
     position: relative;
-    width: 100%;
+    width: 90%;
     background: var(--neutral-color);
 
     border: 1px solid var(--border-color);
@@ -118,6 +126,7 @@ width: 100%;
       // font-size: 115%;
     padding: 1.5em 0;
     border-bottom: 1px solid var(--border-color);
+
   }
   
   .calendar .header .icon {
@@ -148,7 +157,7 @@ width: 100%;
     // font-size: 70%;
     padding: 0.75em 0;
     // border-bottom: 1px solid var(--border-color);
-    width: 83%;
+    width: 91%;
  
 
   }
@@ -183,9 +192,6 @@ width: 100%;
   }
   .calendar .body .booked {
 
-    // background :linear-gradient(45deg, #787b7e 0%, #586468 40%); 
-    // color: white;
-    // border-image: linear-gradient(45deg, #787b7e 0%, #586468 40%);
     background :rgb(185, 170, 170);
     border-image-slice: 1;
     pointer-events: none
@@ -242,12 +248,16 @@ width: 100%;
   
   .calendar .body .col {
     flex-grow: 0;
-    flex-basis: calc(100% / 28);
-    width: calc(100% / 28);
+    flex-basis: calc(100% / 40);
+    width: calc(100% / 40);
   }
   
 
   @media screen and (max-width: 800px){
+
+    .calendar{
+      width: 100%;
+    }
     .calendar .body .col {
       flex-grow: 0;
       flex-basis: calc(100% / 7);

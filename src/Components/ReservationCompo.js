@@ -6,7 +6,7 @@ import CarouselReservation from './CarouselReservation';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const ReservationCompo = () => {
-const [openDetails, setOpenDetails ] = useState(true)
+const [openDetails, setOpenDetails ] = useState(false)
 
 
 
@@ -19,10 +19,25 @@ const [openDetails, setOpenDetails ] = useState(true)
             <div className="line"></div>
                   
                 <div className="typeHebergement" id='Villa'>
+
                     <div className="titleHebergement">
                     <h2 className='h2reservationCompo'>Villa</h2>
-                    <p> 3 Chambres avec Jacuzzi</p>
+          <div className="descriptionLogoHebergement">          <p><i class="fa-regular fa-square"></i>100  m²  </p>   
+                        <p> <i class="fa-solid fa-person"></i>6 + 3 Personnes  </p>
+                        <p><i className="fa-solid fa-bed"></i>3 Lits      </p>       
+                        <span className='iconsContainer'>          <div className="iconsPng doubleBed"></div><p>3 Lits Double</p></span>     
+                        <p><i class="fa-solid fa-kitchen-set"></i>Cuisine privative    </p>   
+                        <p><i class="fa-solid fa-temperature-arrow-down"></i>Climatisation  </p>   
+                        <p><i class="fa-solid fa-hot-tub-person"></i>Jacuzzi  </p>   
+                        <p><i class="fa-solid fa-tv"></i>Tv </p>       
+                        <p><i class="fa-solid fa-wifi"></i>Wifi  </p>   
+              <span className='iconsContainer'>          <div className="iconsPng"></div><p>Terasse</p></span>
+                        <p><i class="fa-regular fa-mountain-sun"></i>Vue sur le jardin  </p>   
+                        <p><i class="fa-solid fa-person-swimming"></i>Piscine partagée  </p>   
+                        {/* <p><i class="fa-solid fa-shower"></i>Salle de bains privative dans l'hébergement   </p>  */}</div>
+            
                     </div>
+                    
 
 <CarouselReservation hebergement={'villa'}/>
 
@@ -30,30 +45,21 @@ const [openDetails, setOpenDetails ] = useState(true)
                     <div className="descriptionTypeHebergement">
                      
 
-                        <p>Chaque mini villa permet de réserver une chambre de 35 mètres carrés, accueillant deux personnes, (trois avec un lit d'appoint) </p>
-                        <p>et une suite de 65 mètres carrés, avec cuisine, salon et bureau, accueillant jusqu'à quatre personnes (six avec deux lits d'appoint).</p>
+                        <p>Chaque mini villa permet de réserver une chambre de 35 mètres carrés, accueillant deux personnes, (trois avec un lit d'appoint)
+                       et une suite de 65 mètres carrés, avec cuisine, salon et bureau, accueillant jusqu'à quatre personnes (six avec deux lits d'appoint).</p>
                         <br />
-                        <p><i class="fa-regular fa-square"></i>100  m²  </p>   
-                        <p> <i class="fa-solid fa-person"></i>6 + 3 Personnes  </p>
-                        <p><i className="fa-solid fa-bed"></i>3 Lits      </p>       
-                        <span className='iconsContainer'>          <div className="iconsPng doubleBed"></div><p>3 Lits Double</p></span>     
-                        <p><i class="fa-solid fa-tv"></i>Tv </p>       
-                        <p><i class="fa-solid fa-kitchen-set"></i>Cuisine privative    </p>   
-                        <p><i class="fa-solid fa-temperature-arrow-down"></i>Climatisation  </p>   
-                        <p><i class="fa-solid fa-wifi"></i>Wifi  </p>   
-                        <p><i class="fa-solid fa-hot-tub-person"></i>Jacuzzi  </p>   
-                        <p><i class="fa-regular fa-mountain-sun"></i>Vue sur le jardin  </p>   
-                        <p><i class="fa-solid fa-person-swimming"></i>Piscine partagée  </p>   
-              <span className='iconsContainer'>          <div className="iconsPng"></div><p>Terasse</p></span>
-                        <p><i class="fa-solid fa-shower"></i>Salle de bains privative dans l'hébergement   </p>   
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab aperiam ea, nulla quibusdam sit maiores modi blanditiis animi facere maxime, dicta, unde ducimus? Quod quos rerum ab adipisci eum delectus odio at magni placeat! Voluptates cum iste earum maxime, culpa aliquam magnam ut, ducimus debitis odio aperiam, beatae molestias fugiat. Asperiores possimus neque aperiam dolores? Maiores consectetur omnis odit amet?</p>
+                
                         
       
               </div>
    <div className="detailsContainer">
-      <button onClick={() => setOpenDetails(!openDetails)}>Voir {!openDetails ? 'plus ' : 'moins '}   de détails</button>     
+  
+      <a className='moreDetailLink' onClick={() => setOpenDetails(!openDetails)}>Voir {!openDetails ? 'plus ' : 'moins '}   de détails</a>     
       {openDetails ?
       <div className="moreDetailsFurnitures" >  
       <>
+  
 <ul>
     <li> <i id='checkIcon' class="fa-solid fa-check" ></i>Bain à remous</li>
 
@@ -98,7 +104,8 @@ const [openDetails, setOpenDetails ] = useState(true)
     </ul>
     </>
     </div>  
-: null}
+    : null}
+ <div className="reserverCompo"><a href="#iframe"><button> Accéder à la réservation</button></a></div>
     </div>
 
             </div>

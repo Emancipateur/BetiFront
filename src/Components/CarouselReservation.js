@@ -10,6 +10,9 @@ if(hebergement === "villa"){
       showStatus={false}
       preventMovementUntilSwipeScrollTolerance={true}
       swipeScrollTolerance={80}
+      infiniteLoop={true}
+      showIndicators={false}
+      dynamicHeight={true}
 
     >
       <div>
@@ -40,6 +43,10 @@ if(hebergement === "villa"){
     <Carousel
     showStatus={false}
     preventMovementUntilSwipeScrollTolerance={true}
+    swipeScrollTolerance={80}
+    infiniteLoop={true}
+    showIndicators={false}
+    dynamicHeight={true}
   >
     <div>
       <img alt="" src={process.env.PUBLIC_URL + "/assets/images/room.jpg"} />
@@ -47,6 +54,7 @@ if(hebergement === "villa"){
     <div>
       <img alt="" src={process.env.PUBLIC_URL + "/assets/images/terrasseRoom.jpg"} />
     </div>
+  
 
   </Carousel>
     )

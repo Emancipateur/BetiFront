@@ -33,7 +33,7 @@ useEffect(() => {
 
     <div className="portfolio">
 
-    <div className="image active" style={{backgroundImage: "url(./assets/images/lodgeviewfar.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
+    <div className="image active" style={{backgroundImage: "url(./assets/images/uh4.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
       <div className="text-container">
       <NavLink to='/lodge'>
         <div className="text">

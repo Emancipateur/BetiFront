@@ -5,12 +5,13 @@
     background-repeat: no-repeat;
     height: 350px;
     width: 100%;
+    margin-top: 0rem;
 }
 
 .imageTwoHebergement{
 
 
-    background: url('../../../public/assets/images/room.jpg')center/contain;  
+    background: url('../../../public/assets/images/room.jpg')center/cover;  
     background-repeat: no-repeat;
     height: 350px;
     width: 100%
@@ -22,7 +23,7 @@
     height: 350px;
     width: 100%
 }
-.imageForHebergement{
+.imageSixHebergement{
 
 
     background: url('../../../public/assets/images/1.jpg')center/cover;  
@@ -32,21 +33,40 @@
 .imageFiveHebergement{
 
 
-    background: url('../../../public/assets/images/jacuzzi2.jpg')center/cover;
+    background: url('../../../public/assets/images/roomext.jpg')center/cover;
     height: 350px;
     width: 100%
 }
-.imageSixHebergement{
+.imageForHebergement{
 
 
     background: url('../../../public/assets/images/cuisine.jpg')center/cover;  
     height: 350px;
     width: 100%
 }
-.imageSevenHebergement{
+.imageSixHebergement{
 
 
     background: url('../../../public/assets/images/suite.jpg')center/cover;  
+    height: 350px;
+    width: 100%
+}
+.imageSevenHebergement{
+
+
+    background: url('../../../public/assets/images/ext4.jpg')center/cover;  
+    height: 350px;
+    width: 100%
+}
+.imageEightHebergement{
+
+    background: url('../../../public/assets/images/extview.jpg')center/cover;  
+    height: 350px;
+    width: 100%
+}
+.imageNineHebergement{
+
+    background: url('../../../public/assets/images/horse1.jpg')center/cover;  
     height: 350px;
     width: 100%
 }
@@ -56,26 +76,29 @@
 
 .hebergement{
   
-    background: linear-gradient(to right, #134e5e, #71b280); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: $background-linear;
 
 
-.herbergementContent{
+.hebergementContent{
 
 
     text-align: center;
       display: flex;
-      flex-direction: column;
+    flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
       gap: 1rem;
-    //   font-size: 1.4rem;    
 
-    color: white;
+   
+    color: $white;
+
+    grid-template-areas: 
+    "image1 image2  "
+;
 
 .wrapperImage{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     width: 100%;
 
@@ -88,8 +111,8 @@
    p{
        padding: 1rem 1rem;
        margin: 1rem 0rem 0 0;
-       background: linear-gradient(90deg, rgba(82,79,79,1) 22%, rgba(60,58,58,1) 85%);
-       background: rgb(27, 26, 26);
+    //    background: linear-gradient(90deg, rgba(82,79,79,1) 22%, rgba(60,58,58,1) 85%);
+    //    background: rgb(27, 26, 26);
    }
 
   
@@ -115,9 +138,17 @@
         
 
     }
+
+    .boisNoir{
+
+        width: 80%;
+        @include verticalCenter;
+        flex-direction: column;
+    }
         .no-smoking{
             display: flex;
             align-items: center;
+       
         background: url('../../../public/assets/images/no-smoking.png')center/cover;  
         height: 30px;
         width: 30px;
@@ -126,32 +157,41 @@
        
        }
 
+       .handiIcon{
+        background: url('../../../public/assets/images/handi.png')center/cover;  
+        height: 40px;
+        width: 40px;
+       }
+
        
     @media screen and ( min-width : 800px )
     {
-.herbegement{
+.hebergement{
     margin: 0rem 3rem;
-    background: linear-gradient(90deg, rgba(40,172,182,1) 10%, rgba(40,182,104,1) 22%, rgba(40,182,104,1) 78%, rgba(40,172,182,1) 90%);
-
+.hebergementContent{
+    gap: 1rem;
 }
+}
+
+
 
 .wrapperImage{
     // background:url('../../../public/assets/images/bg.jpg');
-    border: 3px solid black;
+    // border: 3px solid black;
+    // box-shadow: 8px 5px 16px 4px #000000;
      
       display: flex;
-      justify-content: center;
-      width: 80%;
-      box-shadow: 8px 5px 16px 4px #000000;
+    //   justify-content: center;
+      width: 29%;
+   
   }
 
   p{
-    padding: 1rem 3rem;
-    margin: 1rem 0 0 0;
-    color : wheat;
-font-size: 1.2rem;
-    background: linear-gradient(90deg, rgba(82,79,79,1) 22%, rgba(60,58,58,1) 85%);
-    
+    padding: 1rem 1rem;
+    margin: 1rem 0 0.5rem 0;
+    color : $white;
+font-size: 1.3rem;
+
     width: 100%;
   
 }   
@@ -161,61 +201,94 @@ font-size: 1.2rem;
             // height: 800px;
             display: flex;
             flex-direction: row;
-            align-items: flex-start;
+            // align-items: flex-start;
        
         
         }
 
 
-            .imageOneHebergement,.imageTwoHebergement,.imageThreeHebergement,.imageForHebergement,.imageFiveHebergement,.imageFiveHebergement,.imageSixHebergement,.imageSevenHebergement{
+            .imageOneHebergement,.imageTwoHebergement,.imageThreeHebergement,.imageForHebergement,.imageFiveHebergement,.imageFiveHebergement,.imageSixHebergement,.imageSevenHebergement,.imageEightHebergement,.imageNineHebergement{
                 background-repeat: no-repeat;
-                // border-radius: 24px;
-  background-size: contain;
-  height: 900px;
+                border-radius: 12px;
+  background-size: cover;
+//   height: 450px;
   width: 100%;
 
         }
-        .imageOneHebergement{
-    
-            height: 600px;
-            // width: 80%
+
+        .wrapperImage1{
+            max-height: 500px;
+            grid-area: image1;
         }
-        .imageTwoHebergement{
-    
-    
-    
-            height: 602px;
-            // width: 80%
+        .wrapperImage2{
+    margin-top: 4rem;
         }
-        .imageThreeHebergement{
+        .wrapperImage3{
+    margin-top: 7rem;
+        }
+        .wrapperImage4{
+    margin-top: -8rem;
+        }
+        .wrapperImage5{
+    margin-top: -4rem;
+        }
+        .wrapperImage6{
+    margin-top: 0rem;
+        }
+        .wrapperImage7{
+    margin-top: -14rem;
+        }
+        .wrapperImage8{
+    margin-top: -7rem;
+        }
+        .wrapperImage9{
+    margin-top: 0rem;
+        }
+        // .imageOneHebergement{
+ 
+        //     height: 450px;
+          
+        //     // width: 80%
+        // }
+        // .imageTwoHebergement{
+
+       
+        //     height: 452px;
+        //     // width: 80%
+        // }
+        // .imageThreeHebergement{
     
     
         
-            height: 798px;
-            // width: 80%
-        }
-        .imageForHebergement{
+        //     height: 598px;
+        //     // width: 80%
+        // }
+        // .imageForHebergement{
     
-            height: 602px;
-            // width: 80%
-        }
-        .imageFiveHebergement{
+        //     height: 602px;
+        //     // width: 80%
+        // }
+        // .imageFiveHebergement{
     
-            height: 1080px;
-            // width: 80%
-        }
-        .imageSixHebergement{
+        //     height: 1080px;
+        //     // width: 80%
+        // }
+        // .imageSixHebergement{
     
     
         
-            height: 681px;
-            // width: 80%
-        }
-        .imageSevenHebergement{
+        //     height: 681px;
+        //     // width: 80%
+        // }
+        // .imageSevenHebergement{
     
-            height: 681px;
-            // width: 80%
-        }
+        //     height: 681px;
+        //     // width: 80%
+        // }
      
     }
-}}
+}
+
+
+
+}
