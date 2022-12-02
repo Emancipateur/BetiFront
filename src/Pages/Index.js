@@ -3,6 +3,8 @@ import React , { useEffect} from 'react'
 
 import NavBar from '../Components/Navigation2'
 import Footer from '../Components/Footer'
+import Prestations from '../Pages/Prestations'
+import Lodge from '../Pages/Lodge'
 import { NavLink } from "react-router-dom";
 
 
@@ -33,7 +35,10 @@ useEffect(() => {
 
     <div className="portfolio">
 
-    <div className="image active" style={{backgroundImage: "url(./assets/images/uh4.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
+    <div className="image active" >
+  <Lodge />
+      </div>
+    {/* <div className="image active" style={{backgroundImage: "url(./assets/images/uh4.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
       <div className="text-container">
       <NavLink to='/lodge'>
         <div className="text">
@@ -42,9 +47,9 @@ useEffect(() => {
     
         </div>
       </NavLink>
-      </div>
+            </div>
+      </div> */}
         
-    </div>
     <div className="image " style={{backgroundImage:  "url(./assets/images/2.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
       <div className="text-container">
       <NavLink to='/hebergement'>
@@ -91,17 +96,12 @@ useEffect(() => {
         </NavLink>
       </div>
     </div>
-    <div className="image " style={{backgroundImage: "url(./assets/images/3.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
-      <div className="text-container">
-        <div className="text">
-          <h3>Lorem ipsum</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-        </div>
-      </div>
+    <div className="image ">
+     <Prestations />
     </div>
 
-
   </div>
+<Footer />
 
 
 

@@ -155,7 +155,7 @@ Transport possible, renseignements à la réception.</p>
 
   return (
     <div className="prestation">
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="prestationContent">
         <h1>Prestations</h1>
 
@@ -180,7 +180,7 @@ Transport possible, renseignements à la réception.</p>
        
         </Carousel>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

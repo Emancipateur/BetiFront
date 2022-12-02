@@ -25,8 +25,11 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     scroll-behavior: smooth;
+    
   }
-
+::-webkit-scrollbar-thumb {
+    background-color: blue;
+  }
   h1{
     @include verticalCenter;
     margin: 1rem auto;
@@ -45,7 +48,7 @@
     body::before {
       content: '';
 
-  // background: $background-linear;
+  background: $background-linear;
  
   position: absolute;
 
