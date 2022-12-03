@@ -1,7 +1,12 @@
 .restauration{
 
 
-background: linear-gradient(to bottom, #134e5e, #71b280); 
+// background: linear-gradient(to bottom, #134e5e, #71b280); 
+background: $background-linear;
+
+p{
+    font-size: 1.2em;
+}
 
     .restaurationContent{
 
@@ -26,7 +31,7 @@ background: linear-gradient(to bottom, #134e5e, #71b280);
   }
 
   .blueText{
-      color :#61dafb
+      color : $white
   }
 
   ul li::before {

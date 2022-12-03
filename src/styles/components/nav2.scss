@@ -12,6 +12,8 @@
   
   .navbar {
     background-color: #1f5156;
+    background-color:#897F68;
+    background-color:#777061;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -46,11 +48,12 @@
   .nav-logo {
     color: $white;
     align-items: center;
+      text-shadow: white 0px 0px 20px;
     margin-left: 20px;
     cursor: pointer;
     text-decoration: none;
-    font-size: 2rem;
-    flex-grow: 1;
+    font-size: 2.7rem;
+    // flex-grow: 1;
   }
   
   .nav-menu {
@@ -164,8 +167,8 @@ padding-left: 5.5rem;
 
     .logo{
 
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
   }
 
   

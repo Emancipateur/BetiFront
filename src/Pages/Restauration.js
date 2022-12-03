@@ -6,7 +6,7 @@ import NavBar from '../Components/Navigation2'
 function Restauration() {
   return (
   <div className="restauration">
-    <NavBar />
+
     <div className="restaurationContent">
       <h1>Restauration</h1>
     
@@ -44,8 +44,8 @@ Cette approche « table d’hôtes » permet de concilier l’utilisation de pro
 
   
     </div>
+<Footer />
 
-    <Footer />
   </div>
   )
 }

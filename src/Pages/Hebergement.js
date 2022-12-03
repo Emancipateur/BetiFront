@@ -7,7 +7,7 @@ import Footer from '../Components/Footer'
 function Hebergement() {
   return (
       <div className="hebergement">
-<Navigation />
+{/* <Navigation /> */}
 <h1>Suites et chambres</h1>
 <div className="hebergementContent">
 

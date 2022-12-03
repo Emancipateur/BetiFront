@@ -1,12 +1,20 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
-
+import $ from 'jquery'
 function NavBar() {
     const [click, setClick] = React.useState(false);
   
     const handleClick = () => setClick(!click);
     const Close = () => setClick(false);
-    
+  
+
+    const changeClass = (a) => {
+      $(".image").removeClass("active");
+      $(a).addClass("active");
+      $(".image").scrollTop(0);
+    }
+
+
     return (
       <div>
           
@@ -14,66 +22,69 @@ function NavBar() {
         <nav className="navbar" onClick={e => e.stopPropagation()}>
           <div className="nav-container" id='nav-container'>
           <div className="logo" style={{backgroundImage: "url(./assets/images/logo.png)",backgroundPosition: "center" , backgroundSize: "cover"}}></div>
-            <NavLink  to="/" className="nav-logo">
+            <a href="/"  className="nav-logo">
          <span style={{fontFamily: '    Kaushan Script',  }}>Betikure Parc Lodge</span> 
              {/* <i className="fa fa-code"></i> */}
-            </NavLink>
-            <ul className={click ? "nav-menu active" : "nav-menu"}>
+            </a>
+            {/* <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
-                <NavLink
+                <a
               
-                  to="/"
+                  href="#lodge"
                   activeclassname="active"
                   className="nav-links"
-                  onClick={click ? handleClick : null}
+                  onClick={  () => changeClass('#lodge')}
                 >
                   Home
-                </NavLink>
+                </a>
               </li>
          
               <li className="nav-item">
-                <NavLink
+                <a
              
-                  to="/lodge"
+             onClick={  () => changeClass('#lodge')}
+                  href="#lodgeInfo"
                   activeclassname="active"
-                  className="nav-links"
-                  onClick={click ? handleClick : null}
+            
+          
                 >
                   Le lodge
-                </NavLink>
+                </a>
               </li>
+
+         
               <li className="nav-item">
-                <NavLink
+                <a
         
-                  to="/hebergement"
+                  href="#hebergementInfo"
                   activeclassname="active"
                   className="nav-links"
-                 onClick={click ? handleClick : null}
+                 onClick={() => changeClass('#hebergement')}
                 >
                   Hébergement
-                </NavLink>
+                </a>
               </li>
               <li className="nav-item">
-                <NavLink
+                <a
               
-                  to="/restauration"
+                  href="#restaurationInfo"
                   activeclassname="active"
                   className="nav-links"
-                  onClick={click ? handleClick : null}
+                  onClick={() => changeClass('#restauration')}
                 >
                   Restauration
-                </NavLink>
+                </a>
               </li>
               <li className="nav-item">
-                <NavLink
+                <a
              
-                  to="/prestations"
+                  href="#prestationsInfo"
              activeclassname="active"
                   className="nav-links"
-                 onClick={click ? handleClick : null}
+                 onClick={() => changeClass('#prestations')}
                 >
                   Prestations
-                </NavLink>
+                </a>
               </li>
               <li className="nav-item">
                 <NavLink
@@ -87,13 +98,13 @@ function NavBar() {
                 </NavLink>
               </li>
               <div className="navDetails"  onClick={handleClick}><span>Bourail - Nouvelle Calédonie</span></div>
-            </ul>
+            </ul> */}
             <div className="nav-icon" onClick={handleClick}>
               <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
             </div>
           </div>
         </nav>
-        <div className="line"></div>
+        {/* <div className="line"></div> */}
       </ div>
       
     );

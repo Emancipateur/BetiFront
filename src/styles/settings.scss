@@ -10,6 +10,7 @@
   $black:  #282c34;
   $white: rgb(243, 243, 243);
   $background-linear :  linear-gradient(to right, #134e5e, #71b280);
+  $background-linear :  #897f68d8;
 
  
   
@@ -24,15 +25,24 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    scroll-behavior: smooth;
+    
+    // scroll-behavior: smooth;
     
   }
+::-webkit-scrollbar{
+width: 15px;
+}
 ::-webkit-scrollbar-thumb {
-    background-color: blue;
-  }
+  background-color: $white;
+  outline: 1px solid slategrey;
+}
+
+::-webkit-scrollbar-button {
+
+}
   h1{
     @include verticalCenter;
-    margin: 1rem auto;
+    margin: 0rem auto;
     padding-bottom: 0.5rem;
     color: $white;
     border-bottom: 5px solid   $white;
@@ -40,7 +50,9 @@
     font-family: 'Kaushan Script', cursive;
     
   }
-  
+  p{
+    font-size: 1.2em;
+  }
 
   a{
       color: $white;
@@ -49,6 +61,7 @@
       content: '';
 
   background: $background-linear;
+  background: $white;
  
   position: absolute;
 

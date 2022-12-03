@@ -4,7 +4,7 @@ import { GoogleMap, useJsApiLoader, Marker} from '@react-google-maps/api';
 import Footer from '../Components/Footer';
 
 const containerStyle = {
-  width: '99vw',
+  width: '45vw',
   height: '400px',
 };
 
@@ -44,16 +44,19 @@ const center = {
     }, [])
   
     return isLoaded ? (
-        <GoogleMap
+      <div className="mapGoogle">    <GoogleMap
         mapContainerStyle={containerStyle}
         onLoad={onLoad}
         onUnmount={onUnmount}
-        mapTypeId={"hybrid"}
+      
+        // mapTypeId={"hybrid"}
+        // mapTypeId={"plan"}
         >
 
           <Marker position={{ lat: -21.562097, lng: 165.527937   }} />
           <></>
-        </GoogleMap> 
+        </GoogleMap> </div>
+    
 
     ) : <></>
   }
@@ -64,7 +67,7 @@ function Lodge() {
   return (
 
     <div>
-<NavBar/>
+{/* <NavBar/> */}
 
 <div className="logdeContent">
 <div className="lodgeShadows">

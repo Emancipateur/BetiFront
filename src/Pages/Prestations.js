@@ -168,6 +168,7 @@ Transport possible, renseignements à la réception.</p>
         </p>
 
         <Carousel>
+          <CarouselItem>{golf}</CarouselItem>
         <CarouselItem>{kite}</CarouselItem>
           <CarouselItem>{jet}</CarouselItem>
           <CarouselItem>{kayak}</CarouselItem>
@@ -175,12 +176,11 @@ Transport possible, renseignements à la réception.</p>
   
         
           <CarouselItem>{snorkeling}</CarouselItem>
-          <CarouselItem>{golf}</CarouselItem>
         
        
         </Carousel>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

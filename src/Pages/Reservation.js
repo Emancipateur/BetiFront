@@ -8,7 +8,6 @@ import Footer from '../Components/Footer'
 const Reservation = () => {
 
   
-<iframe style="border-style:none; width:100%; height:1000px;" src="https://manava.abricode.fr/rest/iframe_resa_grp.php?code_ext=zYRota6aQe8ILZQ42&secure_key=f17a2c13249da1451ded715293e3ed89&nb_mois=6"></iframe>
  
 
     return (
@@ -29,7 +28,8 @@ const Reservation = () => {
 
             <iframe  id='iframe'style={{borderStyle:"none", width:"85%", height:"650px", background:"#FFF"}}  src={"https://manava.abricode.fr/rest/iframe_resa_grp.php?code_ext=zYRota6aQe8ILZQ42&secure_key=f17a2c13249da1451ded715293e3ed89&calendrier=0"}></iframe>
 
-            <div className="AnchorToHebergement"> 
+            </div>
+            {/* <div className="AnchorToHebergement"> 
             <h3>Plus de détails sur nos hébergements  : </h3>
             <br />
                 <a href="#Villa">Villa</a>    
@@ -37,13 +37,12 @@ const Reservation = () => {
       <a href="#Chambre">Chambre</a>
 </div>
  
-            </div>
        
      
         
             <br />
             <ReservationCompo />
-     <ReservationChambreCompo />
+     <ReservationChambreCompo /> */}
         </div>
      <Footer />
         </div>

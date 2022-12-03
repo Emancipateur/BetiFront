@@ -31,30 +31,31 @@
     cursor: pointer;
     margin: 5px;
     padding: 0.7rem;
-    background:  #044a5d; 
+    background:  #777061;
     font-size: 1rem;
 color: $white;
 border-radius: 12px;
-border : 1px solid $white;
+border : 1px solid $black;
 border: none;
+margin-top: 2rem;
   }
   
   .indicators > button:hover{
     cursor: pointer;
-    margin: 5px;
-    padding: 0.5rem;
-    background:  #0285aa; 
+
+ 
+    // background:  #0285aa; 
     font-size: 1rem;
 color: $white;
 border-radius: 12px;
-border : 1px solid $white;
+border : 4px solid $black;
 border: none;
   }
   
   .indicators > button.active {
-background-color:     rgb(17, 16, 16);  
+// background-color:     rgb(17, 16, 16);  
     color:  white;
-    border: #044a5d 1px solid;
+    border: $black 1px solid;
   }
   
   .carouselContent{
@@ -65,6 +66,7 @@ background-color:     rgb(17, 16, 16);
     width: 100%;
     height: 500px;
  background: linear-gradient(to right, #134e5e, #71b280);
+ background: $background-linear;
     margin: 0 auto;
 
   }
