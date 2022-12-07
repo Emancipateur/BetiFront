@@ -248,7 +248,6 @@ const Calendar2 = ({  }) => {
 {hebergememts.map((unite, index ) => {
   
   const villa = unite.filter((v) =>  v.typeHebergementCode === "VILLA")
-
   const suite = unite.filter((v) =>  v.typeHebergementCode === "SUITE")
   const chambre = unite.filter((v) =>  v.typeHebergementCode === "CHAMBRE")
   

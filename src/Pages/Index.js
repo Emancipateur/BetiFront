@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import React , { useEffect, useRef} from 'react'
+import React , { useEffect, useRef, useState} from 'react'
 
 import NavBar from '../Components/Navigation2'
 import Footer from '../Components/Footer'
@@ -13,41 +13,87 @@ import { NavLink } from "react-router-dom";
   
 
 function Index() {
-// useEffect(() => {
-//   if (window.screen.width <= 1024) {
-//     document.location = "./mobile";
-//     }
 
-
-// }, [])
 
 
 
 useEffect(() => {
-  $(".image").click(function(){
+  $(".image").click(function(e){
     if($(this).hasClass('active')){
- 
-
-
+      
     }else{
+     
       $(".image").removeClass("active");
       $(this).addClass("active")
       $(".image").scrollTop(0);
+      SetScrollOff(true)
     }
-
-
-  
   })
 
 }, [])
 
-
-
+const [scrollOff, SetScrollOff] = useState(true)
 const myRef = useRef(null)
-const myRef2 = useRef(null)
+
 const myRefHebergement = useRef(null)
 const myRefRestauration = useRef(null)
 const myRefPrestation = useRef(null)
+
+const myRefT = useRef(null)
+
+const myRefHebergementT = useRef(null)
+const myRefRestaurationT = useRef(null)
+const myRefPrestationT = useRef(null)
+const myRefReservationT = useRef(null)
+
+const hoverEffect = () => {
+
+    const interval = setTimeout(() => {
+      myRefT.current.style.opacity = 1
+    
+    
+    }, 500);
+  setTimeout(() => {
+      myRefT.current.style.opacity =""
+      myRefHebergementT.current.style.opacity = 1
+    }, 1000);
+
+ 
+  setTimeout(() => {
+    myRefHebergementT.current.style.opacity = ""
+
+    myRefRestaurationT.current.style.opacity = 1
+    }, 1500);
+
+ 
+  setTimeout(() => {
+    myRefRestaurationT.current.style.opacity = ""
+    myRefPrestationT.current.style.opacity = 1
+    }, 2000);
+
+ 
+  setTimeout(() => {
+    myRefPrestationT.current.style.opacity =""
+    myRefReservationT.current.style.opacity =1
+
+
+    }, 2500);
+  setTimeout(() => {
+
+    myRefReservationT.current.style.opacity =""
+
+    }, 3000);
+
+
+ 
+  
+    return () => clearInterval(interval);
+}
+
+useEffect(() => {
+  hoverEffect()
+}, [])
+
 
   return (
     <>
@@ -55,23 +101,17 @@ const myRefPrestation = useRef(null)
     <NavBar/>
 
     <div className="portfolio" >
-    {/* <div className="image active " style={{backgroundImage: "url(./assets/images/uh4.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }} >
+    <div className="image active " onClick={() => hoverEffect()} style={{backgroundImage: "url(./assets/images/uh4.jpg)",backgroundPosition: "center" , backgroundSize: "cover" ,   overflowY: 'hidden'}} >
      <div className="titleOnglet">Accueil</div> 
     <div className="text-container" >
-      <a href='#lodgeInfo'>
-        <div className="text">
-     
-    
-    
-        </div>
-      </a>
+      
 
             </div> 
   
 
-    </div> */}
+    </div>
  
-    <div className="image active " onClick={ ()=> myRef.current.scrollIntoView() }   id='lodge' style={{backgroundImage: "url(./assets/images/lodgeviewfar.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }} >
+    <div className="image  " ref={myRefT} onClick={  ()=> myRef.current.scrollIntoView()  }   id='lodge' style={{backgroundImage: "url(./assets/images/lodgeviewfar.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }} >
       <div className="titleOnglet">Le Lodge</div>
     <div className="text-container" >
       <a href='#lodgeInfo'>
@@ -84,12 +124,12 @@ const myRefPrestation = useRef(null)
 
             </div>
       <div id="lodgeInfo"  ref={myRef}>  <Lodge /></div>
-
     </div>
+
  
 
         
-    <div className="image " onClick={ ()=> myRefHebergement.current.scrollIntoView() }  id='hebergement' style={{backgroundImage:  "url(./assets/images/2.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
+    <div className="image " ref={myRefHebergementT} onClick={  scrollOff ? ()=>  {myRefHebergement.current.scrollIntoView(); SetScrollOff(false)  } : null }  id='hebergement' style={{backgroundImage:  "url(./assets/images/2.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
     <div className="titleOnglet">Hébergement</div>
 
       <div className="text-container">
@@ -106,7 +146,7 @@ const myRefPrestation = useRef(null)
     </div>
 
 
-    <div className="image " onClick={ ()=> myRefRestauration.current.scrollIntoView() } id="restauration" style={{backgroundImage:  "url(./assets/images/restaurant4.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
+    <div className="image "ref={myRefRestaurationT} onClick={ ()=> myRefRestauration.current.scrollIntoView() } id="restauration" style={{backgroundImage:  "url(./assets/images/restaurant4.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
     <div className="titleOnglet">Restauration</div>
       <div className="text-container">
       <a href='#restaurationInfo'>
@@ -120,7 +160,7 @@ const myRefPrestation = useRef(null)
       </div>
       <div id="restaurationInfo" ref={myRefRestauration}><Restauration /></div>
     </div>
-    <div className="image " onClick={ ()=> myRefPrestation.current.scrollIntoView() } id='prestations'style={{backgroundImage: "url(https://media.ucpa.com/image/upload/f_auto/t_UCPA_Vertical/UCPA-SPORT-NATURE/International/00061665.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
+    <div className="image "ref={myRefPrestationT} onClick={ ()=> myRefPrestation.current.scrollIntoView() } id='prestations'style={{backgroundImage: "url(https://media.ucpa.com/image/upload/f_auto/t_UCPA_Vertical/UCPA-SPORT-NATURE/International/00061665.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
     <div className="titleOnglet">Prestations</div>
       <div className="text-container">
       <a href='#prestationsInfo'>
@@ -134,7 +174,7 @@ const myRefPrestation = useRef(null)
       </div>
       <div id="prestationsInfo" ref={myRefPrestation}>  <Prestations /></div>
     </div>
-    <div className="image" style={{backgroundImage: "url(./assets/images/1.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
+    <div className="image"  ref={myRefReservationT} style={{backgroundImage: "url(./assets/images/1.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
     <div className="titleOnglet">Réservation</div>
       <div className="text-container">
       <NavLink to='/reservation'>

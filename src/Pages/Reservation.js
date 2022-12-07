@@ -1,6 +1,7 @@
 import React from 'react';
 import Calendar from '../Components/Calendar/Calendar'
 import NavBar from '../Components/Navigation2';
+import CarouselReservation from '../Components/CarouselReservation';
 import ReservationCompo from '../Components/ReservationCompo';
 import ReservationChambreCompo from '../Components/ReservationChambreCompo';
 import Calendar2 from '../Components/Calendar/Calendar2';
@@ -26,9 +27,10 @@ const Reservation = () => {
             <div className="iframeDiv" id="iframe">
             {/* <iframe  id='iframe'style={{borderStyle:"none", width:"100%", height:"1200px", background:""}}  src={"https://manava.abricode.fr/rest/iframe_resa_grp.php?code_ext=zYRota6aQe8ILZQ42&secure_key=f17a2c13249da1451ded715293e3ed89&calendrier=0"}></iframe> */}
 
-            <iframe  id='iframe'style={{borderStyle:"none", width:"85%", height:"650px", background:"#FFF"}}  src={"https://manava.abricode.fr/rest/iframe_resa_grp.php?code_ext=zYRota6aQe8ILZQ42&secure_key=f17a2c13249da1451ded715293e3ed89&calendrier=0"}></iframe>
+            <iframe  id='iframe'style={{borderStyle:"none", width:"100%", height:"650px", background:"#897f68d8;"}}  src={"https://manava.abricode.fr/rest/iframe_resa_grp.php?code_ext=zYRota6aQe8ILZQ42&secure_key=f17a2c13249da1451ded715293e3ed89&calendrier=0"}></iframe>
 
             </div>
+
             {/* <div className="AnchorToHebergement"> 
             <h3>Plus de détails sur nos hébergements  : </h3>
             <br />

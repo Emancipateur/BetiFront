@@ -14,7 +14,7 @@
     background-color: #1f5156;
     background-color:#897F68;
     background-color:#777061;
-    height: 80px;
+    height: 9vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,6 +22,7 @@
     position: sticky;
     top: 0;
     z-index: 20;
+    border-bottom: 2px solid black;
     // margin: 0rem 1rem 1rem 1rem;
   }
 

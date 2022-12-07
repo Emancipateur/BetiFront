@@ -7,13 +7,16 @@ const CarouselReservation = ({ hebergement }) => {
 if(hebergement === "villa"){
   return (
     <Carousel
+   
       showStatus={false}
       preventMovementUntilSwipeScrollTolerance={true}
       swipeScrollTolerance={80}
       infiniteLoop={true}
       showIndicators={false}
       dynamicHeight={true}
-
+ 
+      showThumbs={true}
+    
     >
       <div>
         <img alt="" src={process.env.PUBLIC_URL + "/assets/images/2.jpg"} />

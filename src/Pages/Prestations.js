@@ -81,8 +81,7 @@ Matériel non fourni</p>
 
   {/* <div className="carouselDetails"> */}
       <p>Le seul beach break de Nouvelle-Calédonie se trouve à la roche percée (à 10 minutes de voiture de Betikure).
-Il est possible de louer du matériel sur place.</p>
-<p>
+Il est possible de louer du matériel sur place.
 D'autres spots au large sont accessibles par bateau (pour surfers de bon niveau).
 Transport possible, renseignements à la réception.</p>
 {/* </div> */}
@@ -106,8 +105,8 @@ Transport possible, renseignements à la réception.</p>
         }}
       ></div>
 
-      <p>En mer ou en rivière</p>
-      <p>Location et transport possible</p>
+      <p>En mer ou en rivière , 
+    location et transport possible</p>
    
     </div>
   );
@@ -159,13 +158,13 @@ Transport possible, renseignements à la réception.</p>
       <div className="prestationContent">
         <h1>Prestations</h1>
 
-        <h2> Activités autour de Betikure</h2>
         <p>
           La région de BOURAIL est propice à la découverte de la culture locale
           ainsi qu'à la pratique d'un grand nombre d'activité. Afin de vous
           garantir un séjour inoubliable, Betikure est en mesure de vous
           conseiller ou d'organiser des journées qui marqueront votre séjour.
         </p>
+        <h2> Activités autour de Betikure</h2>
 
         <Carousel>
           <CarouselItem>{golf}</CarouselItem>

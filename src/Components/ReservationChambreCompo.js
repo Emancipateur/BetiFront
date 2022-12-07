@@ -14,7 +14,7 @@ const [openDetails, setOpenDetails ] = useState(false)
     return (
         <div className='reservationCompo'>
             <div className="reservationCompoContainer">
-
+            <div className="line"></div>
                   
                 <div className="typeHebergement" id='Chambre'>
                 <div className="titleHebergement">
@@ -49,8 +49,8 @@ const [openDetails, setOpenDetails ] = useState(false)
       
                         </div>
    <div className="detailsContainer">
-      <a  className='moreDetailLink' onClick={() => setOpenDetails(!openDetails)}>Voir {!openDetails ? 'plus ' : 'moins '}   de détails</a>     
-      {openDetails ?
+      {/* <a  className='moreDetailLink' onClick={() => setOpenDetails(!openDetails)}>Voir {!openDetails ? 'plus ' : 'moins '}   de détails</a>     
+      {openDetails ? */}
       <div className="moreDetailsFurnitures" >  
       <>
 <ul>
@@ -82,17 +82,11 @@ const [openDetails, setOpenDetails ] = useState(false)
         <li><i id='checkIcon' class="fa-solid fa-check"></i>Four</li>
         <li><i id='checkIcon' class="fa-solid fa-check"></i>Grille-pain</li>
         <li><i id='checkIcon' class="fa-solid fa-check"></i>Table à manger</li>
-  
-        
-        
-        
-        
-
 
     </ul>
     </>
     </div>  
-: null } 
+{/* : null }  */}
    <div className="reserverCompo"><a href="#iframe"> <button>Accéder à la réservation</button></a></div>
     </div>
 

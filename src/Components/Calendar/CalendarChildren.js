@@ -128,7 +128,7 @@ useEffect(() => {
             onClick={(e) => {
           
               const dayStr = format(cloneDay, "ccc dd MMM yy");
-              onDateClickHandle(cloneDay, dayStr, uniteName, id);
+              // onDateClickHandle(cloneDay, dayStr, uniteName, id);
             }}
           >
             {/* <span className="number">{formattedDate}</span>
