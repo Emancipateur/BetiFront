@@ -178,11 +178,11 @@ useEffect(() => {
                
             }`}
             key={day}
-            onClick={(e) => {
+            // onClick={(e) => {
             
-              const dayStr = format(cloneDay, "ccc dd MMM yy");
-              onDateClickHandle(cloneDay, dayStr, uniteName, id);
-            }}
+            //   const dayStr = format(cloneDay, "ccc dd MMM yy");
+            //   onDateClickHandle(cloneDay, dayStr, uniteName, id);
+            // }}
           >
             {/* <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span> */}

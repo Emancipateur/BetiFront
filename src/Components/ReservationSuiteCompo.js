@@ -6,28 +6,25 @@ import CarouselReservation from './CarouselReservation';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const ReservationCompo = () => {
-const [ActiveIframe, setActiveIframe ] = useState(false)
 
-
-
-
+    const [ActiveIframe, setActiveIframe ] = useState(false)
 
 
     return (
         <div className='reservationCompo'>
- 
             <div className="reservationCompoContainer">
             <div className="paddingTopMobile"></div>    
             <div className="line"></div>
                   
-                <div className="typeHebergement" id='Villa'>
+                <div className="typeHebergement" id='Suite'>
+
                     <div className="titleHebergement">
-                <div className="paddingTopMobile"></div>
-                    <h2 className='h2reservationCompo'>Villa</h2>
-          <div className="descriptionLogoHebergement">          <p><i className="fa-regular fa-square"></i>100  m²  </p>   
-                        <p> <i className="fa-solid fa-person"></i>6 + 3 Personnes  </p>
-                        <p><i className="fa-solid fa-bed"></i>3 Lits      </p>       
-                        <span className='iconsContainer'>          <div className="iconsPng doubleBed"></div><p>3 Lits Double</p></span>     
+                    <div className="paddingTopMobile"></div>
+                    <h2 className='h2reservationCompo'>Suite</h2>
+          <div className="descriptionLogoHebergement">          <p><i className="fa-regular fa-square"></i>65  m²  </p>   
+                        <p> <i className="fa-solid fa-person"></i>4 + 2 Personnes  </p>
+                        <p><i className="fa-solid fa-bed"></i>2 Lits      </p>       
+                        <span className='iconsContainer'>          <div className="iconsPng doubleBed"></div><p>2 Lits Double</p></span>     
                         <p><i className="fa-solid fa-kitchen-set"></i>Cuisine privative    </p>   
                         <p><i className="fa-solid fa-temperature-arrow-down"></i>Climatisation  </p>   
                         <p><i className="fa-solid fa-hot-tub-person"></i>Jacuzzi  </p>   
@@ -41,23 +38,20 @@ const [ActiveIframe, setActiveIframe ] = useState(false)
                     </div>
                     
 
-<CarouselReservation hebergement={'villa'}/>
+<CarouselReservation hebergement={'suite'}/>
 
                 
                     <div className="descriptionTypeHebergement">
                      
 
-                        <p>Chaque mini villa permet de réserver une chambre de 35 mètres carrés, accueillant deux personnes, (trois avec un lit d'appoint)
-                       et une suite de 65 mètres carrés, avec cuisine, salon et bureau, accueillant jusqu'à quatre personnes (six avec deux lits d'appoint).</p>
+                        <p>Cette élégante suite climatisée dispose d'une cuisine entièrement équipée avec des plaques de cuisson et un four. Le logement comprend un coin repas avec des baies vitrées et un coin salon avec une télévision à écran plat. La terrasse est dotée d'un bain à remous extérieur privé.</p>
                   
                 
                         
       
               </div>
    <div className="detailsContainer">
-{/*   
-      <a className='moreDetailLink' onClick={() => setOpenDetails(!openDetails)}>Voir {!openDetails ? 'plus ' : 'moins '}   de détails</a>     
-      {openDetails ? */}
+
       <div className="moreDetailsFurnitures" >  
       <>
   
@@ -101,22 +95,25 @@ const [ActiveIframe, setActiveIframe ] = useState(false)
     </ul>
     </>
     </div>  
-    {/* : null} */}
- <div  onClick={()=> setActiveIframe(!ActiveIframe)} className="reserverCompo"><a href="#resaIframe"><button> Réservation & Disponibilité</button></a></div>
+
+    <div  onClick={()=> setActiveIframe(!ActiveIframe)} className="reserverCompo"><a href="#resaIframe"><button> Réservation & Disponibilité</button></a></div>
     </div>
 
             </div>
             { ActiveIframe ? 
 <div className="iframeDiv" id='resaIframe'>
             <div className="line"></div>
-            <h4>Resérvation d'une Villa</h4>
+            <h4>Resérvation d'une Suite</h4>
             
-<iframe style={{borderStyle:"none", width:"100%", height:"800px"}} src={"https://manava.abricode.fr/rest/iframe_resa_grp.php?code_ext=zYRota6aQe8ILZQ42&secure_key=f17a2c13249da1451ded715293e3ed89&chambres=lot1&nb_mois=5"}></iframe>
+<iframe style={{borderStyle:"none", width:"100%", height:"800px"}} src={"https://manava.abricode.fr/rest/iframe_resa_grp.php?code_ext=zYRota6aQe8ILZQ42&secure_key=f17a2c13249da1451ded715293e3ed89&chambres=lot3&nb_mois=5"}></iframe>
+
+
             </div> : null}
-        </div>
+            </div>
+      
+            
         </div>
     );
 };
-
 
 export default ReservationCompo;

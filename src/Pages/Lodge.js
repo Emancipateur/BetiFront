@@ -1,25 +1,28 @@
 import React from 'react';
 import NavBar from '../Components/Navigation2';
-import { GoogleMap, useJsApiLoader, Marker} from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow} from '@react-google-maps/api';
 import Footer from '../Components/Footer';
 
 const containerStyle = {
-  width: '45vw',
+  width: '100%',
   height: '400px',
 };
 
 const center = {
-  lat:  -21.562097,
-  lng: 165.527937
+  lat:  -21.562193,
+  lng: 165.527985 
 
   
 };
 
 
   function MyComponents() {
+
+    
     const { isLoaded } = useJsApiLoader({
       id: 'google-map-script',
-      googleMapsApiKey: "AIzaSyDcyk88xP_KoEOBxQIkDHD25526cmYL9Hg"
+      googleMapsApiKey: "AIzaSyDcyk88xP_KoEOBxQIkDHD25526cmYL9Hg",
+
       
     })
   
@@ -29,6 +32,7 @@ const center = {
       const bounds = new window.google.maps.LatLngBounds(center);
      
       map.fitBounds(bounds);
+      map.setOptions({draggable: false});
 
 // Me Rend le bon zoom a l'affichage
       var listener = window.google.maps.event.addListener(map, "idle", function() { 
@@ -42,19 +46,22 @@ const center = {
     const onUnmount = React.useCallback(function callback(map) {
       setMap(null)
     }, [])
-  
+
     return isLoaded ? (
       <div className="mapGoogle">    <GoogleMap
+     
         mapContainerStyle={containerStyle}
         onLoad={onLoad}
         onUnmount={onUnmount}
       
-        // mapTypeId={"hybrid"}
+        mapTypeId={"hybrid"}
         // mapTypeId={"plan"}
         >
 
-          <Marker position={{ lat:  -21.562193, lng: 165.527985  }} />
+          <Marker  position={{ lat:  -21.562193, lng: 165.527985   }}  clickable={true} />
+        
           <></>
+          
         </GoogleMap> </div>
     
 
@@ -66,9 +73,9 @@ const center = {
 function Lodge() {
   return (
 
-    <div>
+    <div className='lodge' >
 {/* <NavBar/> */}
-
+<div className="paddingTopMobile"></div>
 <div className="logdeContent">
 <div className="lodgeShadows">
     <h1 className='lodgeH1'>Le Lodge</h1>
@@ -88,8 +95,10 @@ Bétikuré est situé sur la commune de Bourail, idéalement placée sur la côt
 <h2>Où sommes nous ?</h2>
 
 
-
+<div className="test">
 <MyComponents />
+</div>
+<a href="https://goo.gl/maps/C5BvPwa2nWHT6gj69" rel="noreferrer" target="_blank">     <span className='BetikureAdress'>Lien Google Map</span> </a>
 
 <div className="lodgeWhereTofindUs">
  <h4>Depuis NOUMEA ou le Sud :</h4>
@@ -120,7 +129,7 @@ Après 300 m, un panneau "Bétikuré" à gauche vous indique l'entrée de la pis
 </div>
 </div>
 
-<Footer />
+{/* <Footer /> */}
     </div>
   )
 }

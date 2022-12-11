@@ -1,3 +1,6 @@
+.reservation{
+    background: $background-linear;
+}
 .reservationContent{
     width: 100%;
     margin:  auto;
@@ -9,11 +12,17 @@ h2{
     font-family: 'Kaushan Script', cursive;
  text-align: center;
  margin: 0.5rem;
+ font-size: 2rem;
 
- text-shadow: white 0px 0px 15px;
+//  text-shadow: white 0px 0px 15px;
  
 }
-
+h3{
+  text-align: center;
+  color: $white;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
 }
 .desktopRenderDays{
     display: block;
@@ -23,21 +32,24 @@ h2{
     display: none;
 }
 
-iframe{
- 
-    border: 2px solid black;
-    padding: 1rem;
-    // box-shadow:  white 0px 0px 5px;
-}
+
 
 .iframeDiv{
-
+position: absolute;
+width: 100%;
+left: 0;
     margin: 0 auto;
     display: flex;
 flex-direction: column;
     align-items: center;
  gap: 1rem;
-
+ color: $black;
+ border: 2px solid black;
+ background: rgb(255, 254, 254);
+h4{
+    padding-top: 1rem;
+    font-size: 1.5rem;
+}
 
 }
 
@@ -63,6 +75,7 @@ gap: 0.8rem;
      color: $white;
      
     }
+    
     a{
         font-size: 1.8rem;
         font-family: 'Kaushan Script', cursive;

@@ -1,3 +1,10 @@
+.lodge{
+  background: $background-linear;
+  h1{
+    margin-bottom: 1rem;
+  }
+}
+
 .logdeContent{
    color : $white;
  text-align: center;
@@ -5,8 +12,9 @@
   //  justify-content: center;
   //  align-items: center;
   overflow-x: hidden;
-  background: $background-linear;
+  // background: $background-linear;
   position: relative;
+
 
 
 
@@ -105,7 +113,9 @@ color: $white;
     // padding: 1rem;
 }
 
-
+.test{
+  width: 100%;
+}
 
 @media screen and ( min-width : 800px )
 {
@@ -141,10 +151,10 @@ color: $white;
         height: 800px;
         width: 80%
     }
-}
-.mapGoogle{
+    .test{
+      width: 80%;
+    }
 
-  margin: auto;
 }
 
 

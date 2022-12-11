@@ -125,39 +125,26 @@ useEffect(() => {
 
     </div>
  
-    <div className="image  " ref={myRefT}   id='lodge' style={{backgroundImage: "url(./assets/images/lodgeviewfar.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }} >
-    <a className='deskptopOngletLink'  href='#lodgeInfo'>
+    <div className="image  " ref={myRefT} onClick={  ()=> myRef.current.scrollIntoView()  }   id='lodge' style={{backgroundImage: "url(./assets/images/lodgeviewfar.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }} >
       <div className="titleOnglet">Le Lodge</div>
     <div className="text-container" >
-
+      <a href='#lodgeInfo'>
         <div className="text">
           <h3>Le Lodge</h3>
           <p>A propos de Betikure</p>
     
         </div>
-
-            </div>
       </a>
 
-      <div  className='mobileOngletLink'  >
-    <div className="titleOnglet">Le Lodge</div>
-      <div className="text-container">
-    <a href="#lodgeInfo">
-        <div className="text">
-        <h3>Le Lodge</h3>
-          <p>A propos de Betikure</p>
-        </div>
-        </a>
-      </div>
-      </div>
-      <div id="lodgeInfo"  ref={myRef} >  <Lodge /></div>
+            </div>
+      <div id="lodgeInfo"  ref={myRef}>  <Lodge /></div>
     </div>
 
  
 
         
     <div className="image " ref={myRefHebergementT}   id='hebergement' style={{backgroundImage:  "url(./assets/images/2.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
-    <a  className='deskptopOngletLink' href="#hebergementInfo"> 
+    <a href="#hebergementInfo"> 
     <div className="titleOnglet">Hébergement</div>
       <div className="text-container">
     
@@ -168,25 +155,13 @@ useEffect(() => {
         
       </div >
       </a>
-
-      <div  className='mobileOngletLink'  >
-    <div className="titleOnglet">Hébergement</div>
-      <div className="text-container">
-    <a href="#hebergementInfo">
-        <div className="text">
-        <h3>Hébergement</h3>
-          <p>Villas & Suites & Chambres</p>
-        </div>
-        </a>
-      </div>
-      </div>
       <div id="hebergementInfo" ref={myRefHebergement}>      <Hebergement /></div>
   
     </div>
 
 
     <div className="image " ref={myRefRestaurationT} id="restauration" style={{backgroundImage:  "url(./assets/images/restaurant4.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
-   <a  className='deskptopOngletLink'  href="#restaurationInfo"> 
+   <a href="#restaurationInfo"> 
     <div className="titleOnglet">Restauration</div>
       <div className="text-container">
         <div className="text">
@@ -195,17 +170,7 @@ useEffect(() => {
         </div>
       </div>
       </a>
-      <div  className='mobileOngletLink'  >
-    <div className="titleOnglet">Restauration</div>
-      <div className="text-container">
-    <a href="#restaurationInfo">
-        <div className="text">
-          <h3>Restauration</h3>
-          <p>Notre restaurant</p>
-        </div>
-        </a>
-      </div>
-      </div>
+
  
 
       <div id="restaurationInfo" ref={myRefRestauration}><Restauration /></div>
@@ -213,35 +178,24 @@ useEffect(() => {
 
 
     
-    <div className="image "ref={myRefPrestationT}  id='prestations'style={{backgroundImage: "url(./assets/images/activités/golf.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
-      <a  className='deskptopOngletLink'  href='#prestationsInfo'>
+    <div className="image "ref={myRefPrestationT} onClick={ ()=> myRefPrestation.current.scrollIntoView() } id='prestations'style={{backgroundImage: "url(./assets/images/activités/golf.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
     <div className="titleOnglet">Prestations</div>
       <div className="text-container">
+      <a href='#prestationsInfo'>
         <div className="text">
           <h3>Prestations</h3>
           <p>Activités autour du lodge</p>
+    
         </div>
-      </div>
+        
       </a>
-
-      <div  className='mobileOngletLink'  >
-    <div className="titleOnglet">Prestations</div>
-      <div className="text-container">
-    <a href="#prestationsInfo">
-        <div className="text">
-          <h3>Prestations</h3>
-          <p>Activités autour du lodge</p>
-        </div>
-        </a>
       </div>
-      </div>
-
       <div id="prestationsInfo" ref={myRefPrestation}>  <Prestations /></div>
     </div>
 
 
     <div className="image" ref={myRefReservationT}   onClick={() => setDispoVisible(true)}  style={{backgroundImage: "url(./assets/images/1.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
-      <a   className='deskptopOngletLink' href='#reservationInfo'>
+      <a href='#reservationInfo'>
     <div className="titleOnglet">Réservation</div>
       <div className="text-container">
         <div className="text">
@@ -250,17 +204,6 @@ useEffect(() => {
         </div>
       </div>
         </a>
-        <div  className='mobileOngletLink'  >
-    <div className="titleOnglet">Réservation</div>
-      <div className="text-container">
-    <a href="#reservationInfo">
-        <div className="text">
-        <h3>Réservation</h3>
-          <p>Effectué vos réservation en ligne</p>
-        </div>
-        </a>
-      </div>
-      </div>
       <div id="reservationInfo" >  <Reservation dispo={dispoVisible} /></div>
     </div>
 

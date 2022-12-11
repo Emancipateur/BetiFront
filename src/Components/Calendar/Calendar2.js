@@ -158,6 +158,44 @@ const Calendar2 = ({  }) => {
       
     );
   };
+  const renderHeaderMobile = () => {
+    const dateFormat = "MMM yyyy";
+
+    const nextMonth = addMonths(currentMonth, 1);
+
+    // console.log("selected day", selectedDate);
+    return (
+      <div className="header row flex-middle">
+
+          <div className="col col-start">
+          <div className="icon" onClick={() => changeWeekHandle("prev")}>
+          &lt; Semaine
+          </div>
+          </div>
+        <div className="col col-start">
+
+   
+          <div className="icon" onClick={() => changeMonthHandle("prev")}>
+           	&lt; Mois 
+          </div>
+       
+        </div>
+        <div className="col col-center monthMobile">
+        <span>{format(currentMonth, dateFormat)}</span>
+        </div>
+      
+        <div className="col col-end">
+          <div className="icon" onClick={() => changeMonthHandle("next")}>Mois 	&gt;</div>
+        </div>
+        <div className="col col-end" onClick={() => changeWeekHandle("next")}>
+          <div className="icon">	Semaine &gt;</div>
+          
+        </div>
+     
+      </div>
+      
+    );
+  };
 
 
 
@@ -191,7 +229,8 @@ const Calendar2 = ({  }) => {
     const dateFormat = "MM-dd-yyyy";
     const days = [];
     let startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
-    const options = { weekday: 'short', day: 'numeric' };
+    const options = { weekday: 'short'};
+    const options1 = { day: 'numeric' };
     for (let i = 0; i < 7; i++) {
     
 
@@ -199,7 +238,9 @@ const Calendar2 = ({  }) => {
   
         <div className="col col-center " key={i}>
           {/* {format(addDays(startDate, i), dateFormat)} */}
- {   new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr', options)}
+ <p>  { new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr', options)}</p>
+ <p>  { new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr', options1)}</p>
+
         </div>
       
       );
@@ -232,14 +273,18 @@ const Calendar2 = ({  }) => {
 
   return (
       <div className="calendar">
+                  <div className="mobileRenderDays">    
+      {renderHeaderMobile()}
+      </div>
+      <div className="desktopRenderDays">
       {renderHeader2()}
-      {/* {renderFooter()} */}
-      
+
+      </div>
       <div className="desktopRenderDays">
 
           {renderDays()}
           </div>
-          <div className="mobileRenderDays">
+          <div className="mobileRenderDays">    
           {renderDaysMobile()}
           </div>
 
@@ -267,16 +312,14 @@ const TriFirst = Tri2(bookedDaysVilla)
           <div className={activeCalendar === index ? 'calendarsContainer activeCalendar' : 'calendarsContainer'} onClick={() => {setActiveCalendar(index)}}>
   
  
-           <CalendarChildren  showDetailsHandle={showDetailsHandle} currentWeek={currentWeek} currentMonth={currentMonth} 
+           <CalendarChildren key={villa.map((v) => v.id)}  showDetailsHandle={showDetailsHandle} currentWeek={currentWeek} currentMonth={currentMonth} 
             uniteName={ "Villa " + villa.map((v) => v.libelle)}  active={ activeCalendar } id={ villa.map((v) => v.id)}index={index} resetData={setData}bookedDays={TriFirst} background={"#BFD9D9"}  />
              
-        <CalendarChildren showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Suite " + suite.map((v) => v.libelle)}background={"#D9E8E8"} active={ activeCalendar }id={ suite.map((v) => v.id)} index={index} resetData={setData} bookedDays={Tri2(bookedDaysSuite)} />
-        <CalendarChildren showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Chambre " + chambre.map((v) => v.libelle)} background={"#E6F0F0"} active={ activeCalendar } id={ chambre.map((v) => v.id)} index={index} resetData={setData} bookedDays={Tri2(bookedDaysChambre)} />
+        <CalendarChildren  key={suite.map((v) => v.id)}  showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Suite " + suite.map((v) => v.libelle)}background={"#D9E8E8"} active={ activeCalendar }id={ suite.map((v) => v.id)} index={index} resetData={setData} bookedDays={Tri2(bookedDaysSuite)} />
+        <CalendarChildren  key={chambre.map((v) => v.id)}  showDetailsHandle={showDetailsHandle}  currentWeek={currentWeek} currentMonth={currentMonth} uniteName={"Chambre " + chambre.map((v) => v.libelle)} background={"#E6F0F0"} active={ activeCalendar } id={ chambre.map((v) => v.id)} index={index} resetData={setData} bookedDays={Tri2(bookedDaysChambre)} />
 
         </div>
-{/*        
-        {   activeCalendar === index ?  <Details props={data}/>  : null } */}
-        
+
         </>
         )
     })

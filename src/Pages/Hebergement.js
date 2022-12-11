@@ -5,6 +5,7 @@ import CarouselReservation from '../Components/CarouselReservation';
 import SlideSlicker from '../Components/SlickSlider';
 import ReservationCompo from '../Components/ReservationCompo';
 import ReservationChambreCompo from '../Components/ReservationChambreCompo';
+import ReservationSuiteCompo from '../Components/ReservationSuiteCompo';
 
 function Hebergement() {
 
@@ -14,10 +15,8 @@ const refLink3 = useRef(null)
 
 
 
+
 useEffect(() => {
-
-
- 
 
 
 const interval = setInterval(() => {
@@ -52,9 +51,11 @@ return () => clearInterval(interval);
   const renderSwitch = () => { 
     switch(hebergement) {
       case 'villa':
-        return <ReservationCompo />
+        return <ReservationCompo  />
       case 'chambre':
         return <ReservationChambreCompo />
+      case 'suite':
+        return <ReservationSuiteCompo  />
       default:
         return <br />;
     }
@@ -64,7 +65,7 @@ return () => clearInterval(interval);
 
   return (
       <div className="hebergement">
-
+<div className="paddingTopMobile"></div>
 <h1>Suites et chambres</h1>
 <div className="hebergementContent">
   <div className="leftGrid">
@@ -93,11 +94,12 @@ Chambres et suites sont climatisées et bénéficient des équipements suivants 
 
 <p> Bétikuré présentant des dénivellés, nous conseillons aux personnes ayant des difficultés de déplacement de nous en informer afin de pouvoir leur proposer les hébergements les plus adaptés.</p>
 </div>
+<div className="carouselGrid"><SlideSlicker /></div>
 <div className="AnchorToHebergement"> 
             <h3>Plus d'informations  ?</h3>
         
                 < a ref={refLink1} className='linkOngletHebergementInfo' onClick={() => setHebergement('villa')} href={"#Villa"}>Villa</a>    
-                <a ref={refLink2} className='linkOngletHebergementInfo'  onClick={() => setHebergement('suite')}  href={"#Villa"}>Suite</a>    
+                <a ref={refLink2} className='linkOngletHebergementInfo'  onClick={() => setHebergement('suite')}  href={"#Suite"}>Suite</a>    
                 <a ref={refLink3} className='linkOngletHebergementInfo' onClick={() => setHebergement('chambre')} href={"#Chambre"}>Chambre</a>    
 
 </div>
@@ -106,20 +108,27 @@ Chambres et suites sont climatisées et bénéficient des équipements suivants 
 
 
 
-<div className="carouselGrid"><SlideSlicker /></div>
 {/* <span className='no-smoking-span'>L'intérieur des hébergements est strictement "non fumeurs"<div className="no-smoking"></div></span> */}
 </div>
+
 <div className="bottomTypehHebergement">
+  
 {hebergement === "villa" ? 
 <div className="divOngletHebergement left">
-<i class="fa-solid fa-arrow-left"></i>
-< a  className="linkOngletHebergement" onClick={() => setHebergement('suite')} href={"#Suite"}> <i class="fa-solid fa-house"></i> Suite</a> 
+<i className="fa-solid fa-arrow-left"></i>
+< a  className="linkOngletHebergement" onClick={() => setHebergement('suite')} href={"#Suite"}> <i className="fa-solid fa-house"></i> Suite</a> 
 </div>
  : null }
 {hebergement === "chambre" ? 
 <div className="divOngletHebergement left">
-<i class="fa-solid fa-arrow-left"></i>
-< a  className="linkOngletHebergement" onClick={() => setHebergement('suite')} href={"#Suite"}><i class="fa-solid fa-house"></i> Suite</a> 
+<i className="fa-solid fa-arrow-left"></i>
+< a  className="linkOngletHebergement" onClick={() => setHebergement('villa')} href={"#Villa"}><i className="fa-solid fa-house"></i> Villa</a> 
+</div>
+ : null }
+{hebergement === "suite" ? 
+<div className="divOngletHebergement left">
+<i className="fa-solid fa-arrow-left"></i>
+< a  className="linkOngletHebergement" onClick={() => setHebergement('chambre')} href={"#Chambre"}><i className="fa-solid fa-house"></i> Chambre</a> 
 </div>
  : null }
  <div className="renderSwitch">
@@ -128,20 +137,27 @@ Chambres et suites sont climatisées et bénéficient des équipements suivants 
 {hebergement === "villa" ? 
 <div className="divOngletHebergement right">
 
-< a className="linkOngletHebergement" onClick={() => setHebergement('chambre')} href={"#Chambre"}> <i class="fa-solid fa-house"></i> Chambre   </a> 
-<i class="fa-solid fa-arrow-right"></i>
+< a className="linkOngletHebergement" onClick={() => setHebergement('chambre')} href={"#Chambre"}> <i className="fa-solid fa-house"></i> Chambre   </a> 
+<i className="fa-solid fa-arrow-right"></i>
 </div>
  : null }
  
 {hebergement === "chambre" ? 
 <div className="divOngletHebergement right">
-< a className="linkOngletHebergement" onClick={() => setHebergement('villa')} href={"#Villa"}><i class="fa-solid fa-house"></i> Villa </a> 
-<i class="fa-solid fa-arrow-right"></i>
+< a className="linkOngletHebergement" onClick={() => setHebergement('suite')} href={"#Suite"}><i className="fa-solid fa-house"></i> Suite </a> 
+<i className="fa-solid fa-arrow-right"></i>
+</div>
+ : null }
+{hebergement === "suite" ? 
+<div className="divOngletHebergement right">
+< a className="linkOngletHebergement" onClick={() => setHebergement('villa')} href={"#Villa"}><i className="fa-solid fa-house"></i> Villa </a> 
+<i className="fa-solid fa-arrow-right"></i>
 </div>
  : null }
 </div>
 
 {/* <Footer /> */}
+
       </div>
   )
 }

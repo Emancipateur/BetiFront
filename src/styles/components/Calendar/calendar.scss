@@ -98,6 +98,10 @@ width: 100%;
 
     width: 20.14284%;
     font-size: 1em;
+
+    p{
+      font-size: 1rem;
+    }
 span{
   color :#238c95;
   }
@@ -256,7 +260,7 @@ span{
   @media screen and (max-width: 800px){
 
     .calendar{
-      width: 100%;
+      width: 95%;
     }
     .calendar .body .col {
       flex-grow: 0;

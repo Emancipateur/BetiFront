@@ -12,7 +12,7 @@
   $background-linear :  linear-gradient(to right, #134e5e, #71b280);
   $background-linear :  #897f68d8;
 
- 
+
   
   @mixin verticalCenter {
     display: flex;
@@ -31,7 +31,7 @@
   }
 
   .scroller {
-    overflow-y: hidden;
+    // overflow-y: hidden;
     scrollbar-color: $white;
   }
 ::-webkit-scrollbar{
@@ -85,3 +85,28 @@ width: 15px;
   z-index: -1;
   }
 
+  @media screen and ( max-width : 800px )
+  {
+
+    .paddingTopMobile{
+      padding-top: 4vh;
+    }
+    .scroller {
+      // overflow-y: hidden;
+      scrollbar-color: $white;
+    }
+  ::-webkit-scrollbar{
+  width:2px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: $white;
+    outline: 1px solid slategrey;
+  }
+  ::-webkit-scrollbar-track {
+    background-color:#777061;
+  } 
+  p{
+    font-size: 1em;
+  }
+
+  }

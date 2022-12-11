@@ -92,34 +92,50 @@ const Carousel = ({ children }) => {
         
         </button> */}
       </div>
+
+   {/* Ordi////////////////////// */}
       <div
-        className="inner"
+        className="inner desktop"
+        style={{ transform: `translateX(-${activeIndex * 50}%)` }}
+      >
+        {React.Children.map(children, (child, index) => {
+          return React.cloneElement(child, { width: "50%" });
+        })}
+      </div>
+
+   {/* Mobile////////////////////// */}
+   <div className="mobileIndicator">
+   <i className="fa-solid fa-arrow-left" onClick={() => {
+      updateIndex(activeIndex - 1);
+    }}></i> 
+   <i className="fa-solid fa-arrow-right" onClick={() => {
+      updateIndex(activeIndex + 1);
+    }}></i> 
+     </div>
+      <div
+        className="inner mobile"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
         {React.Children.map(children, (child, index) => {
           return React.cloneElement(child, { width: "100%" });
         })}
       </div>
+  
     
-  <div className="next"
+  {/* <div className="next"
     onClick={() => {
       updateIndex(activeIndex + 1);
     }}>
       <div className="MoreActivities">
-    <p>Plus d'activités</p>
       <button 
          style={{
           backgroundImage:
             "url(./assets/images/arrow-right.png",    backgroundPosition: "center",
             backgroundSize: "contain",
-            backgroundRepeat :"no-repeat"}}
-        
-        >
-       
-        
+            backgroundRepeat :"no-repeat"}} >
         </button>
         </div>
-        </div>
+        </div> */}
     </div>
   );
 };

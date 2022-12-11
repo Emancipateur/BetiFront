@@ -1,3 +1,8 @@
+
+.prestation{
+  background: $background-linear;
+}
+
 .prestationContent{
     text-align: center;
     display: flex;
@@ -9,15 +14,16 @@
  width: 100%;
  margin: 0 auto;
      color: $white;
-     background: $background-linear ;
+    //  background: $background-linear ;
 
      p{
       margin : 1rem .5rem;
+      width: 80%;
         white-space: normal;
         margin-bottom: 1rem
       
       }
-     
+
 
 h1{
     color: $white;
