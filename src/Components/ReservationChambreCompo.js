@@ -2,18 +2,30 @@ import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Carousel, { CarouselItem } from './Carousel';
 import CarouselReservation from './CarouselReservation';
-
+import $ from 'jquery'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-const ReservationChambreCompo = () => {
+const ReservationChambreCompo = ({setmodal, modal}) => {
     const [ActiveIframe, setActiveIframe ] = useState(false)
 
-
+    const pageResa = document.getElementById('reservation')
+    const pageResa2 = document.getElementById('reservationTop')
+    const GotoResaPage = () => {
+      $(".image").removeClass("active");
+      $(pageResa).addClass("active")
+      $(".image").scrollTop(0);
+      $(pageResa).addClass("active")
+      // $(pageResa).scrollTop(9000);
+      pageResa2.scrollIntoView();
+    }
 
 
 
     return (
         <div className='reservationCompo'>
+         {modal &&
+         <button className='buttonModal' onClick={() =>setmodal(false)}>X</button> 
+         }
             <div className="reservationCompoContainer">
             <div className="paddingTopMobile"></div>    
             <div className="line"></div>
@@ -89,7 +101,12 @@ const ReservationChambreCompo = () => {
     </>
     </div>  
 {/* : null }  */}
-<div  onClick={()=> setActiveIframe(!ActiveIframe)} className="reserverCompo"><a href="#resaIframe"><button> Réservation & Disponibilité</button></a></div>
+{/* {!modal ?
+<div  onClick={()=> setActiveIframe(!ActiveIframe)} className="reserverCompo"><a href="#resaIframe"><button> Réservation & Disponibilité</button></a></div> : null} */}
+    {!modal ?
+ <div  onClick={()=> GotoResaPage()} className="reserverCompo"><a href="#resaIframe"><button> Réservation & Disponibilité</button></a></div>
+
+  : null }
     </div>
 
             </div>

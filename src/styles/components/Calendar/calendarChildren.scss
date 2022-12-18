@@ -5,12 +5,16 @@
 
        .uniteName{
 
-           width: 10%;
+           width: 10.5%;
            border-bottom: 1px solid black;
            display: flex;
            align-items: center;
            justify-content: center;
            text-align: center;
+
+           &:hover{
+               background : $white;
+           }
        }
     }
 
@@ -23,7 +27,11 @@
         color: black;
         text-decoration: none;
     }
+.fa-regular.fa-circle-info{
+padding-left: 0.2rem;
+color: rgba(58, 58, 58, 0.822);
 
+}
  
 
 }
@@ -31,6 +39,7 @@
     .uniteName{
       
        font-size: 0.5em;
+       min-width: 10.5%;
     }
     
 }

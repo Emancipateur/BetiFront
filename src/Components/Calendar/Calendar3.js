@@ -16,11 +16,12 @@ import FetchHebergement from "./FetchHebergement";
 import FetchReservation from "./FetchReservation";
 
 import Tri2 from "./Tri2";
-import isSaturday from "date-fns/isSaturday";
-import isFriday from "date-fns/isFriday";
+import Details from "../Details";
+import Post from "../calculPriceForRooms";
+import {SendResa} from "./SendResa";
 
 
-const Calendar2 = ({ setmodalChambre, setmodalVilla, setmodalSuite }) => {
+const Calendar2 = ({  }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [activeCalendar, setActiveCalendar] = useState(6);
   const [data, setData] = useState([]);
@@ -32,57 +33,10 @@ const Calendar2 = ({ setmodalChambre, setmodalVilla, setmodalSuite }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [currentWeek, setCurrentWeek] = useState(getWeek(currentMonth));
   const [selectedDate, setSelectedDate] = useState(new Date());
-  
 
-
-  function arrayRemove(arr, value) { 
-    
-    return arr.filter(function(ele){ 
-        return ele.SUMMARY != value; 
-    });
-}
-
-/****** Find out if element appear n° of time ( second paramater) ************/
-const getSameDayBooked = (arr, num) => {
-  
-  const count = (arr, value) => arr.filter(val => val.getTime() === value.getTime()).length
-  const similarDays = []
-
-const howMany = arr.flat().map((b => count(arr.flat(),b)))
-
-  howMany.map((v,i )=> {
-
-  if (v === num){
-
-    similarDays.push(arr.flat().splice(i, 1))
- 
-  }
-})
-return similarDays
-}
-
-
-   const  villaAllDays = Tri2(reservations.filter(book => book.SUMMARY.includes('Villa')))
-   const villaAllDayBookSameDay = getSameDayBooked(villaAllDays,6);
-   const  suiteAllDays =  arrayRemove(reservations.filter(book => book.SUMMARY.includes('Suite')), "Suite Bois noir")
-   const  boisNoirAllDays = reservations.filter(book => book.SUMMARY.includes('Bois'))
+   const  villaAllDays = reservations.filter(book => book.SUMMARY.includes('Villa'))
+   const  suiteAllDays = reservations.filter(book => book.SUMMARY.includes('Suite'))
    const  ChambreAllDays = reservations.filter(book => book.SUMMARY.includes('Chambre'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   const showDetailsHandle = (dayStr, room) => {
@@ -126,7 +80,7 @@ return similarDays
 
     let today = new Date()
     if (btnType === "prev") {
-   if(getWeek(today) < currentWeek || today < currentMonth)
+   if(getWeek(today) < currentWeek)
       setCurrentMonth(subWeeks(currentMonth, 1));
       setCurrentWeek(getWeek(subWeeks(currentMonth, 1)));
     }
@@ -176,8 +130,8 @@ return similarDays
     // console.log("selected day", selectedDate);
     return (
       <div className="header row flex-middle">
-          <div className="col monthDisplay">
-          <span >{format(currentMonth, dateFormat)}</span>
+          <div className="col col-center monthMobile">
+          <span>{format(currentMonth, dateFormat)}</span>
 
         </div>
           <div className="col col-start">
@@ -202,7 +156,7 @@ return similarDays
           <div className="icon">	Semaine &gt;</div>
           
         </div>
-        <div className="col monthDisplay">
+        <div className="col col-center monthMobile">
           <span>{format(nextMonth, dateFormat)}</span>
 
         </div>
@@ -232,7 +186,7 @@ return similarDays
           </div>
        
         </div>
-        <div className="col  monthMobile monthDisplay">
+        <div className="col col-center monthMobile">
         <span>{format(currentMonth, dateFormat)}</span>
         </div>
       
@@ -255,19 +209,15 @@ return similarDays
     // const dateFormat = "EEE";
     const dateFormat = "MM-dd-yyyy";
     const days = [];
-    // let startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
-let startDate = currentMonth
-
+    let startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
     const options = { weekday: 'short', day: 'numeric' };
-
     for (let i = 0; i < 40; i++) {
     
 
       days.push(
         
   
-        <div className={`col col-center ${isSaturday( new Date(addDays(startDate, i))) || isFriday( new Date(addDays(startDate, i)))? 'weekend' : ""}`} key={i}>
-
+        <div className="col col-center" key={i}>
           {/* {format(addDays(startDate, i), dateFormat)} */}
           <p> {   new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr',{ weekday: 'short'}).slice(-4,2)}</p>
 <p> {   new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr',{ day: 'numeric'})}</p>
@@ -277,7 +227,7 @@ let startDate = currentMonth
       );
     }
 
-    return <div className="daysRowContainer"><div className="days row"> <div className="col col-center people1"><i className="fa-solid fa-person"></i></div> <div className="col col-center people"><i className="fa-solid fa-person"><p>sups</p></i></div>{days}</div></div>
+    return <div className="daysRowContainer"><div className="days row">{days}</div></div>
   };
 
   const renderDaysMobile = () => {
@@ -292,7 +242,7 @@ let startDate = currentMonth
 
       days.push(
   
-        <div className={`col col-center ${isSaturday( new Date(addDays(startDate, i))) || isFriday( new Date(addDays(startDate, i)))? 'weekend' : ""}`} key={i}>
+        <div className="col col-center " key={i}>
           {/* {format(addDays(startDate, i), dateFormat)} */}
  <p>  { new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr', options)}</p>
  <p>  { new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr', options1)}</p>
@@ -324,25 +274,17 @@ let startDate = currentMonth
     );
   };
   const renderCalendars = () => {
-    /* villa c7b198  */
-    /* chambre f0ece2  */
-    /* suite dfd3c3  */
-    /* bois noir ebcbae  */
-  
+
+
     return ( 
     <>    
-    <CalendarChildren1 key={"1"}  showDetailsHandle={showDetailsHandle} currentWeek={currentWeek} currentMonth={currentMonth} 
-    uniteName={ "Villas "}  active={ activeCalendar } id={"25"}index={'30'} resetData={setData}bookedDays={villaAllDayBookSameDay} background={"#f8cbad"} people={6} peopleMax={3} setmodal={setmodalVilla} />
-<CalendarChildren1 key={'2'}  showDetailsHandle={showDetailsHandle} currentWeek={currentWeek} currentMonth={currentMonth} 
-    uniteName={ "Suites "}  active={ activeCalendar } id={"25"}index={'30'} resetData={setData}bookedDays={Tri2(suiteAllDays)} background={"#8faadc"} people={4} peopleMax={2 } setmodal={setmodalSuite} />
-
-<CalendarChildren1 key={'4'}  showDetailsHandle={showDetailsHandle} currentWeek={currentWeek} currentMonth={currentMonth} 
-    uniteName={ "BoisNoir "}  active={ activeCalendar } id={"25"}index={'30'} resetData={setData}bookedDays={Tri2(boisNoirAllDays)} background={"#b4c7e7"} people={2} peopleMax={2}
-     />
-     <CalendarChildren1 key={'3'}  showDetailsHandle={showDetailsHandle} currentWeek={currentWeek} currentMonth={currentMonth} 
-    uniteName={ "Chambres "}  active={ activeCalendar } id={"25"}index={'30'} resetData={setData}bookedDays={Tri2(ChambreAllDays)} background={"#deebf7"} people={2} peopleMax={1} setmodal={setmodalChambre}
-     />
-     </> )
+    <CalendarChildren1 key={'villa.map((v) => v.id)'}  showDetailsHandle={showDetailsHandle} currentWeek={currentWeek} currentMonth={currentMonth} 
+    uniteName={ "Villas "}  active={ activeCalendar } id={"25"}index={'30'} resetData={setData}bookedDays={Tri2(villaAllDays)} background={"#BFD9D9"}  />
+<CalendarChildren1 key={'villa.map((v) => v.id)'}  showDetailsHandle={showDetailsHandle} currentWeek={currentWeek} currentMonth={currentMonth} 
+    uniteName={ "Suites "}  active={ activeCalendar } id={"25"}index={'30'} resetData={setData}bookedDays={Tri2(suiteAllDays)} background={"#BFD9D9"}  />
+<CalendarChildren1 key={'villa.map((v) => v.id)'}  showDetailsHandle={showDetailsHandle} currentWeek={currentWeek} currentMonth={currentMonth} 
+    uniteName={ "Chambres "}  active={ activeCalendar } id={"25"}index={'30'} resetData={setData}bookedDays={Tri2(ChambreAllDays)} background={"#BFD9D9"} 
+     /></> )
   }
   
 

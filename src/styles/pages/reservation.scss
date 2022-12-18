@@ -32,7 +32,24 @@ h3{
     display: none;
 }
 
+.planning{
+  
+    margin: 2rem auto;
+    color: $white;
+    // background: url('../../../public/assets/images/planning.png')center/contain;  
+    // background-repeat: no-repeat;
+    // height: 12rem;
+    // width: 90%;
+  
+ 
+    // box-shadow: 5px 3px 4px $black,-5px -1px 4px $black; ;
+p{
+width: 100%;
+text-align: center;
+    font-size: 1rem;
+}
 
+}
 
 .iframeDiv{
 position: absolute;
@@ -90,6 +107,81 @@ transform: scale(1.1);
 }
 
 
+
+
+
+
+
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+border: 2px solid $white;
+  display: block;
+
+  min-width: 20em;
+
+  color: #f00;
+  background-color: #777061;
+  background-color: #363635;
+  border-radius: 1em;
+  transform: translate(-50%, -25%);
+  outline: transparent;
+z-index: 100;
+
+  .line{
+      display: none;
+  }
+  
+}
+.overlay {
+  position: fixed;
+  overflow: scroll;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(119, 119, 119, 0.733);
+  z-index: 99;
+
+
+}
+.buttonModal{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 1em;
+    background-color:#776161;
+
+
+}
+
+.infoCalendar{
+    display: flex;
+
+}
+.infoCalendarHebergements{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+
+    button{
+        padding: 0 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 @media screen and(max-width:800px) {
     .reservationContent{
         width: 100%;
@@ -129,6 +221,15 @@ transform: scale(1.1);
           border: none;
           box-shadow: none;
           background: none;
+      }
+
+      .planning{
+
+
+        iframe {
+            margin-left: 0!important;
+        }
+ 
       }
 }
 

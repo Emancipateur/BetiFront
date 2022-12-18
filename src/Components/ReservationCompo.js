@@ -1,21 +1,49 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Carousel, { CarouselItem } from './Carousel';
 import CarouselReservation from './CarouselReservation';
-
+import $ from 'jquery'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-const ReservationCompo = () => {
+const ReservationCompo = ({setmodal, modal}) => {
 const [ActiveIframe, setActiveIframe ] = useState(false)
+// useEffect(() => {
+//     $(".image").on('click',function(e){
+//       if($(this).hasClass('active')){
+        
+//       }else{
+       
+//         $(".image").removeClass("active");
+//         $(this).addClass("active")
+//         $(".image").scrollTop(0);
+//         // SetScrollOff(true)
+//       }
+//     })
+  
+//   }, [])
+
+  const pageResa = document.getElementById('reservation')
+  const pageResa2 = document.getElementById('reservationTop')
+  const GotoResaPage = () => {
+    $(".image").removeClass("active");
+    $(pageResa).addClass("active")
+    $(".image").scrollTop(0);
+    $(pageResa).addClass("active")
+    // $(pageResa).scrollTop(9000);
+    pageResa2.scrollIntoView();
 
 
+  }
 
 
 
 
     return (
         <div className='reservationCompo'>
- 
+
+         {modal &&
+         <button className='buttonModal' onClick={() =>setmodal(false)}>X</button> 
+         }
             <div className="reservationCompoContainer">
             <div className="paddingTopMobile"></div>    
             <div className="line"></div>
@@ -102,7 +130,11 @@ const [ActiveIframe, setActiveIframe ] = useState(false)
     </>
     </div>  
     {/* : null} */}
- <div  onClick={()=> setActiveIframe(!ActiveIframe)} className="reserverCompo"><a href="#resaIframe"><button> Réservation & Disponibilité</button></a></div>
+    {!modal ?
+ <div  onClick={()=> GotoResaPage()} className="reserverCompo"><a href="#resaIframe"><button> Réservation & Disponibilité</button></a></div>
+
+  : null }
+ {/* <div  onClick={()=> setActiveIframe(!ActiveIframe)} className="reserverCompo"><a href="#resaIframe"><button> Réservation & Disponibilité</button></a></div> */}
     </div>
 
             </div>
@@ -114,6 +146,7 @@ const [ActiveIframe, setActiveIframe ] = useState(false)
 <iframe style={{borderStyle:"none", width:"100%", height:"800px"}} src={"https://manava.abricode.fr/rest/iframe_resa_grp.php?code_ext=zYRota6aQe8ILZQ42&secure_key=f17a2c13249da1451ded715293e3ed89&chambres=lot1&nb_mois=5"}></iframe>
             </div> : null}
         </div>
+
         </div>
     );
 };

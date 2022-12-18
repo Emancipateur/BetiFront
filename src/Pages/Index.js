@@ -1,14 +1,13 @@
 import $ from 'jquery'
 import React , { useEffect, useRef, useState} from 'react'
-
 import NavBar from '../Components/Navigation2'
-import Footer from '../Components/Footer'
+
 import Prestations from '../Pages/Prestations'
 import Lodge from '../Pages/Lodge'
 import Hebergement from '../Pages/Hebergement'
 import Restauration from '../Pages/Restauration'
 import Reservation from '../Pages/Reservation'
-import { NavLink } from "react-router-dom";
+
 
 
   
@@ -240,7 +239,7 @@ useEffect(() => {
     </div>
 
 
-    <div className="image" ref={myRefReservationT}   onClick={() => setDispoVisible(true)}  style={{backgroundImage: "url(./assets/images/1.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
+    <div className="image" ref={myRefReservationT} id='reservation'  onClick={() => setDispoVisible(true)}  style={{backgroundImage: "url(./assets/images/1.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
       <a   className='deskptopOngletLink' href='#reservationInfo'>
     <div className="titleOnglet">Réservation</div>
       <div className="text-container">
@@ -264,24 +263,10 @@ useEffect(() => {
       <div id="reservationInfo" >  <Reservation dispo={dispoVisible} /></div>
     </div>
 
-    {/* <div className="image"  ref={myRefReservationT} style={{backgroundImage: "url(./assets/images/1.jpg)",backgroundPosition: "center" , backgroundSize: "cover" }}>
-    <div className="titleOnglet">Réservation</div>
-      <div className="text-container">
-      <NavLink to='/reservation'>
-        <div className="text">
-          <h3>Réservation</h3>
-          <p>Effectué vos réservation en ligne</p>
-        </div>
-        </NavLink>
-      </div>
-    </div> */}
+
 
 
   </div>
-{/* <Footer /> */}
-
-
-
 
 
 <script src="./assets/jquery.min.js" type="text/javascript" ></script>

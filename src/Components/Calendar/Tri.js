@@ -57,12 +57,12 @@ const Tri = (BookedDaysBeforeTri) => {
         BookedDaysBeforeTri
         .map((item) => {
     
-          let dayBookedStart = []
-          let dayBookedEnd = []
+          let dayBookedStart = item[0]
+          let dayBookedEnd = item[1]
      
   
-        dayBookedStart.push(new Date(item.dateDebut).setHours(0,0,0,0))
-        dayBookedEnd.push(new Date(item.dateFin).setHours(0,0,0,0))
+        dayBookedStart.push(new Date(item).setHours(0,0,0,0))
+        dayBookedEnd.push(new Date(item).setHours(0,0,0,0))
   
    
     
@@ -76,13 +76,6 @@ const Tri = (BookedDaysBeforeTri) => {
       , [BookedDaysBeforeTri[0]])
 
 
-      var filtered = BookedDaysAfterTri.filter(function (el) {
-        return el != "";
-      })
-
-    return (
-      filtered
-    );
 };
 
 export default Tri;
