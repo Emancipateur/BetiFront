@@ -173,16 +173,70 @@ z-index: 100;
 }
 
 
+.iframeresaDesktop{
+    padding-left: 4rem;
+    padding-top: 1rem;
+}
+.iframeResaMobile{
+    display: none;
+}
 
 
 
+.cgv{
+
+
+    h3{
+      width: 20%;
+        border: 2px solid #f2a766;
+        border-radius: 12px;
+        text-align: center;
+         margin : 0 auto;
+        padding: 0.5rem;
+        color: #f2a766;
+        margin-bottom: 0.5rem;
+
+    
+    }
+   background-color: white;
+    color: $black;
+    display: grid;
+
+    gap: 1rem;
+    padding: 1rem;
+    font-size: 0.8rem;
 
 
 
+.no-smoking-span{
+    display: flex;
+justify-content: center;
+    align-items: center;
+    // border: 2px solid #f2a766;
+    padding: 0.5rem;
+    border-radius: 25px;
+    width: 35%;
+    display: flex;
+    gap: 1rem;
+  margin: auto;
+  
+ 
+
+  
+    
+    .no-smoking{
+        display: flex;
+        align-items: center;
+   
+    background: url('../../../public/assets/images/no-smoking.png')center/cover;  
+    height: 30px;
+    width: 30px;
+}}
+}
 
 
 
-@media screen and(max-width:800px) {
+@media screen and(max-width:1444px ) {
     .reservationContent{
         width: 100%;
         margin: 0rem auto;
@@ -225,11 +279,47 @@ z-index: 100;
 
       .planning{
 
-
         iframe {
+    
             margin-left: 0!important;
+           
         }
+      }
+
+      .planningIframe{
  
+      }
+
+      .iframeResaMobile{
+          display: block;
+      }
+
+      .iframeresaDesktop{
+          display: none;
+      }.modal {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+      border: 2px solid $white;
+        display: block;
+      
+        min-width: 20em;
+      
+        color: #f00;
+        background-color: #777061;
+        background-color: #363635;
+        border-radius: 1em;
+        transform: translate(-50%, 0%);
+        outline: transparent;
+      z-index: 100;
+      }
+
+      .cgv .no-smoking-span{
+          width: 100%;
+      }
+
+      .cgv h3{
+          width: 90%;
       }
 }
 

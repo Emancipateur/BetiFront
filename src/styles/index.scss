@@ -126,7 +126,13 @@ transition: none;
 
 }
 
-@media screen and ( max-width : 800px )
+@media screen and ( max-width : 1204px  ){
+  .portfolio{
+ 
+    height:var(--doc-height);
+}
+}
+@media screen and ( max-width : 1024px  )
 {
 body {
   // overflow-x: hidden;

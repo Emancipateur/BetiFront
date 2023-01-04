@@ -46,8 +46,17 @@
         
        }
 
-
-   
        
 
 }
+@media screen and ( max-width : 1224px  ){
+      .footer .BetikureFooter{
+            display: none;
+
+         
+      }
+      .BetikureAdress{
+            font-size: .8rem;
+      }
+             }
+         

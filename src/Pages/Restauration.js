@@ -43,7 +43,41 @@ Cette approche « table d’hôtes » permet de concilier l’utilisation de pro
 </div>
 
 
-  
+  <div className="tarifsRestauration">
+    <div className="petitDejeuner">
+    <h3>Petit déjeuner </h3>
+Viennoiseries, pain frais,  salade fruits frais, confiture maison, café, thé, chocolat etc. jus de fruits.
+    <p>(sur réservation la veille)  1 580 XPF</p>
+  <p>Petits déjeuner enfants (- 6ans)   980 XPF</p>
+    </div>
+    <div className="dejeuner">
+
+<h3>​Déjeuner en restauration simplifiée</h3>
+(tartes salées, sucrées, salades...)
+<p>Plat du jour    2 450 XPF</p>
+
+<p>Entrée ou dessert     800 XPF</p>
+
+
+</div>
+<div className="diner">
+<h3>Dîner tous les jours sur réservation </h3>
+
+(Menu unique : entrée, plat, dessert, boissons en supplément)
+<p>Entrée Plat dessert      4 150 XPF</p>
+
+
+
+
+<p>
+Entrée Plat ou Plat dessert   3 550 XPF</p>
+
+
+<p>Menu enfant     1 680 XPF</p>
+
+</div>
+
+  </div>
     </div>
 {/* <Footer /> */}
 

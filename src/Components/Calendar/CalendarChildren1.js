@@ -189,7 +189,7 @@ if(selectedDate.length == 2 ){
     return (
         
             
-        <div className="body" style={ {backgroundColor : background}}><div className="uniteName"><a href={ '#'+ unitForHref}>{unitForHref}</a> </div>{rows}</div>
+        <div className="body" style={ {backgroundColor : background}}><div className="uniteName"><a  onClick={() =>setmodal(true)} href={ '#'+ unitForHref}>{unitForHref }<i className="fa-regular fa-circle-info"></i></a>   </div>{rows}</div>
     
         )
   };

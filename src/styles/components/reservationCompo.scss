@@ -249,7 +249,7 @@ flex-wrap: wrap;
 
 
 
-@media screen and(max-width:800px) {
+@media screen and(max-width:1224px ) {
   .typeHebergement {
     width: 100%;
     margin: 0rem auto;
@@ -266,6 +266,7 @@ flex-wrap: wrap;
       " plusdetails plusdetails"
       "tarifsReservation tarifsReservation ";
     grid-template-columns: 1fr 1fr;
+    padding-top: 3rem;
 
 
 

@@ -253,7 +253,7 @@ return similarDays
 
   const renderDays = () => {
     // const dateFormat = "EEE";
-    const dateFormat = "MM-dd-yyyy";
+    const dateFormat = "MM/dd/yyyy";
     const days = [];
     // let startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
 let startDate = currentMonth
@@ -261,7 +261,6 @@ let startDate = currentMonth
     const options = { weekday: 'short', day: 'numeric' };
 
     for (let i = 0; i < 40; i++) {
-    
 
       days.push(
         
@@ -270,6 +269,8 @@ let startDate = currentMonth
 
           {/* {format(addDays(startDate, i), dateFormat)} */}
           <p> {   new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr',{ weekday: 'short'}).slice(-4,2)}</p>
+
+          
 <p> {   new Date(format(addDays(startDate, i), dateFormat)).toLocaleDateString('fr-Fr',{ day: 'numeric'})}</p>
 
         </div>
@@ -282,7 +283,7 @@ let startDate = currentMonth
 
   const renderDaysMobile = () => {
     // const dateFormat = "EEE";
-    const dateFormat = "MM-dd-yyyy";
+    const dateFormat = "MM/dd/yyyy";
     const days = [];
     let startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
     const options = { weekday: 'short'};

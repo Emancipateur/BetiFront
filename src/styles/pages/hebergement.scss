@@ -14,7 +14,7 @@ padding: 1rem;
         grid-template-areas:
         "left center right carousel"
         "bottom bottom bottom AnchorToHebergement "
-        " . smoking smoking ."
+     
        ;
     }
 
@@ -75,33 +75,9 @@ padding: 1rem;
 .AnchorToHebergement{
     grid-area: AnchorToHebergement;
 }
-.no-smoking-span{
-    grid-area: smoking;
-}
 
 
-.no-smoking-span{
-    display: flex;
-justify-content: center;
-    align-items: center;
-    border: 3px solid black;
-    padding: 0.5rem;
-    border-radius: 25px;
-    display: flex;
-    gap: 1rem;
-    margin-top: 0.5rem;
-    color: wheat;
-    margin-bottom: 1rem;
-  
-    
-    .no-smoking{
-        display: flex;
-        align-items: center;
-   
-    background: url('../../../public/assets/images/no-smoking.png')center/cover;  
-    height: 30px;
-    width: 30px;
-}}
+
 
 
 .bottomTypehHebergement{
@@ -189,7 +165,7 @@ opacity: 0.8;
     }
 
 
-@media screen and ( max-width : 800px ){
+@media screen and ( max-width : 1224px  ){
     .hebergement{
         display: block;
 
@@ -206,7 +182,16 @@ opacity: 0.8;
         display: block!important;
         
     }
+    .imageLeftHebergement{
+// background-size: contain;
+// background-repeat: no-repeat;
 
+height: 450px;
+    }
+
+    .imageRightHebergement{
+background-size: contain;background-repeat: no-repeat;
+    }
     .bottomGrid{
         margin:  1rem auto ;
     }
@@ -253,7 +238,7 @@ opacity: 0.8;
         justify-content: space-between;
         align-items: center;
         margin: .5rem;
-        margin-top: 3.2rem;
+        margin-top: 3.6rem;
         gap: 0;
     
  

@@ -5,7 +5,9 @@
 
        .uniteName{
 
-           width: 10.5%;
+        //    width: 10.5%;
+           min-width: 10.5%;
+           max-width:10.5% ;
            border-bottom: 1px solid black;
            display: flex;
            align-items: center;
@@ -35,11 +37,18 @@ color: rgba(58, 58, 58, 0.822);
  
 
 }
-@media screen and (max-width: 800px){
+
+@media screen and (max-width: 1224px ){
+    .uniteName{
+    font-size: 0.5em;
+    }
+}
+@media screen and (max-width: 1444px ){
     .uniteName{
       
-       font-size: 0.5em;
+
        min-width: 10.5%;
+       max-width:10.5% ;
     }
     
 }

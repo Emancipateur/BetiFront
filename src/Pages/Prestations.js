@@ -256,8 +256,9 @@ Transport possible, renseignements à la réception.</p>
           <CarouselItem>{snorkeling}</CarouselItem>
           <CarouselItem>{moreActivity}</CarouselItem>
         
-       
+
         </Carousel>
+
       {/* <p>Bien d'autres activités sont possibles, demandez à notre équipe de vous conseiller ou prenez simplement le temps de vous reposer et de profiter du cadre de Betikure ...</p> */}
       </div>
       {/* <Footer /> */}

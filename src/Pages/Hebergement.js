@@ -108,7 +108,7 @@ Chambres et suites sont climatisées et bénéficient des équipements suivants 
 
 
 
-{/* <span className='no-smoking-span'>L'intérieur des hébergements est strictement "non fumeurs"<div className="no-smoking"></div></span> */}
+
 </div>
 
 <div className="bottomTypehHebergement">

@@ -1,179 +1,236 @@
 .restauration{
 
-
-// background: linear-gradient(to bottom, #134e5e, #71b280); 
-background: $background-linear;
-
-p{
-    font-size: 1.2em;
-}
-
-    .restaurationContent{
-
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-     color: $white;
-
-     h1{
-         color: $white;
-     }
-  article{
-     width: 100%;
-     margin: 0 auto;
-  }
-
-  .blueText{
-      color : $white
-  }
-
-  ul li::before {
-    content: "\2022";
-    color:  rgb(162, 211, 27);
-    font-weight: bold;
-    font-size: 1.3em;
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1em;
-   
-  }
-     
-     li{
-text-align: left;
-         padding: 0.5rem;
-         margin-left: 3rem;
-         list-style: none;
-
-         ul li::before {
-  content: "\2022";
-  color: red;
-  font-weight: bold;
-  display: inline-block; 
-  width: 1em;
-  margin-left: -1em;
-}
-        
-     }
-
-     p{
-         padding: 0.5rem;
-     }
-
-     b{
-        color : rgb(162, 211, 27);
-    }
-
-    .imageOneRestauration{
-        background: url('../../../public/assets/images/restauration2.jpg')center/cover;  
-        height: 350px;
-        width: 100%;
-        display: none;
-    }
-    .imageTwoRestauration{
-        background: url('../../../public/assets/images/salleamanger.jpg')center/cover;  
-        height: 350px;
-        width: 100%;
-  
-    }
-    .imageThreeRestauration{
-        background: url('../../../public/assets/images/restaurant5.jpg')center/cover;  
-        height: 350px;
-        width: 100%;
-        display: none;
-
-    }
-    .imageSixRestauration{
-        background: url('../../../public/assets/images/restaurant6.jpg')center/cover;  
-        height: 350px;
-        width: 100%;
-        display: none;
-
-    }
-    .imageSixRestaurationMobile{
-        background: url('../../../public/assets/images/restaurant6.jpg')center/cover;  
-        height: 350px;
-        width: 100%;
-        display: block;
-
-    }
+    background: $background-linear;
     .restaurationDivider{
+        display: flex;
+        flex-direction:row ;
+        gap : 1rem;
+        margin: .5rem;
+        border: none;
+    
+    
+    
+        .imageSixRestauration{
+            margin-top: 0rem;
+            border: 2px solid $white;
+            background: url('../../../public/assets/images/restaurant6.jpg')center/cover;  
+            height: 350px;
+            width: 100%;
+            display: block;
+        }
+        .imageThreeRestauration{
+            margin-top: 2rem;
+            border: 2px solid $white;
+    
+            background: url('../../../public/assets/images/restaurant5.jpg')center/cover;  
+            height: 350px;
+            width: 100%;
+        }
+        .imageOneRestauration{
+            background: url('../../../public/assets/images/restauration2.jpg')center/cover;  
+            height: 350px;
+            width: 100%;
+            margin-top: 4rem;
+            border: 2px solid $white;
+      
+   
+        }
+        .imageTwoRestauration{
+            margin-top: 6rem;
+            border: 2px solid $white;
+            background: url('../../../public/assets/images/salleamanger.jpg')center/cover;  
+            height: 350px;
+            width: 100%;
+        }
+     
+    
+        
+    }
+    article{
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    
+    
   
+    
+    
+    }
+    .tarifsRestauration{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 1rem 6rem;
+    
+    
+    }
+    
+    .tarifsRestauration > div{
+        border-left: 1px solid ;
+        font-size: 0.9rem;
+        padding: 0.2rem;
+        border-bottom: none;
+
+        h3{
+            margin-bottom: 0.5rem;
+            color :rgb(162, 211, 27);
+        }
+    
+    }
+    
+    .tarifsRestauration > :last-child{
+    border-right: 1px solid;
+    
+    }
+
+    
+    p{
+        font-size: 1.2em;
+    }
+    
+        .restaurationContent{
+    
+        text-align: center;
         display: flex;
         flex-direction: column;
-        gap: 1.2em;
-   
-    }
-
-    @media screen and ( min-width : 800px )
-{
-.restaurationDivider{
-    display: flex;
-    flex-direction:row ;
-    gap : 1rem;
-    margin: .5rem;
-    border: none;
-
-
-
-    .imageSixRestauration{
-        margin-top: 0rem;
-        border: 2px solid $white;
-    }
-    .imageThreeRestauration{
-        margin-top: 2rem;
-        border: 2px solid $white;
-        display: block;
-    }
-    .imageOneRestauration{
-        margin-top: 4rem;
-        border: 2px solid $white;
-        display: block;
-    }
-    .imageTwoRestauration{
-        margin-top: 6rem;
-        border: 2px solid $white;
-    }
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+         color: $white;
     
-}
-article{
-    width: 80%;
-}
+         h1{
+             color: $white;
+         }
 
+      .blueText{
+          color : $white
+      }
+    
+      ul li::before {
+        content: "\2022";
+        color:  rgb(162, 211, 27);
+        font-weight: bold;
+        font-size: 1.3em;
+        display: inline-block; 
+        width: 1em;
+        margin-left: -1em;
+       
+      }
+         
+         li{
+    text-align: left;
+             padding: 0.5rem;
+             margin-left: 3rem;
+             list-style: none;
+    
+             ul li::before {
+      content: "\2022";
+      color: red;
+      font-weight: bold;
+      display: inline-block; 
+      width: 1em;
+      margin-left: -1em;
+    }
+            
+         }
+    
+         p{
+             padding: 0.5rem;
+         }
+    
+         b{
+            color : rgb(162, 211, 27);
+        }
+        .imageSixRestaurationMobile{
+            background: url('../../../public/assets/images/restaurant6.jpg')center/cover; 
+            height: 350px;
+            width: 100%;
+            display: none;
+     
+         
+        }
+       
 
-    .imageOneRestauration{
+    }
+
+    
+        @media screen and ( max-width : 1224px  )
+
+    {
+
+        .restauration{
+
+            .restaurationContent{
+                gap: 0.4rem;
+            }
+            article{
+                width: 100%;
+                margin: 0 auto;
+             }
+           
+            .restaurationDivider{
+                margin: 0rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1.2em;
+ .imageOneRestauration{
+            background: url('../../../public/assets/images/restauration2.jpg')center/cover;  
+      
+            display: none;
+        }
+        .imageTwoRestauration{
+            background: url('../../../public/assets/images/salleamanger.jpg')center/cover;  
+            margin-top: 0;
+            border: none;
+       
+      
+        }
+        .imageThreeRestauration{
+            background: url('../../../public/assets/images/restaurant5.jpg')center/cover;  
+            
+            display: none;
+    
+        }
+        .imageSixRestauration{
+            background: url('../../../public/assets/images/restaurant6.jpg')center/cover;  
+            height: 350px;
+            width: 100%;
+            display: none;
+    
+        }
  
 
-    }
-    .imageTwoRestauration{
-  
-  
+       
+        }
 
-    }
-    .imageThreeRestauration{
-  
+        .tarifsRestauration{
+            display: block;
+            margin: 0;
+            width: 100%;
+        }
+        
+        .tarifsRestauration > div{
+            border-bottom: 1px solid ;
+            border-left: none;
+            font-size: 0.8rem;
+            padding: 0.5rem;
+        
+        
+            h3{
+                font-size: 1.1rem;
+           
+            }
+        }
 
-     
+        .tarifsRestauration > :last-child{
+            border-right: none
+            
+            }
+    }       .imageSixRestaurationMobile{
+       
+        display: block!important;
    
-   
-    }
-    .imageSixRestauration{
+       }
+}
+
     
-        display: block;
-     
-     
-   
-        margin:auto
-    }
-
-    .imageSixRestaurationMobile{
-        display: none;
-    }
-
-}
-}
-
-
-}
